@@ -1,2 +1,1 @@
-Get in loser, we're making a game.
-DJ-Game
+Get in loser, we're making video games
