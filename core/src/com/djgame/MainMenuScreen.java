@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 
 public class MainMenuScreen implements Screen {
@@ -42,18 +41,6 @@ public class MainMenuScreen implements Screen {
 
         CardFan cardfan = new CardFan();
 
-        camera.update();
-        game.batch.setProjectionMatrix(camera.combined);
-
-        game.batch.begin();
-        game.font.draw(game.batch, "DJ Hero", 960, 550);
-
-        for (int i = 0; i < cardfan.slots.size(); i++)
-        {
-            game.font.draw(game.batch, String.valueOf(cardfan.slots.get(i).angle),
-                    cardfan.slots.get(i).x, cardfan.slots.get(i).y);
-        }
-        game.batch.end();
     }
 
     @Override
