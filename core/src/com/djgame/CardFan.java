@@ -1,5 +1,6 @@
 package com.djgame;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -25,8 +26,8 @@ public class CardFan extends Group {
     }
 
     private int centertargetx = 960;
-    private int centertargety = -50;
-    private int radius = Math.round(centertargetx*3f);
+    private int centertargety = 0;
+    private int radius = Math.round(centertargetx*4f);
     private int minslots = 4;
     private float maxdegrees = 10;
 
@@ -34,7 +35,7 @@ public class CardFan extends Group {
     Vector<CardSlot> slots;
     Vector<Card2d> cards;
 
-    public CardFan() {
+    CardFan() {
         // init Card slots
         slots = new Vector<CardSlot>();
         cards = new Vector<Card2d>();
@@ -44,14 +45,14 @@ public class CardFan extends Group {
     public void AddCard(Card2d card){
         cards.add(card);
         addActor(card);
-        // im not flexing but i can use ? FLEX FLEX FLEX
-        resize(minslots > cards.size() ? minslots : cards.size());
+        resize(cards.size());
     }
 
     public boolean RemoveCard(Card2d card){
         for (int i = 0; i < cards.size(); i++)
         {
-            if (cards.get(i).equals(card));{
+            if (cards.get(i) == card){
+                removeActor(cards.get(i));
                 cards.remove(i);
                 resize(cards.size());
                 return true;
@@ -61,12 +62,25 @@ public class CardFan extends Group {
     }
 
     public void resize(int n) {
+        int numcards = n;
+        // handle special cases
         if (n == 0) {return;}
-        if (cards.size() % 2 == 0) {
-            n = (n + 2) + n % 2;
+        if (n == 1){
+            slots.clear();
+            CardSlot s = new CardSlot(centertargetx,centertargety, 0);
+            slots.add(s);
+            cards.get(0).Shuffle(slots.get(0).x, slots.get(0).y, slots.get(0).angle);
+            return;
+        }
+        if (n == 4){n = 6;}
+        if (n == 3){n = 5;}
+        if (n == 2){n = 4;}
+
+        if (numcards % 2 == 0) {
+                n+=2;
         }
         else{
-            n +=2;
+                n += 2;
         }
 
         // find n evenly spaced slots on top of circle
@@ -76,6 +90,7 @@ public class CardFan extends Group {
         leftmost.rotateAround(circlecenter, maxdegrees);
         float degreestep = 2 * maxdegrees/ (n - 1);
 
+        slots.clear();
         for (int i = 0; i < n; i++)
         {
             reference.x = leftmost.x - centertargetx;
@@ -88,9 +103,10 @@ public class CardFan extends Group {
         }
 
         // distribute cards in slots
-        int startslot = n - cards.size();
+        int startslot = (slots.size() - cards.size())/2;
         for (int i = 0; i < cards.size(); i++)
         {
+            cards.get(i).setZIndex(Constants.zcardinhand - i);
             cards.get(i).Shuffle(slots.get(i + startslot).x, slots.get(i + startslot).y,
                     slots.get(i + startslot).angle);
         }
@@ -98,4 +114,8 @@ public class CardFan extends Group {
 
     }
 
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        drawChildren(batch, parentAlpha);
+    }
 }

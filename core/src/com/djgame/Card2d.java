@@ -5,45 +5,29 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
-import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.rotateTo;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.scaleTo;
 
 
 public class Card2d extends Group {
-    // offsets of different elements
-    private static float cardscalex = 2f/3f;
-    private static float cardscaley = 2f/3f;
-    private static float picoffsetx = 20f;
-    private static float picoffsety = 171f;
 
-    private static float titleoffsetx = 20f;
-    private static float titleoffsety = 374f;
-    private static float titleheight = 26f;
-    private static float titlewidth = 260f;
-
-    private static float textoffsetx = 20f;
-    private static float textoffsety = 55f;
-    private static float textwidth = 260f;
-    private static float textheight = 87f;
-
-    private static float ftextoffsetx = 20f;
-    private static float ftextoffsety = 20f;
-    private static float ftextwidth = 260f;
-    private static float ftextheight = 25f;
-
-    // action durations
-    private static float shuffleduration = 0.25f;
+    // for storing z index before being moused over
+    private boolean iszoomed;
+    private int zoriginal;
+    private float xoriginal;
+    private float yoriginal;
 
     public Card2d(float x, float y, float angle, float scalex, float scaley){
+        iszoomed = false;
         // load textures and styles
         Texture backgroundtex = new Texture(Gdx.files.internal("cardplaceholder.png"));
         Texture pictex = new Texture(Gdx.files.internal("pictureplaceholder.jpg"));
@@ -77,26 +61,29 @@ public class Card2d extends Group {
         addActor(ftext);
 
         // set relative positions
-        pic.setX(pic.getX() + picoffsetx);
-        pic.setY(pic.getY() + picoffsety);
+        pic.setX(pic.getX() + Constants.picoffsetx);
+        pic.setY(pic.getY() + Constants.picoffsety);
 
-        title.setX(titleoffsetx);
-        title.setY(titleoffsety);
-        title.setBounds(titleoffsetx, titleoffsety, titlewidth, titleheight);
+        title.setX(Constants.titleoffsetx);
+        title.setY(Constants.titleoffsety);
+        title.setBounds(Constants.titleoffsetx, Constants.titleoffsety,
+                Constants.titlewidth, Constants.titleheight);
         title.setAlignment(1,1);
 
-        text.setX(textoffsetx);
-        text.setY(textoffsety);
-        text.setBounds(textoffsetx, textoffsety, textwidth, textheight);
+        text.setX(Constants.textoffsetx);
+        text.setY(Constants.textoffsety);
+        text.setBounds(Constants.textoffsetx, Constants.textoffsety,
+                Constants.textwidth, Constants.textheight);
         text.setAlignment(1 , 1);
         text.setWrap(true);
 
-        ftext.setX(ftextoffsetx);
-        ftext.setY(ftextoffsety);
-        ftext.setBounds(ftextoffsetx, ftextoffsety, ftextwidth, ftextheight);
+        ftext.setX(Constants.ftextoffsetx);
+        ftext.setY(Constants.ftextoffsety);
+        ftext.setBounds(Constants.ftextoffsetx, Constants.ftextoffsety,
+                Constants.ftextwidth, Constants.ftextheight);
         ftext.setAlignment(1,1);
 
-
+        setZIndex(Constants.zcardinhand);
 
         setPosition(x,y);
         setBounds(x,y,background.getWidth(),background.getHeight());
@@ -106,11 +93,69 @@ public class Card2d extends Group {
 
         setOrigin(getWidth()/2, 0);
         //setBounds(x,y, texture.getWidth(), texture.getHeight());
+
+        // add listeners
+        addListener(new ClickListener(){
+
+            // on mouse over
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                // ignore clicks and entry from children
+                if (iszoomed) return;
+                if (hasActions()) return;
+                if (event.getType() != InputEvent.Type.enter) return;
+                if (getChildren().contains(fromActor, true)) return;
+
+                addAction(parallel(
+                        scaleTo(Constants.cardscalelargex,
+                        Constants.cardscalelargey, Constants.enlargeduration),
+                        moveTo(getX() + Constants.hoveroffsetx,
+                                getY() + Constants.hoveroffsety)));
+
+                if (!iszoomed) {
+                    // set Z index higher
+                    zoriginal = getZIndex();
+                    setZIndex(Constants.zcardzoomed);
+                    xoriginal = getX();
+                    yoriginal = getY();
+                    iszoomed = true;
+                }
+
+                cancel();
+            }
+
+            // on mouse exit
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
+                // ignore clicks and exit from children
+                if (!iszoomed) return;
+                if (event.getType() != InputEvent.Type.exit) return;
+                if (getChildren().contains(toActor, true)) return;
+                addAction(parallel(
+                        scaleTo(Constants.cardscalex, Constants.cardscaley,
+                        Constants.enlargeduration),
+                        moveTo(xoriginal, yoriginal)));
+
+                // set Z index to original
+                setZIndex(zoriginal);
+                iszoomed = false;
+
+                cancel();
+            }
+
+            // on mouse click
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                //TODO: write click event
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
     }
 
     public void Shuffle(float x, float y, float angle){
         setOrigin(getWidth()/2, getHeight()/2);
-        addAction(parallel(moveTo(x,y,shuffleduration),rotateTo(angle,shuffleduration)));
+        addAction(parallel(moveTo(x,y, Constants.shuffleduration),
+                rotateTo(angle, Constants.shuffleduration)));
         setOrigin(getWidth()/2, 0);
     }
 }
