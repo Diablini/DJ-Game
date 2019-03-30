@@ -45,6 +45,13 @@ public final class Constants {
     public static final float discardpiley = 50f;
     public static final float tracksx = 300f;
     public static final float tracksy = 400f;
+    public static final float mixerx = 1200f;
+    public static final float mixery = 400f;
+
+    // mixer stuff
+    public static final float knobscalex = 0.5f;
+    public static final float knobscaley = 0.5f;
+    public static final float knoboffset = 91f;
 
     // Z-index Constants
     // < 1000 Background

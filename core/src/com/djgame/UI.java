@@ -9,6 +9,7 @@ public class UI extends Group {
     public CardFan cards;
     public CardPile drawpile, discardpile;
     public TrackPlaylist tracks;
+    public Mixer mixer;
 
     UI(){
         setPosition(0,0);
@@ -16,6 +17,7 @@ public class UI extends Group {
         drawpile = new CardPile();
         discardpile = new CardPile();
         tracks = new TrackPlaylist();
+        mixer = new Mixer();
 
 
 
@@ -26,6 +28,8 @@ public class UI extends Group {
         discardpile.setPosition(Constants.discardpilex, Constants.discardpiley);
         tracks.setZIndex(Constants.ztracks);
         tracks.setPosition(Constants.tracksx, Constants.tracksy);
+        mixer.setZIndex(Constants.zmixer);
+        mixer.setPosition(Constants.mixerx, Constants.mixery);
 
         //TODO: add ui elements
 
@@ -33,6 +37,7 @@ public class UI extends Group {
         addActor(drawpile);
         addActor(discardpile);
         addActor(tracks);
+        addActor(mixer);
         setVisible(true);
     }
 

@@ -34,8 +34,6 @@ public class Card2d extends Group {
         Label.LabelStyle titlestyle = new Label.LabelStyle();
         Label.LabelStyle textstyle = new Label.LabelStyle();
         Label.LabelStyle ftextstyle = new Label.LabelStyle();
-        backgroundtex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Nearest);
-        pictex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Nearest);
 
         BitmapFont font = new BitmapFont();
         titlestyle.font = font;
@@ -47,6 +45,10 @@ public class Card2d extends Group {
 
         TextureRegion backgroundreg = new TextureRegion(backgroundtex);
         TextureRegion picreg = new TextureRegion(pictex);
+
+        backgroundreg.getTexture().setFilter(Texture.TextureFilter.Linear,
+                Texture.TextureFilter.Linear);
+        picreg.getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
         Image background = new Image(backgroundreg);
         Image pic = new Image(picreg);

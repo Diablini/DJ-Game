@@ -42,7 +42,6 @@ public class DJgame extends ApplicationAdapter {
 			}
 		});
 
-
 		teststage.addActor(bg);
 		teststage.addActor(ui);
 		teststage.addActor(button);
