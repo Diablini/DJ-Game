@@ -25,6 +25,10 @@ public final class Constants {
     public static final float ftextwidth = 260f;
     public static final float ftextheight = 25f;
 
+    // card when shuffling to hand
+    public static final float shufflescalex = 0.05f;
+    public static final float shufflescaley = 0.05f;
+
     // card when zoomed
     public static final float hoveroffsetx = 0f;
     public static final float hoveroffsety = 30f;
@@ -34,6 +38,13 @@ public final class Constants {
     public static final float shuffleduration = 0.25f;
 
 
+    // positions of UI elements
+    public static final float drawpilex = 50f;
+    public static final float drawpiley = 50f;
+    public static final float discardpilex = 1700f;
+    public static final float discardpiley = 50f;
+    public static final float tracksx = 300f;
+    public static final float tracksy = 400f;
 
     // Z-index Constants
     // < 1000 Background
@@ -43,9 +54,11 @@ public final class Constants {
     public static final int zbackground = 900;
 
     public static final int zgenericbutton = 1300;
-    public static final int ztrack = 1401;
+    public static final int ztracks = 1401;
     public static final int zmixer = 1400;
     public static final int zcardinhand = 1500;
+    public static final int zdrawpile = 1600;
+    public static final int zdiscardpile = 1601;
 
     public static final int zcardzoomed = 2500;
 

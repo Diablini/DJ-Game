@@ -34,6 +34,8 @@ public class Card2d extends Group {
         Label.LabelStyle titlestyle = new Label.LabelStyle();
         Label.LabelStyle textstyle = new Label.LabelStyle();
         Label.LabelStyle ftextstyle = new Label.LabelStyle();
+        backgroundtex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Nearest);
+        pictex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Nearest);
 
         BitmapFont font = new BitmapFont();
         titlestyle.font = font;
@@ -49,8 +51,10 @@ public class Card2d extends Group {
         Image background = new Image(backgroundreg);
         Image pic = new Image(picreg);
         Label title = new Label("Sochni Cici xD",titlestyle);
-        Label text = new Label("Tazi karta prizovava so4ni cici koito da ma4kata po cql den",
+        title.setFontScale(2f,2f);
+        Label text = new Label("Tazi karta prizovava so4ni cici koito da ma4kate po cql den",
                 textstyle);
+        text.setFontScale(1.5f,1.5f);
         Label ftext = new Label("\" Seks sus jivotni \"", ftextstyle);
 
         // add actors
@@ -110,16 +114,14 @@ public class Card2d extends Group {
                         scaleTo(Constants.cardscalelargex,
                         Constants.cardscalelargey, Constants.enlargeduration),
                         moveTo(getX() + Constants.hoveroffsetx,
-                                getY() + Constants.hoveroffsety)));
+                                getY() + Constants.hoveroffsety, Constants.enlargeduration)));
 
-                if (!iszoomed) {
-                    // set Z index higher
-                    zoriginal = getZIndex();
-                    setZIndex(Constants.zcardzoomed);
-                    xoriginal = getX();
-                    yoriginal = getY();
-                    iszoomed = true;
-                }
+                // set Z index higher
+                zoriginal = getZIndex();
+                setZIndex(Constants.zcardzoomed);
+                xoriginal = getX();
+                yoriginal = getY();
+                iszoomed = true;
 
                 cancel();
             }
@@ -134,7 +136,7 @@ public class Card2d extends Group {
                 addAction(parallel(
                         scaleTo(Constants.cardscalex, Constants.cardscaley,
                         Constants.enlargeduration),
-                        moveTo(xoriginal, yoriginal)));
+                        moveTo(xoriginal, yoriginal, Constants.enlargeduration)));
 
                 // set Z index to original
                 setZIndex(zoriginal);
@@ -155,7 +157,8 @@ public class Card2d extends Group {
     public void Shuffle(float x, float y, float angle){
         setOrigin(getWidth()/2, getHeight()/2);
         addAction(parallel(moveTo(x,y, Constants.shuffleduration),
-                rotateTo(angle, Constants.shuffleduration)));
+                rotateTo(angle, Constants.shuffleduration),
+                scaleTo(Constants.cardscalex, Constants.cardscaley, Constants.shuffleduration)));
         setOrigin(getWidth()/2, 0);
     }
 }

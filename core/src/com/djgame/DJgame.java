@@ -30,7 +30,7 @@ public class DJgame extends ApplicationAdapter {
 		Texture b = new Texture(Gdx.files.internal("image-drum1.jpg"));
 		Image button = new Image(b);
 		button.setZIndex(Constants.zgenericbutton);
-		button.setPosition(500,500);
+		button.setPosition(900,500);
 		button.setZIndex(0);
 		button.setVisible(true);
 		button.addListener(new ClickListener() {
@@ -53,7 +53,7 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card3 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
 		Card2d card4 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
 
-		ui.cards.AddCard(card);
+		//ui.cards.AddCard(card);
 
 	}
 

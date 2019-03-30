@@ -3,13 +3,11 @@ package com.djgame;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import java.lang.Math;
 import java.util.Vector;
 
-
+// Represents cards currently held in the hand
 public class CardFan extends Group {
 
     public class CardSlot{
@@ -29,7 +27,7 @@ public class CardFan extends Group {
     private int centertargety = 0;
     private int radius = Math.round(centertargetx*4f);
     private int minslots = 4;
-    private float maxdegrees = 10;
+    private float maxdegrees = 11f;
 
 
     Vector<CardSlot> slots;
@@ -67,7 +65,7 @@ public class CardFan extends Group {
         if (n == 0) {return;}
         if (n == 1){
             slots.clear();
-            CardSlot s = new CardSlot(centertargetx,centertargety, 0);
+            CardSlot s = new CardSlot(centertargetx - 150,centertargety, 0);
             slots.add(s);
             cards.get(0).Shuffle(slots.get(0).x, slots.get(0).y, slots.get(0).angle);
             return;
