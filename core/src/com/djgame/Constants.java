@@ -47,6 +47,8 @@ public final class Constants {
     public static final float tracksy = 400f;
     public static final float mixerx = 1200f;
     public static final float mixery = 400f;
+    public static final float timerx = 960f;
+    public static final float timery = 900f;
 
     // mixer stuff
     public static final float knobscalex = 0.5f;
@@ -61,12 +63,28 @@ public final class Constants {
     public static final int zbackground = 900;
 
     public static final int zgenericbutton = 1300;
-    public static final int ztracks = 1401;
     public static final int zmixer = 1400;
+    public static final int ztracks = 1401;
+    public static final int ztimer = 1402;
     public static final int zcardinhand = 1500;
     public static final int zdrawpile = 1600;
     public static final int zdiscardpile = 1601;
 
+
     public static final int zcardzoomed = 2500;
+
+
+    // Game logic
+
+    // Session
+    public static final int roundlimit = 10;
+    public static final int drawperturn = 5;
+    public static final int startinghp = 3;
+    public static final int inspirationperturn = 5;
+
+    // Tracks
+    public static final int dtracksize = 4;
+    public static final int btracksize = 4;
+    public static final int stracksize = 4;
 
 }

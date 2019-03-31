@@ -1,6 +1,7 @@
 package com.djgame;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -109,7 +110,7 @@ public class Card2d extends Group {
                 // ignore clicks and entry from children
                 if (iszoomed) return;
                 if (hasActions()) return;
-                if (event.getType() != InputEvent.Type.enter) return;
+                if (event.getType() != InputEvent.Type.enter || event.getButton() != -1) return;
                 if (getChildren().contains(fromActor, true)) return;
 
                 addAction(parallel(
@@ -133,7 +134,7 @@ public class Card2d extends Group {
             public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
                 // ignore clicks and exit from children
                 if (!iszoomed) return;
-                if (event.getType() != InputEvent.Type.exit) return;
+                if (event.getType() != InputEvent.Type.exit || event.getButton() != -1) return;
                 if (getChildren().contains(toActor, true)) return;
                 addAction(parallel(
                         scaleTo(Constants.cardscalex, Constants.cardscaley,
@@ -156,6 +157,7 @@ public class Card2d extends Group {
         });
     }
 
+    // basically move and rotate card to position and angle
     public void Shuffle(float x, float y, float angle){
         setOrigin(getWidth()/2, getHeight()/2);
         addAction(parallel(moveTo(x,y, Constants.shuffleduration),

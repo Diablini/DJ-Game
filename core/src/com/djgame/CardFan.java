@@ -59,6 +59,11 @@ public class CardFan extends Group {
         return false;
     }
 
+    public Card2d getFirstCard(){
+        if (cards.size() == 0) return null;
+        return cards.firstElement();
+    }
+
     public void resize(int n) {
         int numcards = n;
         // handle special cases
@@ -112,8 +117,4 @@ public class CardFan extends Group {
 
     }
 
-    @Override
-    public void draw(Batch batch, float parentAlpha) {
-        drawChildren(batch, parentAlpha);
-    }
 }

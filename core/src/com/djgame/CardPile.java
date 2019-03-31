@@ -24,6 +24,14 @@ public class CardPile extends Group {
         addActor(img);
     }
 
+    public boolean HasCards(){
+        return (cards.size() != 0);
+    }
+
+    public int Size(){
+        return cards.size();
+    }
+
     public void AddCard(Card2d card){
         cards.add(card);
     }

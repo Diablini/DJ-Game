@@ -21,8 +21,10 @@ public class DJgame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		teststage = new Stage(new ScreenViewport());
-		ui = new UI();
+		//ui = new UI();
 		Gdx.input.setInputProcessor(teststage);
+		Session.NewSession();
+
 
 		Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
 		Image bg = new Image(bgtex);
@@ -37,13 +39,12 @@ public class DJgame extends ApplicationAdapter {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				Card2d card = new Card2d(500,500,0, 2f/3f, 2f/3f);
-				ui.cards.AddCard(card);
+				Session.EndTurn();
 			}
 		});
 
 		teststage.addActor(bg);
-		teststage.addActor(ui);
+		teststage.addActor(Session.State.getui());
 		teststage.addActor(button);
 
 		Card2d card = new Card2d(960,540, 0, 2f/3f, 2f/3f);
@@ -51,7 +52,25 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card2 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
 		Card2d card3 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
 		Card2d card4 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card5 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card6 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card7 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card8 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card9 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card10 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Session.State.getui().drawpile.AddCard(card);
+		Session.State.getui().drawpile.AddCard(card1);
+		Session.State.getui().drawpile.AddCard(card2);
+		Session.State.getui().drawpile.AddCard(card3);
+		Session.State.getui().drawpile.AddCard(card4);
+		Session.State.getui().drawpile.AddCard(card5);
+		Session.State.getui().drawpile.AddCard(card6);
+		Session.State.getui().drawpile.AddCard(card7);
+		Session.State.getui().drawpile.AddCard(card8);
+		Session.State.getui().drawpile.AddCard(card9);
+		Session.State.getui().drawpile.AddCard(card10);
 
+		Session.BeginTurn();
 		//ui.cards.AddCard(card);
 
 	}
