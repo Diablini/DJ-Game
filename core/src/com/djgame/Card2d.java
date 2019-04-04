@@ -53,12 +53,12 @@ public class Card2d extends Group {
 
         Image background = new Image(backgroundreg);
         Image pic = new Image(picreg);
-        Label title = new Label("Sochni Cici xD",titlestyle);
+        Label title = new Label("Lorem ipsum",titlestyle);
         title.setFontScale(2f,2f);
-        Label text = new Label("Tazi karta prizovava so4ni cici koito da ma4kate po cql den",
+        Label text = new Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 textstyle);
         text.setFontScale(1.5f,1.5f);
-        Label ftext = new Label("\" Seks sus jivotni \"", ftextstyle);
+        Label ftext = new Label("\"anim id est laborum\"", ftextstyle);
 
         // add actors
         addActor(background);
