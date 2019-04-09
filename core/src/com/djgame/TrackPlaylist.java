@@ -10,6 +10,12 @@ import java.util.Vector;
 
 public class TrackPlaylist extends Group {
 
+    enum TrackType{
+        DRUM,
+        BASS,
+        SYNTH
+    }
+
     enum SongStyle{
         HIPHOP,
         TRAP,
@@ -17,17 +23,49 @@ public class TrackPlaylist extends Group {
     }
 
     private class Track{
+        Vector<Clip> clips;
+        private int maxsize;
+
         private class Clip{
             SongStyle style;
             int crowdpoints;
         }
-        private int size;
 
         Track(int size){
-            this.size = size;
+            this.maxsize = size;
         }
 
-        Vector<Clip> clips;
+        public void InsertTop(Clip clip){
+            if (clips.size() >= maxsize){
+                // TODO: handle what happens if track is full
+            }
+            else{
+                clips.add(clip);
+            }
+        }
+
+        public void InsertBottom(Clip clip){
+            if (clips.size() >= maxsize){
+                // TODO: handle
+            }
+            else{
+                clips.add(0, clip);
+            }
+        }
+
+        public Clip GetNext(){
+            if (clips.isEmpty()){return null;}
+            return clips.get(0);
+        }
+
+        public boolean PlayNext(){
+            if (clips.isEmpty()){
+                return false;
+            }
+            clips.remove(0);
+            return true;
+        }
+
     }
 
     private Track dtrack, btrack, strack;
@@ -44,5 +82,29 @@ public class TrackPlaylist extends Group {
 
         addActor(trackimg);
     }
+
+    public void PlayTracks(boolean d, boolean b, boolean s){
+        // play requested tracks
+        Track.Clip dclip,bclip,sclip;
+        if (d){
+            if (dtrack.clips.isEmpty()){Session.EmptyTrack(TrackType.DRUM);}
+            dclip = dtrack.GetNext();
+            dtrack.PlayNext();
+        }
+
+        if (b){
+            if (btrack.clips.isEmpty()){Session.EmptyTrack(TrackType.BASS);}
+            bclip = btrack.GetNext();
+            btrack.PlayNext();
+        }
+
+        if (s){
+            if (strack.clips.isEmpty()){Session.EmptyTrack(TrackType.SYNTH);}
+            sclip = strack.GetNext();
+            strack.PlayNext();
+        }
+        // TODO: check for matches
+    }
+
 
 }

@@ -55,17 +55,38 @@ public class Session {
             State.ui.cards.RemoveCard(card);
             State.ui.discardpile.AddCard(card);
         }
+
+        if (State.hp <= 0){HpOut();}
         BeginTurn();
     }
 
-    public static void TimerOut(){
+    public static void LoseHp(){
+        State.hp--;
+        if (State.hp <= 0){HpOut();}
+    }
 
+    public static void HpOut(){
+        // TODO: Handle
+    }
+
+    public static void TimerOut(){
+        // TODO: Handle game end
+    }
+
+    public static void ScorePoints(int points){
+        State.crowd += points;
+    }
+
+    // called when a track is played but has no clips
+    public static void EmptyTrack(TrackPlaylist.TrackType type){
+        LoseHp();
+        // TODO: more logic prob
     }
 
     public static class State{
 
         private static UI ui;
-        private static int round, hp, inspiration;
+        private static int round, hp, inspiration, crowd;
 
         public static UI getui(){
             return ui;
