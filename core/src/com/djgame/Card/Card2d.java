@@ -32,6 +32,7 @@ public class Card2d extends Group {
     private float dragpointx, dragpointy;
     protected TextureRegion backgroundreg, picreg;
     protected String ttext, ftext, dtext;
+    protected int basecost;
 
 
     public Card2d(){
@@ -83,7 +84,7 @@ public class Card2d extends Group {
                                 Constants.cardscalelargey, Constants.enlargeduration),
                         moveTo(getX() + Constants.hoveroffsetx,
                                 getY() + Constants.hoveroffsety, Constants.enlargeduration),
-                        rotateTo(0f, Constants.enlargeduration)));
+                        rotateTo(getRotation()/2f, Constants.enlargeduration)));
 
                 // set Z index higher
                 zoriginal = getZIndex();
@@ -122,29 +123,12 @@ public class Card2d extends Group {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //TODO: write click event
-                if (ispickedup)
-                {
-
-                    return false;
-                }
-                else
-                {
-                    xoriginal = getX();
-                    yoriginal = getY();
-                    zoriginal = getZIndex();
-                    angleoriginal = getRotation();
-                    ispickedup = true;
-                    return false;
-                }
+                if (hasActions()) return false;
+                return Play();
             }
 
             @Override
             public boolean mouseMoved(InputEvent event, float x, float y) {
-                if (ispickedup)
-                {
-                    setPosition(event.getStageX() - getWidth()/2,
-                             event.getStageY() - getWidth()/2);
-                }
                 return true;
             }
         });

@@ -10,29 +10,37 @@ import java.util.Vector;
 
 public class TrackPlaylist extends Group {
 
-    enum TrackType{
+    public enum TrackType{
         DRUM,
         BASS,
         SYNTH
     }
 
-    enum SongStyle{
+    public enum SongStyle{
         HIPHOP,
         TRAP,
         HOUSE
     }
 
-    private class Track{
+    public class Clip{
+
+        public SongStyle style;
+        public int crowdpoints;
+        public Image img;
+    }
+
+    public class Track extends Group{
         Vector<Clip> clips;
         private int maxsize;
+        private Image img;
 
-        private class Clip{
-            SongStyle style;
-            int crowdpoints;
-        }
 
-        Track(int size){
+
+        Track(int size, TextureRegion reg){
+            clips = new Vector<Clip>();
             this.maxsize = size;
+            this.img = new Image(reg);
+            addActor(img);
         }
 
         public void InsertTop(Clip clip){
@@ -41,6 +49,9 @@ public class TrackPlaylist extends Group {
             }
             else{
                 clips.add(clip);
+                clip.img.setZIndex(5000);
+                addActor(clip.img);
+                realign();
             }
         }
 
@@ -50,6 +61,8 @@ public class TrackPlaylist extends Group {
             }
             else{
                 clips.add(0, clip);
+                addActor(clip.img);
+                realign();
             }
         }
 
@@ -62,13 +75,22 @@ public class TrackPlaylist extends Group {
             if (clips.isEmpty()){
                 return false;
             }
+            removeActor(clips.get(0).img);
             clips.remove(0);
+            realign();
             return true;
+        }
+
+        public void realign(){
+            for (int i = 0; i < clips.size(); i++){
+                clips.get(i).img.setPosition(Constants.clipoffsetx,
+                        Constants.clipoffsety + i*Constants.clipmargin);
+            }
         }
 
     }
 
-    private Track dtrack, btrack, strack;
+    public Track dtrack, btrack, strack;
 
     TrackPlaylist (){
         Texture tracktexd = new Texture(Gdx.files.internal("track-1.png"));
@@ -77,27 +99,24 @@ public class TrackPlaylist extends Group {
         TextureRegion trackregd = new TextureRegion(tracktexd);
         TextureRegion trackregb = new TextureRegion(tracktexb);
         TextureRegion trackregs = new TextureRegion(tracktexs);
-        Image trackd = new Image(trackregd);
-        Image trackb = new Image(trackregb);
-        Image tracks = new Image(trackregs);
 
-        dtrack = new Track(Constants.dtracksize);
-        btrack = new Track(Constants.btracksize);
-        strack = new Track(Constants.stracksize);
+        dtrack = new Track(Constants.dtracksize, trackregd);
+        btrack = new Track(Constants.btracksize, trackregb);
+        strack = new Track(Constants.stracksize, trackregs);
 
-        trackb.setPosition(Constants.trackoffsetx,0);
-        tracks.setPosition(Constants.trackoffsetx * 2, 0);
+        btrack.setPosition(Constants.trackoffsetx,0);
+        strack.setPosition(Constants.trackoffsetx * 2, 0);
 
 
-        addActor(trackd);
-        addActor(trackb);
-        addActor(tracks);
+        addActor(dtrack);
+        addActor(btrack);
+        addActor(strack);
 
     }
 
     public void PlayTracks(boolean d, boolean b, boolean s){
         // play requested tracks
-        Track.Clip dclip,bclip,sclip;
+        Clip dclip,bclip,sclip;
         if (d){
             if (dtrack.clips.isEmpty()){Session.EmptyTrack(TrackType.DRUM);}
             dclip = dtrack.GetNext();

@@ -50,6 +50,9 @@ public class Session {
         // increment round
         State.round++;
 
+        // play tracks
+        State.ui.tracks.PlayTracks(true,true,true);
+
         // dump hand into discard pile
         int c = State.ui.cards.cards.size();
         for (int i = 0; i < c; i++){

@@ -11,7 +11,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.djgame.Card.Card2d;
-import com.djgame.Card.Cards.BasicDrum;
+import com.djgame.Card.Cards.BasicBassHipHop;
+import com.djgame.Card.Cards.BasicBassHouse;
+import com.djgame.Card.Cards.BasicBassTrap;
+import com.djgame.Card.Cards.BasicDrumHipHop;
+import com.djgame.Card.Cards.BasicDrumHouse;
+import com.djgame.Card.Cards.BasicDrumTrap;
+import com.djgame.Card.Cards.BasicSynthHipHop;
+import com.djgame.Card.Cards.BasicSynthHouse;
+import com.djgame.Card.Cards.BasicSynthTrap;
 
 
 public class DJgame extends ApplicationAdapter {
@@ -50,15 +58,15 @@ public class DJgame extends ApplicationAdapter {
 
 		Card2d card = new Card2d();
 		Card2d card1 = new Card2d();
-		Card2d card2 = new Card2d();
-		Card2d card3 = new Card2d();
-		Card2d card4 = new Card2d();
-		Card2d card5 = new Card2d();
-		Card2d card6 = new Card2d();
-		Card2d card7 = new Card2d();
-		Card2d card8 = new Card2d();
-		Card2d card9 = new Card2d();
-		Card2d card10 = new BasicDrum();
+		Card2d card2 = new BasicSynthHouse();
+		Card2d card3 = new BasicDrumHouse();
+		Card2d card4 = new BasicBassHouse();
+		Card2d card5 = new BasicSynthHipHop();
+		Card2d card6 = new BasicDrumHipHop();
+		Card2d card7 = new BasicBassHipHop();
+		Card2d card8 = new BasicSynthTrap();
+		Card2d card9 = new BasicBassTrap();
+		Card2d card10 = new BasicDrumTrap();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);

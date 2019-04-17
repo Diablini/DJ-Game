@@ -60,6 +60,9 @@ public final class Constants {
 
     // track stuff
     public static final float trackoffsetx = 100f;
+    public static final float clipoffsetx = 5;
+    public static final float clipoffsety = 75;
+    public static final float clipmargin = 60;
 
 
     // Z-index Constants
@@ -94,4 +97,10 @@ public final class Constants {
     public static final int btracksize = 4;
     public static final int stracksize = 4;
 
+
+    // Card Effect Related
+
+    public static final int baseclippoints = 10;
+    public static final int basetwocombo = 5;
+    public static final int basethreecombo = 25;
 }
