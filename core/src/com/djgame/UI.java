@@ -5,8 +5,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-
-import java.awt.Font;
+import com.djgame.Card.CardFan;
+import com.djgame.Card.CardPile;
 
 
 public class UI extends Group {

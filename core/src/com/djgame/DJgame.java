@@ -10,7 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
+import com.djgame.Card.Card2d;
+import com.djgame.Card.Cards.BasicDrum;
 
 
 public class DJgame extends ApplicationAdapter {
@@ -47,17 +48,17 @@ public class DJgame extends ApplicationAdapter {
 		teststage.addActor(Session.State.getui());
 		teststage.addActor(button);
 
-		Card2d card = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card1 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card2 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card3 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card4 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card5 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card6 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card7 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card8 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card9 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
-		Card2d card10 = new Card2d(960,540, 0, 2f/3f, 2f/3f);
+		Card2d card = new Card2d();
+		Card2d card1 = new Card2d();
+		Card2d card2 = new Card2d();
+		Card2d card3 = new Card2d();
+		Card2d card4 = new Card2d();
+		Card2d card5 = new Card2d();
+		Card2d card6 = new Card2d();
+		Card2d card7 = new Card2d();
+		Card2d card8 = new Card2d();
+		Card2d card9 = new Card2d();
+		Card2d card10 = new BasicDrum();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);

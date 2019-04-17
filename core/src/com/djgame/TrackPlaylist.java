@@ -71,16 +71,28 @@ public class TrackPlaylist extends Group {
     private Track dtrack, btrack, strack;
 
     TrackPlaylist (){
-        Texture tracktex = new Texture(Gdx.files.internal("tracks-1.png"));
-        TextureRegion trackreg = new TextureRegion(tracktex);
-        Image trackimg = new Image(trackreg);
+        Texture tracktexd = new Texture(Gdx.files.internal("track-1.png"));
+        Texture tracktexb = new Texture(Gdx.files.internal("track-2.png"));
+        Texture tracktexs = new Texture(Gdx.files.internal("track-3.png"));
+        TextureRegion trackregd = new TextureRegion(tracktexd);
+        TextureRegion trackregb = new TextureRegion(tracktexb);
+        TextureRegion trackregs = new TextureRegion(tracktexs);
+        Image trackd = new Image(trackregd);
+        Image trackb = new Image(trackregb);
+        Image tracks = new Image(trackregs);
 
         dtrack = new Track(Constants.dtracksize);
         btrack = new Track(Constants.btracksize);
         strack = new Track(Constants.stracksize);
 
+        trackb.setPosition(Constants.trackoffsetx,0);
+        tracks.setPosition(Constants.trackoffsetx * 2, 0);
 
-        addActor(trackimg);
+
+        addActor(trackd);
+        addActor(trackb);
+        addActor(tracks);
+
     }
 
     public void PlayTracks(boolean d, boolean b, boolean s){

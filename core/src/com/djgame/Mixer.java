@@ -11,12 +11,14 @@ public class Mixer extends Group {
 
     Mixer()
     {
-        Texture mtracks = new Texture(Gdx.files.internal("mixer-tracks.png"));
+        Texture mtrack = new Texture(Gdx.files.internal("mixer-1.png"));
         Texture knob = new Texture(Gdx.files.internal("mixer-knob.png"));
-        TextureRegion mtracksreg = new TextureRegion(mtracks);
+        TextureRegion mtrackreg = new TextureRegion(mtrack);
         TextureRegion knobreg = new TextureRegion(knob);
 
-        Image tracks = new Image(mtracksreg);
+        Image dtrack = new Image(mtrackreg);
+        Image btrack = new Image(mtrackreg);
+        Image strack = new Image(mtrackreg);
         Image dknob = new Image(knobreg);
         Image bknob = new Image(knobreg);
         Image sknob = new Image(knobreg);
@@ -24,7 +26,14 @@ public class Mixer extends Group {
         bknob.setX(Constants.knoboffset);
         sknob.setX(Constants.knoboffset * 2);
 
-        addActor(tracks);
+        dtrack.setPosition(Constants.mixertrackx, Constants.mixertracky);
+        btrack.setPosition(Constants.mixertrackx + Constants.mixeroffset, Constants.mixertracky);
+        strack.setPosition(Constants.mixertrackx + Constants.mixeroffset * 2,
+                Constants.mixertracky);
+
+        addActor(dtrack);
+        addActor(btrack);
+        addActor(strack);
         addActor(dknob);
         addActor(bknob);
         addActor(sknob);

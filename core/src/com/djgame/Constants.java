@@ -44,9 +44,9 @@ public final class Constants {
     public static final float discardpilex = 1700f;
     public static final float discardpiley = 50f;
     public static final float tracksx = 300f;
-    public static final float tracksy = 400f;
+    public static final float tracksy = 500f;
     public static final float mixerx = 1200f;
-    public static final float mixery = 400f;
+    public static final float mixery = 450f;
     public static final float timerx = 960f;
     public static final float timery = 900f;
 
@@ -54,6 +54,13 @@ public final class Constants {
     public static final float knobscalex = 0.5f;
     public static final float knobscaley = 0.5f;
     public static final float knoboffset = 91f;
+    public static final float mixeroffset = 91f;
+    public static final float mixertrackx = 62f;
+    public static final float mixertracky = 40f;
+
+    // track stuff
+    public static final float trackoffsetx = 100f;
+
 
     // Z-index Constants
     // < 1000 Background
@@ -62,9 +69,9 @@ public final class Constants {
 
     public static final int zbackground = 900;
 
+    public static final int zmixer = 1200;
+    public static final int ztracks = 1201;
     public static final int zgenericbutton = 1300;
-    public static final int zmixer = 1400;
-    public static final int ztracks = 1401;
     public static final int ztimer = 1402;
     public static final int zcardinhand = 1500;
     public static final int zdrawpile = 1600;

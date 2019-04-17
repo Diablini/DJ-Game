@@ -1,6 +1,8 @@
 package com.djgame;
 
 
+import com.djgame.Card.Card2d;
+
 public class Session {
 
     public static void NewSession(){
