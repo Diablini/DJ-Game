@@ -232,6 +232,7 @@ public class Card2d extends Group {
         Label.LabelStyle titlestyle = new Label.LabelStyle();
         Label.LabelStyle textstyle = new Label.LabelStyle();
         Label.LabelStyle ftextstyle = new Label.LabelStyle();
+        Label.LabelStyle coststyle = new Label.LabelStyle();
 
         BitmapFont font = new BitmapFont();
         titlestyle.font = font;
@@ -240,6 +241,8 @@ public class Card2d extends Group {
         textstyle.fontColor = Color.BLACK;
         ftextstyle.font = font;
         ftextstyle.fontColor = Color.DARK_GRAY;
+        coststyle.font = font;
+        coststyle.fontColor = Color.BLACK;
 
         backgroundreg.getTexture().setFilter(Texture.TextureFilter.Linear,
                 Texture.TextureFilter.Linear);
@@ -249,10 +252,12 @@ public class Card2d extends Group {
         Image pic = new Image(picreg);
 
         Label titletext = new Label(ttext,titlestyle);
-        titletext.setFontScale(2f,2f);
+        titletext.setFontScale(2.5f,2.5f);
         Label descriptiontext = new Label(dtext,textstyle);
         descriptiontext.setFontScale(1.5f,1.5f);
         Label flavourtext = new Label(ftext, ftextstyle);
+        Label costtext = new Label(String.valueOf(basecost), coststyle);
+        costtext.setFontScale(2.5f, 2.5f);
 
         // set relative positions
         pic.setX(pic.getX() + Constants.picoffsetx);
@@ -277,12 +282,18 @@ public class Card2d extends Group {
                 Constants.ftextwidth, Constants.ftextheight);
         flavourtext.setAlignment(1,1);
 
+        costtext.setX(Constants.costoffsetx);
+        costtext.setY(Constants.costoffsety);
+        costtext.setBounds(Constants.costoffsetx, Constants.costoffsety,
+                Constants.costwidth, Constants.costheight);
+
         // add actors
         addActor(background);
         addActor(pic);
         addActor(titletext);
         addActor(descriptiontext);
         addActor(flavourtext);
+        addActor(costtext);
     }
 
     // basically move and rotate card to position and angle
@@ -292,6 +303,10 @@ public class Card2d extends Group {
                 rotateTo(angle, Constants.shuffleduration),
                 scaleTo(Constants.cardscalex, Constants.cardscaley, Constants.shuffleduration)));
         setOrigin(getWidth()/2, 0);
+    }
+
+    public int getCost(){
+        return basecost;
     }
 
     public boolean Play(){

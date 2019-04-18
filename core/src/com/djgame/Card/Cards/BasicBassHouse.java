@@ -14,9 +14,9 @@ public class BasicBassHouse extends Card2d {
     public BasicBassHouse(){
         //super.picreg
         super.ttext = "House Bass";
-        super.dtext = "+2 Bass\nSpecial: Add from bottom";
+        super.dtext = "+1 Bass\nSpecial: Add from bottom";
         super.ftext = "Drop it";
-        basecost = 2;
+        basecost = 1;
 
         UpdateAssets();
     }
@@ -24,42 +24,38 @@ public class BasicBassHouse extends Card2d {
     @Override
     public boolean Play() {
         // TODO: add inspiration check
+        if (!Session.CostCheck(this)) return false;
 
         Texture tex = new Texture(Gdx.files.internal("point-bass.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
-        TrackPlaylist.Clip cliptwo = Session.State.getui().tracks.new Clip();
         clipone.style = TrackPlaylist.SongStyle.HOUSE;
-        cliptwo.style = TrackPlaylist.SongStyle.HOUSE;
         clipone.crowdpoints = Constants.baseclippoints;
-        cliptwo.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
-        cliptwo.img = new Image(reg);
 
         Session.State.getui().tracks.btrack.InsertTop(clipone);
-        Session.State.getui().tracks.btrack.InsertTop(cliptwo);
+
+        Session.DiscardAfterPlay(this);
         return true;
     }
 
     @Override
     public boolean PlaySpecial() {
         // TODO: add inspiration check
+        if (!Session.CostCheck(this)) return false;
 
         Texture tex = new Texture(Gdx.files.internal("point-bass.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
-        TrackPlaylist.Clip cliptwo = Session.State.getui().tracks.new Clip();
         clipone.style = TrackPlaylist.SongStyle.HOUSE;
-        cliptwo.style = TrackPlaylist.SongStyle.HOUSE;
         clipone.crowdpoints = Constants.baseclippoints;
-        cliptwo.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
-        cliptwo.img = new Image(reg);
 
         Session.State.getui().tracks.btrack.InsertBottom(clipone);
-        Session.State.getui().tracks.btrack.InsertBottom(cliptwo);
+
+        Session.DiscardAfterPlay(this);
         return true;
     }
 }

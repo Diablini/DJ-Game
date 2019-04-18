@@ -24,6 +24,10 @@ public final class Constants {
     public static final float ftextoffsety = 20f;
     public static final float ftextwidth = 260f;
     public static final float ftextheight = 25f;
+    public static final float costoffsetx = 15f;
+    public static final float costoffsety = 374f;
+    public static final float costwidth = 20f;
+    public static final float costheight = 26f;
 
     // card when shuffling to hand
     public static final float shufflescalex = 0.05f;

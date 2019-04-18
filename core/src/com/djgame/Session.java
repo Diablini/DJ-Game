@@ -88,6 +88,19 @@ public class Session {
         // TODO: more logic prob
     }
 
+    public static void DiscardAfterPlay(Card2d card){
+        State.ui.cards.RemoveCard(card);
+        State.ui.discardpile.AddCard(card);
+    }
+
+    public static boolean CostCheck(Card2d card){
+        if (card.getCost() <= State.inspiration){
+            State.inspiration -= card.getCost();
+            return true;
+        }
+        return false;
+    }
+
     public static class State{
 
         private static UI ui;
