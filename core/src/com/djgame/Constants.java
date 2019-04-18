@@ -53,6 +53,8 @@ public final class Constants {
     public static final float mixery = 450f;
     public static final float timerx = 960f;
     public static final float timery = 900f;
+    public static final float inspirationx = 960f;
+    public static final float inspirationy = 1000f;
 
     // mixer stuff
     public static final float knobscalex = 0.5f;
@@ -67,6 +69,10 @@ public final class Constants {
     public static final float clipoffsetx = 5;
     public static final float clipoffsety = 75;
     public static final float clipmargin = 60;
+
+    // drawpile stuff
+    public static final float cardnumberoffsetx = 60f;
+    public static final float cardnumberoffsety = 30f;
 
 
     // Z-index Constants
@@ -83,12 +89,15 @@ public final class Constants {
     public static final int zcardinhand = 1500;
     public static final int zdrawpile = 1600;
     public static final int zdiscardpile = 1601;
+    public static final int zinspiration = 1700;
 
 
     public static final int zcardzoomed = 2500;
 
 
-    // Game logic
+    //----------------------------------------------------------//
+    //------------- Game logic ---------------------------------//
+    //----------------------------------------------------------//
 
     // Session
     public static final int roundlimit = 10;

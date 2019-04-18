@@ -16,12 +16,13 @@ public class UI extends Group {
     public TrackPlaylist tracks;
     public Mixer mixer;
     public Label rounds;
+    public Label inspiration;
 
     UI(){
         setPosition(0,0);
         Label.LabelStyle style = new Label.LabelStyle();
         BitmapFont font = new BitmapFont();
-        style.fontColor = Color.BLACK;
+        style.fontColor = Color.WHITE;
         style.font = font;
 
         cards = new CardFan();
@@ -30,8 +31,13 @@ public class UI extends Group {
         tracks = new TrackPlaylist();
         mixer = new Mixer();
         rounds = new Label("Turns: 0/0",style);
+        inspiration = new Label("Inspiration: 0/0", style);
 
+        rounds.setFontScale(3f);
+        inspiration.setFontScale(3f);
 
+        drawpile.Rename("Draw");
+        discardpile.Rename("Discard");
 
         cards.setZIndex(Constants.zcardinhand);
         drawpile.setZIndex(Constants.zcardinhand);
@@ -44,6 +50,8 @@ public class UI extends Group {
         mixer.setPosition(Constants.mixerx, Constants.mixery);
         rounds.setZIndex(Constants.ztimer);
         rounds.setPosition(Constants.timerx, Constants.timery);
+        inspiration.setZIndex(Constants.zinspiration);
+        inspiration.setPosition(Constants.inspirationx, Constants.inspirationy);
 
         //TODO: add ui elements
 
@@ -53,6 +61,7 @@ public class UI extends Group {
         addActor(tracks);
         addActor(mixer);
         addActor(rounds);
+        addActor(inspiration);
         setVisible(true);
     }
 

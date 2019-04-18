@@ -44,6 +44,9 @@ public class Session {
 
         // reset inspiration
         State.inspiration = Constants.inspirationperturn;
+
+        // refresh ui
+        RefreshUI();
     }
 
     public static void EndTurn(){
@@ -60,6 +63,9 @@ public class Session {
             State.ui.cards.RemoveCard(card);
             State.ui.discardpile.AddCard(card);
         }
+
+        // refresh ui
+        RefreshUI();
 
         if (State.hp <= 0){HpOut();}
         BeginTurn();
@@ -96,9 +102,19 @@ public class Session {
     public static boolean CostCheck(Card2d card){
         if (card.getCost() <= State.inspiration){
             State.inspiration -= card.getCost();
+            RefreshUI();
             return true;
         }
         return false;
+    }
+
+    public static void RefreshUI(){
+        State.ui.inspiration.setText("Inspiration: "
+                + State.inspiration +"/" + Constants.inspirationperturn);
+        State.ui.rounds.setText("Turn: " + State.round + "/" + Constants.roundlimit);
+
+        State.ui.drawpile.UpdateNumber();
+        State.ui.discardpile.UpdateNumber();
     }
 
     public static class State{

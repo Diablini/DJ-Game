@@ -25,11 +25,12 @@ public class Card2d extends Group {
 
     // for storing z index before being moused over
     private boolean iszoomed, ispickedup;
+
     private int zoriginal;
     private float xoriginal;
     private float yoriginal;
     private float angleoriginal;
-    private float dragpointx, dragpointy;
+
     protected TextureRegion backgroundreg, picreg;
     protected String ttext, ftext, dtext;
     protected int basecost;
@@ -117,8 +118,6 @@ public class Card2d extends Group {
                 cancel();
             }
 
-
-
             // on mouse click
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -127,100 +126,7 @@ public class Card2d extends Group {
                 return Play();
             }
 
-            @Override
-            public boolean mouseMoved(InputEvent event, float x, float y) {
-                return true;
-            }
-        });
-    }
 
-    public Card2d(float x, float y, float angle, float scalex, float scaley){
-        // TODO: maybe delete this and use only default constructor
-        iszoomed = false;
-        ispickedup = false;
-        // load textures and styles
-        Texture backgroundtex = new Texture(Gdx.files.internal("cardplaceholder.png"));
-        Texture pictex = new Texture(Gdx.files.internal("pictureplaceholder.jpg"));
-
-        backgroundreg = new TextureRegion(backgroundtex);
-        picreg = new TextureRegion(pictex);
-
-        backgroundreg.getTexture().setFilter(Texture.TextureFilter.Linear,
-                Texture.TextureFilter.Linear);
-        picreg.getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-
-
-        ttext = "Lorem ipsum";
-        ftext = "Lorem ipsum";
-        dtext = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
-
-        UpdateAssets();
-
-        setZIndex(Constants.zcardinhand);
-
-        setPosition(x,y);
-        setBounds(x,y,backgroundreg.getTexture().getWidth(),
-                backgroundreg.getTexture().getHeight());
-        setScale(scalex,scaley);
-        setOrigin(getWidth()/2, getHeight()/2);
-        setRotation(angle);
-
-        setOrigin(getWidth()/2, 0);
-        //setBounds(x,y, texture.getWidth(), texture.getHeight());
-
-        // add listeners
-        addListener(new ClickListener(){
-
-            // on mouse over
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                // ignore clicks and entry from children
-                if (iszoomed) return;
-                if (hasActions()) return;
-                if (event.getType() != InputEvent.Type.enter || event.getButton() != -1) return;
-                if (getChildren().contains(fromActor, true)) return;
-
-                addAction(parallel(
-                        scaleTo(Constants.cardscalelargex,
-                        Constants.cardscalelargey, Constants.enlargeduration),
-                        moveTo(getX() + Constants.hoveroffsetx,
-                                getY() + Constants.hoveroffsety, Constants.enlargeduration)));
-
-                // set Z index higher
-                zoriginal = getZIndex();
-                setZIndex(Constants.zcardzoomed);
-                xoriginal = getX();
-                yoriginal = getY();
-                iszoomed = true;
-
-                cancel();
-            }
-
-            // on mouse exit
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
-                // ignore clicks and exit from children
-                if (!iszoomed) return;
-                if (event.getType() != InputEvent.Type.exit || event.getButton() != -1) return;
-                if (getChildren().contains(toActor, true)) return;
-                addAction(parallel(
-                        scaleTo(Constants.cardscalex, Constants.cardscaley,
-                        Constants.enlargeduration),
-                        moveTo(xoriginal, yoriginal, Constants.enlargeduration)));
-
-                // set Z index to original
-                setZIndex(zoriginal);
-                iszoomed = false;
-
-                cancel();
-            }
-
-            // on mouse click
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                //TODO: write click event
-                return super.touchDown(event, x, y, pointer, button);
-            }
         });
     }
 
