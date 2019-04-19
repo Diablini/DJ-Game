@@ -10,6 +10,7 @@ public class Session {
         State.hp = Constants.startinghp;
         State.inspiration = Constants.inspirationperturn;
         State.ui = new UI();
+        State.mixpower = Constants.mixpowerperturn;
 
         State.ui.drawpile.Shuffle();
     }
@@ -27,23 +28,15 @@ public class Session {
         // draw initial cards
         for (int i = 0; i < Constants.drawperturn; i++)
         {
-            // if nothing left to draw, shuffle discard into draw
-            if (!State.ui.drawpile.HasCards())
-            {
-                // if discard is also empty we cant do anything
-                if (!State.ui.discardpile.HasCards()) break;
-                while(State.ui.discardpile.Size() != 0)
-                {
-                    State.ui.drawpile.AddCard(State.ui.discardpile.DrawCard());
-                }
-                State.ui.drawpile.Shuffle();
-            }
-            Card2d card = State.ui.drawpile.DrawCard();
-            State.ui.cards.AddCard(card);
+            DrawCard();
         }
 
-        // reset inspiration
+        // reset inspiration and mixpower
         State.inspiration = Constants.inspirationperturn;
+        State.mixpower = Constants.mixpowerperturn;
+
+        // reset mixer bonuses
+        State.ui.mixer.ResetBonuses();
 
         // refresh ui
         RefreshUI();
@@ -69,6 +62,21 @@ public class Session {
 
         if (State.hp <= 0){HpOut();}
         BeginTurn();
+    }
+
+    public static void DrawCard(){
+        if (!State.ui.drawpile.HasCards())
+        {
+            // if discard is also empty we cant do anything
+            if (!State.ui.discardpile.HasCards()) return;
+            while(State.ui.discardpile.Size() != 0)
+            {
+                State.ui.drawpile.AddCard(State.ui.discardpile.DrawCard());
+            }
+            State.ui.drawpile.Shuffle();
+        }
+        Card2d card = State.ui.drawpile.DrawCard();
+        State.ui.cards.AddCard(card);
     }
 
     public static void LoseHp(){
@@ -120,11 +128,21 @@ public class Session {
     public static class State{
 
         private static UI ui;
-        private static int round, hp, inspiration, crowd;
+        private static int round, hp, inspiration, crowd, mixpower;
 
         public static UI getui(){
             return ui;
         }
+        public static int getMixpower(){return mixpower;}
+        public static int getRound(){return round;}
+        public static int getCrowd(){return crowd;}
+        public static int getHp(){return hp;}
+        public static int getInspiration(){return inspiration;}
+        public static void setMixpower(int power){mixpower = power;}
+        public static void setRound(int r){round = r;}
+        public static void setInspiration(int i){inspiration = i;}
+        public static void setHp(int h){hp=h;}
+        public static void setCrowd(int c){crowd = c;}
     }
 
 }

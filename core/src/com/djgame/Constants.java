@@ -51,18 +51,25 @@ public final class Constants {
     public static final float tracksy = 500f;
     public static final float mixerx = 1200f;
     public static final float mixery = 450f;
-    public static final float timerx = 960f;
-    public static final float timery = 900f;
-    public static final float inspirationx = 960f;
-    public static final float inspirationy = 1000f;
+    public static final float timerx = 900f;
+    public static final float timery = 1000f;
+    public static final float inspirationx = 860f;
+    public static final float inspirationy = 350f;
 
     // mixer stuff
-    public static final float knobscalex = 0.5f;
-    public static final float knobscaley = 0.5f;
-    public static final float knoboffset = 91f;
-    public static final float mixeroffset = 91f;
+    public static final float knoboffsetx = -64f;
+    public static final float knoboffsety = -40f;
+    public static final float mixeroffset = 180f;
     public static final float mixertrackx = 62f;
     public static final float mixertracky = 40f;
+    public static final float mixtracklength = 380f;
+    public static final float upbuttonoffsetx = -20f;
+    public static final float upbuttonoffsety = 400f;
+    public static final float downbuttonoffsetx = -20f;
+    public static final float downbuttonoffsety = -100f;
+    public static final float bonusleftoffsetx = -200f;
+    public static final float bonusrightoffsetx = 60f;
+    public static final float bonusoffsety = 20f;
 
     // track stuff
     public static final float trackoffsetx = 100f;
@@ -82,6 +89,7 @@ public final class Constants {
 
     public static final int zbackground = 900;
 
+    public static final int zinspiration = 1000;
     public static final int zmixer = 1200;
     public static final int ztracks = 1201;
     public static final int zgenericbutton = 1300;
@@ -89,7 +97,6 @@ public final class Constants {
     public static final int zcardinhand = 1500;
     public static final int zdrawpile = 1600;
     public static final int zdiscardpile = 1601;
-    public static final int zinspiration = 1700;
 
 
     public static final int zcardzoomed = 2500;
@@ -104,11 +111,15 @@ public final class Constants {
     public static final int drawperturn = 5;
     public static final int startinghp = 3;
     public static final int inspirationperturn = 5;
+    public static final int mixpowerperturn = 1;
 
     // Tracks
     public static final int dtracksize = 4;
     public static final int btracksize = 4;
     public static final int stracksize = 4;
+
+    // Mixer
+    public static final int mixernumofpositions = 4;
 
 
     // Card Effect Related

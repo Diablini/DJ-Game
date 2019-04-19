@@ -41,7 +41,7 @@ public class DJgame extends ApplicationAdapter {
 		Texture b = new Texture(Gdx.files.internal("image-drum1.jpg"));
 		Image button = new Image(b);
 		button.setZIndex(Constants.zgenericbutton);
-		button.setPosition(900,500);
+		button.setPosition(600,700);
 		button.setZIndex(0);
 		button.setVisible(true);
 		button.addListener(new ClickListener() {
