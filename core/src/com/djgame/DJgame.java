@@ -81,6 +81,7 @@ public class DJgame extends ApplicationAdapter {
 		Session.State.getui().drawpile.AddCard(card9);
 		Session.State.getui().drawpile.AddCard(card10);
 		Session.State.getui().drawpile.AddCard(card11);
+		Session.State.getui().drawpile.Shuffle();
 
 		Session.BeginTurn();
 		//ui.cards.AddCard(card);
