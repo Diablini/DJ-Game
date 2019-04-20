@@ -26,7 +26,7 @@ public class BasicDrumTrap extends Card2d {
     public boolean Play() {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
-        Texture tex = new Texture(Gdx.files.internal("point-bass.png"));
+        Texture tex = new Texture(Gdx.files.internal("point-red.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
@@ -50,7 +50,7 @@ public class BasicDrumTrap extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-synth.png"));
+        Texture tex = new Texture(Gdx.files.internal("point-red.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();

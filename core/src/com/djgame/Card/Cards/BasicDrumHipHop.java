@@ -26,7 +26,7 @@ public class BasicDrumHipHop extends Card2d {
     public boolean Play() {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
-        Texture tex = new Texture(Gdx.files.internal("point-bass.png"));
+        Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
@@ -50,7 +50,7 @@ public class BasicDrumHipHop extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-synth.png"));
+        Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();

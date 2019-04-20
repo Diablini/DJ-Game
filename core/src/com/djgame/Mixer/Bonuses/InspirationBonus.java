@@ -13,6 +13,6 @@ public class InspirationBonus extends MixerBonus {
         if (activated) return;
         Session.State.setInspiration(Session.State.getInspiration() + 2);
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

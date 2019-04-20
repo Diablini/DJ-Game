@@ -13,6 +13,6 @@ public class DoubleComboBonus extends MixerBonus {
         if (activated) return;
         // TODO: implement
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

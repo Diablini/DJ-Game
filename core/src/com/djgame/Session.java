@@ -7,6 +7,7 @@ public class Session {
 
     public static void NewSession(){
         State.round = 1;
+        State.crowd = 0;
         State.hp = Constants.startinghp;
         State.inspiration = Constants.inspirationperturn;
         State.ui = new UI();
@@ -120,6 +121,8 @@ public class Session {
         State.ui.inspiration.setText("Inspiration: "
                 + State.inspiration +"/" + Constants.inspirationperturn);
         State.ui.rounds.setText("Turn: " + State.round + "/" + Constants.roundlimit);
+        State.ui.mixpower.setText("Mix Power: " + State.mixpower);
+        State.ui.crowd.setText("Crowd Points: " + State.crowd);
 
         State.ui.drawpile.UpdateNumber();
         State.ui.discardpile.UpdateNumber();

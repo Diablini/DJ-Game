@@ -13,6 +13,6 @@ public class DrawBonus extends MixerBonus {
         if (activated) return;
         Session.DrawCard();
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

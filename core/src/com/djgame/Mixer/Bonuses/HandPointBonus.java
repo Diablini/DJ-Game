@@ -14,6 +14,6 @@ public class HandPointBonus extends MixerBonus {
         if (activated) return;
         Session.ScorePoints(5 * Session.State.getui().cards.cards.size());
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

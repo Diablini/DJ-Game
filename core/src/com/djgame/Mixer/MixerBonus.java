@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.RandomXS128;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.djgame.Constants;
+import com.djgame.Mixer.Bonuses.DiscardPointBonus;
 import com.djgame.Mixer.Bonuses.DoubleComboBonus;
 import com.djgame.Mixer.Bonuses.DrawBonus;
 import com.djgame.Mixer.Bonuses.HandPointBonus;
@@ -20,6 +22,11 @@ public class MixerBonus {
     public void Play(){
     }
 
+    protected void Activate(){
+        activated = true;
+        text.getStyle().fontColor = Constants.activatedbonuscolor;
+    }
+
     public MixerBonus(){
         BitmapFont font = new BitmapFont();
         Label.LabelStyle style = new Label.LabelStyle();
@@ -32,6 +39,7 @@ public class MixerBonus {
 
     public static Vector<MixerBonus> getBonusList(){
         Vector<MixerBonus> list = new Vector<MixerBonus>();
+        list.add(new DiscardPointBonus());
         list.add(new DoubleComboBonus());
         list.add(new DrawBonus());
         list.add(new HandPointBonus());

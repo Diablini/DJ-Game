@@ -56,7 +56,7 @@ public class Card2d extends Group {
 
         UpdateAssets();
 
-        setZIndex(Constants.zcardinhand);
+        //setZIndex(Constants.zcardinhand);
 
         setPosition(0,0);
         setBounds(0,0,backgroundreg.getTexture().getWidth(),

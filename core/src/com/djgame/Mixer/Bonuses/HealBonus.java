@@ -13,6 +13,6 @@ public class HealBonus extends MixerBonus {
         if (activated) return;
         Session.State.setHp(Session.State.getHp() + 1);
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

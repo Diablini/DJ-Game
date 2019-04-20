@@ -13,6 +13,6 @@ public class PointBonus extends MixerBonus {
         if (activated) return;
         Session.ScorePoints(25);
         Session.RefreshUI();
-        activated = true;
+        Activate();
     }
 }

@@ -17,6 +17,7 @@ import com.djgame.Card.Cards.BasicBassTrap;
 import com.djgame.Card.Cards.BasicDrumHipHop;
 import com.djgame.Card.Cards.BasicDrumHouse;
 import com.djgame.Card.Cards.BasicDrumTrap;
+import com.djgame.Card.Cards.BasicMixerPoint;
 import com.djgame.Card.Cards.BasicSynthHipHop;
 import com.djgame.Card.Cards.BasicSynthHouse;
 import com.djgame.Card.Cards.BasicSynthTrap;
@@ -56,8 +57,8 @@ public class DJgame extends ApplicationAdapter {
 		teststage.addActor(Session.State.getui());
 		teststage.addActor(button);
 
-		Card2d card = new Card2d();
-		Card2d card1 = new Card2d();
+		Card2d card = new BasicMixerPoint();
+		Card2d card1 = new BasicMixerPoint();
 		Card2d card2 = new BasicSynthHouse();
 		Card2d card3 = new BasicDrumHouse();
 		Card2d card4 = new BasicBassHouse();
@@ -67,6 +68,7 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card8 = new BasicSynthTrap();
 		Card2d card9 = new BasicBassTrap();
 		Card2d card10 = new BasicDrumTrap();
+		Card2d card11 = new BasicMixerPoint();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);
@@ -78,6 +80,7 @@ public class DJgame extends ApplicationAdapter {
 		Session.State.getui().drawpile.AddCard(card8);
 		Session.State.getui().drawpile.AddCard(card9);
 		Session.State.getui().drawpile.AddCard(card10);
+		Session.State.getui().drawpile.AddCard(card11);
 
 		Session.BeginTurn();
 		//ui.cards.AddCard(card);

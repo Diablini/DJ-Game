@@ -109,7 +109,7 @@ public class CardFan extends Group {
         int startslot = (slots.size() - cards.size())/2;
         for (int i = 0; i < cards.size(); i++)
         {
-            cards.get(i).setZIndex(Constants.zcardinhand - i);
+            cards.get(i).setZIndex(i);
             cards.get(i).Shuffle(slots.get(i + startslot).x, slots.get(i + startslot).y,
                     slots.get(i + startslot).angle);
         }

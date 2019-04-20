@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
+
 import java.util.Vector;
 
 public class TrackPlaylist extends Group {
@@ -76,6 +78,7 @@ public class TrackPlaylist extends Group {
                 return false;
             }
             removeActor(clips.get(0).img);
+            Session.ScorePoints(clips.get(0).crowdpoints);
             clips.remove(0);
             realign();
             return true;
@@ -134,7 +137,7 @@ public class TrackPlaylist extends Group {
             sclip = strack.GetNext();
             strack.PlayNext();
         }
-        // TODO: check for matches
+        // TODO: check for combos
     }
 
 

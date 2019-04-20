@@ -1,5 +1,7 @@
 package com.djgame;
 
+import com.badlogic.gdx.graphics.Color;
+
 public final class Constants {
     private Constants(){
         // no constructor
@@ -53,21 +55,25 @@ public final class Constants {
     public static final float mixery = 450f;
     public static final float timerx = 900f;
     public static final float timery = 1000f;
-    public static final float inspirationx = 860f;
-    public static final float inspirationy = 350f;
+    public static final float inspirationx = 60f;
+    public static final float inspirationy = 250f;
+    public static final float crowdpointsx = 500f;
+    public static final float crowdpointsy = 1000f;
+    public static final float mixpowerx = 1200f;
+    public static final float mixpowery = 350f;
 
     // mixer stuff
     public static final float knoboffsetx = -64f;
     public static final float knoboffsety = -40f;
-    public static final float mixeroffset = 180f;
+    public static final float mixeroffset = 100f;
     public static final float mixertrackx = 62f;
     public static final float mixertracky = 40f;
     public static final float mixtracklength = 380f;
     public static final float upbuttonoffsetx = -20f;
-    public static final float upbuttonoffsety = 400f;
+    public static final float upbuttonoffsety = 350f;
     public static final float downbuttonoffsetx = -20f;
     public static final float downbuttonoffsety = -100f;
-    public static final float bonusleftoffsetx = -200f;
+    public static final float bonusleftoffsetx = -30f;
     public static final float bonusrightoffsetx = 60f;
     public static final float bonusoffsety = 20f;
 
@@ -87,16 +93,19 @@ public final class Constants {
     // < 2000 Middle
     // < 3000 Foreground
 
-    public static final int zbackground = 900;
+    public static final int zbackground = 0;
 
-    public static final int zinspiration = 1000;
-    public static final int zmixer = 1200;
-    public static final int ztracks = 1201;
+    public static final int zinspiration = 0;
+    public static final int zcrowd = 1;
+    public static final int ztimer = 2;
+    public static final int zmixer = 3;
+    public static final int zmixpower = 4;
+    public static final int ztracks = 5;
+    public static final int zdrawpile = 6;
+    public static final int zdiscardpile = 7;
+    public static final int zcardfan = 8;
+
     public static final int zgenericbutton = 1300;
-    public static final int ztimer = 1402;
-    public static final int zcardinhand = 1500;
-    public static final int zdrawpile = 1600;
-    public static final int zdiscardpile = 1601;
 
 
     public static final int zcardzoomed = 2500;
@@ -127,4 +136,7 @@ public final class Constants {
     public static final int baseclippoints = 10;
     public static final int basetwocombo = 5;
     public static final int basethreecombo = 25;
+
+    // Colors
+    public static final Color activatedbonuscolor = Color.GREEN;
 }

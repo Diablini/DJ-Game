@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.djgame.Constants;
 import com.djgame.Mixer.Bonuses.NoBonus;
 import com.djgame.Session;
@@ -78,6 +79,7 @@ public class Mixer extends Group {
                 Session.State.setMixpower(Session.State.getMixpower() - 1);
                 UpdatePosition();
                 bonuses.get(value).Play();
+                Session.RefreshUI();
                 return true;
             }
             return false;
@@ -89,6 +91,7 @@ public class Mixer extends Group {
                 Session.State.setMixpower(Session.State.getMixpower() - 1);
                 UpdatePosition();
                 bonuses.get(value).Play();
+                Session.RefreshUI();
                 return true;
             }
             return false;
@@ -126,6 +129,7 @@ public class Mixer extends Group {
                     bonuses.lastElement().text.setPosition(Constants.bonusleftoffsetx,
                             (Constants.bonusoffsety +
                                     i *(Constants.mixtracklength/Constants.mixernumofpositions)));
+                    bonuses.lastElement().text.setAlignment(Align.right, Align.right);
                 }
                 else{
                     bonuses.lastElement().text.setPosition(Constants.bonusrightoffsetx,

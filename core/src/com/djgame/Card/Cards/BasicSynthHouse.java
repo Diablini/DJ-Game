@@ -45,7 +45,7 @@ public class BasicSynthHouse extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-synth.png"));
+        Texture tex = new Texture(Gdx.files.internal("point-lead.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
