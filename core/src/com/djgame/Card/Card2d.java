@@ -1,6 +1,7 @@
 package com.djgame.Card;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -123,7 +124,15 @@ public class Card2d extends Group {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //TODO: write click event
                 if (hasActions()) return false;
-                return Play();
+                if (event.getButton() == Input.Buttons.LEFT)
+                {
+                    return Play();
+                }
+                else if (event.getButton() == Input.Buttons.RIGHT)
+                {
+                    return PlaySpecial();
+                }
+                return true;
             }
 
 
