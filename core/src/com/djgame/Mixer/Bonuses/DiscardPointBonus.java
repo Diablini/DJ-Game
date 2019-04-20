@@ -13,7 +13,7 @@ public class DiscardPointBonus extends MixerBonus {
         if (activated) return;
         while(!Session.State.getui().cards.cards.isEmpty())
         {
-            Session.State.getui().cards.RemoveCard(Session.State.getui().cards.getFirstCard());
+            Session.DiscardAfterPlay(Session.State.getui().cards.getFirstCard());
             Session.ScorePoints(10);
         }
         Session.RefreshUI();

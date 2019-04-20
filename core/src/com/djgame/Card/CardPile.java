@@ -48,6 +48,7 @@ public class CardPile extends Group {
     public void AddCardRand(Card2d card){
         RandomXS128 rand = new RandomXS128();
         rand.setSeed(TimeUtils.nanoTime());
+        rand.setSeed(TimeUtils.nanoTime());
         cards.add(rand.nextInt(cards.size()), card);
         UpdateNumber();
     }
@@ -64,6 +65,7 @@ public class CardPile extends Group {
 
     public void Shuffle(){
         RandomXS128 rand = new RandomXS128();
+        rand.setSeed(TimeUtils.nanoTime());
         Card2d swap;
         for (int i = 0; i < cards.size(); i++){
             int index = rand.nextInt(cards.size());

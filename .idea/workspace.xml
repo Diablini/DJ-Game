@@ -11,15 +11,31 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/Card2d$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/Card2d$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/Card2d.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/Card2d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/CardPile.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Card/CardPile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Mixer/Bonuses/DiscardPointBonus.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Mixer/Bonuses/DiscardPointBonus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/PowerHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/PowerHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/PowerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/PowerHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Session$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Session$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$Clip.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$Clip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$SongStyle.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$SongStyle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$Track.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist$Track.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/djgame/TrackPlaylist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Card/Card2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Card/Card2d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +64,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="85" />
+          <entry key="java" value="94" />
           <entry key="png" value="2" />
         </counts>
       </usages-collector>
@@ -56,18 +72,18 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="85" />
+          <entry key="JAVA" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="java" value="12116" />
+          <entry key="java" value="13359" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12116" />
+          <entry key="JAVA" value="13359" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -76,70 +92,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumTrap.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+            <state relative-caret-position="470">
+              <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#693#694#0" expanded="true" />
+                <element signature="e#739#740#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassTrap.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Session.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHouse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHouse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-307">
-              <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
+            <state relative-caret-position="-466">
+              <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Card2d.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthHouse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicMixerPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="240">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,29 +128,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHipHop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="230">
               <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthHipHop.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+            <state relative-caret-position="260">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthTrap.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassTrap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="280">
               <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHipHop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicMixerPoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHouse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -206,9 +226,7 @@
       <list>
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBass.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrum.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/NoBonus.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/ChooseListener.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DoubleComboBonus.java" />
@@ -217,16 +235,12 @@
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/HealBonus.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/InspirationBonus.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/PointBonus.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/MixerBonus.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/CardFan.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/DJgame.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicMixerPoint.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Mixer.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/UI.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/Constants.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/Session.java" />
-        <option value="$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHipHop.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHipHop.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthHipHop.java" />
@@ -237,6 +251,12 @@
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHouse.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthHouse.java" />
         <option value="$PROJECT_DIR$/core/src/com/djgame/Card/Card2d.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/Constants.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/Session.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java" />
+        <option value="$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java" />
       </list>
     </option>
   </component>
@@ -288,6 +308,21 @@
               <item name="djgame" type="462c0819:PsiDirectoryNode" />
               <item name="Card" type="462c0819:PsiDirectoryNode" />
               <item name="Cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Game" type="1abcf292:AndroidViewProjectNode" />
+              <item name="core" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="djgame" type="462c0819:PsiDirectoryNode" />
+              <item name="Mixer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Game" type="1abcf292:AndroidViewProjectNode" />
+              <item name="core" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="djgame" type="462c0819:PsiDirectoryNode" />
+              <item name="Mixer" type="462c0819:PsiDirectoryNode" />
+              <item name="Bonuses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Game" type="1abcf292:AndroidViewProjectNode" />
@@ -571,25 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#527#680#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/ChooseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-536">
@@ -664,18 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#154#155#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Mixer/MixerBonus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -718,55 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHipHop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHipHop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicSynthHipHop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicMixerPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,23 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassTrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHouse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-307">
@@ -823,8 +765,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Card2d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
+        <state relative-caret-position="-860">
+          <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="138" column="52" selection-start-line="138" selection-start-column="52" selection-end-line="138" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/PowerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/TrackPlaylist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
+          <folding>
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHipHop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicDrumHipHop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicMixerPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/CardPile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassHouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Card/Cards/BasicBassTrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-466">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Mixer/Bonuses/DiscardPointBonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

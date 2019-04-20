@@ -15,13 +15,14 @@ public class TrackPlaylist extends Group {
     public enum TrackType{
         DRUM,
         BASS,
-        SYNTH
+        SYNTH,
     }
 
     public enum SongStyle{
         HIPHOP,
         TRAP,
-        HOUSE
+        HOUSE,
+        EMPTY
     }
 
     public class Clip{
@@ -29,6 +30,11 @@ public class TrackPlaylist extends Group {
         public SongStyle style;
         public int crowdpoints;
         public Image img;
+
+        public Clip()
+        {
+            style = SongStyle.EMPTY;
+        }
     }
 
     public class Track extends Group{
@@ -69,7 +75,7 @@ public class TrackPlaylist extends Group {
         }
 
         public Clip GetNext(){
-            if (clips.isEmpty()){return null;}
+            if (clips.isEmpty()){ return new Clip(); }
             return clips.get(0);
         }
 
@@ -78,7 +84,7 @@ public class TrackPlaylist extends Group {
                 return false;
             }
             removeActor(clips.get(0).img);
-            Session.ScorePoints(clips.get(0).crowdpoints);
+            Session.SingleCombo(clips.get(0));
             clips.remove(0);
             realign();
             return true;
@@ -117,27 +123,45 @@ public class TrackPlaylist extends Group {
 
     }
 
-    public void PlayTracks(boolean d, boolean b, boolean s){
+    public void PlayTracks(){
         // play requested tracks
         Clip dclip,bclip,sclip;
-        if (d){
-            if (dtrack.clips.isEmpty()){Session.EmptyTrack(TrackType.DRUM);}
-            dclip = dtrack.GetNext();
-            dtrack.PlayNext();
+
+        if (dtrack.clips.isEmpty()){Session.EmptyTrack(TrackType.DRUM);}
+        dclip = dtrack.GetNext();
+
+        if (btrack.clips.isEmpty()){Session.EmptyTrack(TrackType.BASS);}
+        bclip = btrack.GetNext();
+
+        if (strack.clips.isEmpty()){Session.EmptyTrack(TrackType.SYNTH);}
+        sclip = strack.GetNext();
+
+        // check for triple combo
+        if (dclip.style != SongStyle.EMPTY &&
+                dclip.style == bclip.style && bclip.style == sclip.style)
+        {
+            Session.TripleCombo(dclip.style);
+        }
+        else
+        {
+            // check for double combos
+            // Drum and Bass
+            if (dclip.style == bclip.style && dclip.style != SongStyle.EMPTY){
+                Session.DoubleCombo(dclip.style);
+            }
+            // Drum and Synth
+            if (dclip.style == sclip.style && dclip.style != SongStyle.EMPTY){
+                Session.DoubleCombo(dclip.style);
+            }
+            // Bass and Synth
+            if (bclip.style == sclip.style && bclip.style != SongStyle.EMPTY){
+                Session.DoubleCombo(bclip.style);
+            }
         }
 
-        if (b){
-            if (btrack.clips.isEmpty()){Session.EmptyTrack(TrackType.BASS);}
-            bclip = btrack.GetNext();
-            btrack.PlayNext();
-        }
-
-        if (s){
-            if (strack.clips.isEmpty()){Session.EmptyTrack(TrackType.SYNTH);}
-            sclip = strack.GetNext();
-            strack.PlayNext();
-        }
-        // TODO: check for combos
+        dtrack.PlayNext();
+        btrack.PlayNext();
+        strack.PlayNext();
     }
 
 

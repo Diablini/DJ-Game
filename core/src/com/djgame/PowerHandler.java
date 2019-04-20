@@ -13,6 +13,8 @@ public class PowerHandler {
     Vector<Power> beforeround, afterround;
     Comparator<Power> comp;
 
+
+
     PowerHandler(){
         beforeround = new Vector<Power>();
         afterround = new Vector<Power>();

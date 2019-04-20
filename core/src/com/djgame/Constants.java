@@ -134,8 +134,9 @@ public final class Constants {
     // Card Effect Related
 
     public static final int baseclippoints = 10;
-    public static final int basetwocombo = 5;
-    public static final int basethreecombo = 25;
+    public static final int basetwocombo = 10;
+    public static final int basethreecombo = 30;
+    public static final int basecombomultiplier = 1;
 
     // Colors
     public static final Color activatedbonuscolor = Color.GREEN;

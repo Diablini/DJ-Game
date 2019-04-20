@@ -13,6 +13,12 @@ public class Session {
         State.ui = new UI();
         State.mixpower = Constants.mixpowerperturn;
 
+        // powerups
+        State.combomultiplierbonus = 0;
+        State.hiphopsinglebonus = 0;
+        State.trapsinglebonus = 0;
+        State.housesinglebonus = 0;
+
         State.ui.drawpile.Shuffle();
     }
 
@@ -48,7 +54,7 @@ public class Session {
         State.round++;
 
         // play tracks
-        State.ui.tracks.PlayTracks(true,true,true);
+        State.ui.tracks.PlayTracks();
 
         // dump hand into discard pile
         int c = State.ui.cards.cards.size();
@@ -108,6 +114,30 @@ public class Session {
         State.ui.discardpile.AddCard(card);
     }
 
+    public static void TripleCombo(TrackPlaylist.SongStyle style)
+    {
+        ScorePoints(Constants.basethreecombo *
+                (Constants.basecombomultiplier + State.combomultiplierbonus));
+    }
+
+    public static void DoubleCombo(TrackPlaylist.SongStyle style)
+    {
+        ScorePoints(Constants.basetwocombo *
+                (Constants.basecombomultiplier + State.combomultiplierbonus) );
+    }
+
+    public static void SingleCombo(TrackPlaylist.Clip clip)
+    {
+        switch (clip.style)
+        {
+            case TRAP: ScorePoints(clip.crowdpoints + State.trapsinglebonus); break;
+            case HOUSE: ScorePoints(clip.crowdpoints + State.housesinglebonus); break;
+            case HIPHOP: ScorePoints(clip.crowdpoints + State.hiphopsinglebonus); break;
+            // wtf are we doing here
+            case EMPTY: return;
+        }
+    }
+
     public static boolean CostCheck(Card2d card){
         if (card.getCost() <= State.inspiration){
             State.inspiration -= card.getCost();
@@ -146,6 +176,11 @@ public class Session {
         public static void setInspiration(int i){inspiration = i;}
         public static void setHp(int h){hp=h;}
         public static void setCrowd(int c){crowd = c;}
+
+
+        // Powerups and shit
+        public static int combomultiplierbonus;
+        public static int trapsinglebonus, housesinglebonus, hiphopsinglebonus;
     }
 
 }
