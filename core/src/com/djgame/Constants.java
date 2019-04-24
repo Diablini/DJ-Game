@@ -50,9 +50,9 @@ public final class Constants {
     public static final float discardpilex = 1700f;
     public static final float discardpiley = 50f;
     public static final float tracksx = 300f;
-    public static final float tracksy = 500f;
+    public static final float tracksy = 600f;
     public static final float mixerx = 1200f;
-    public static final float mixery = 450f;
+    public static final float mixery = 550f;
     public static final float timerx = 900f;
     public static final float timery = 1000f;
     public static final float inspirationx = 60f;
@@ -63,6 +63,10 @@ public final class Constants {
     public static final float mixpowery = 350f;
     public static final float hpx = 1300f;
     public static final float hpy = 1000f;
+    public static final float choosepromptx = 700f;
+    public static final float chooseprompty = 400f;
+    public static final float endturnbuttonx = 1500f;
+    public static final float endturnbuttony = 200f;
 
     // mixer stuff
     public static final float knoboffsetx = -64f;
@@ -97,18 +101,19 @@ public final class Constants {
 
     public static final int zbackground = 0;
 
-    public static final int zinspiration = 0;
-    public static final int zcrowd = 1;
-    public static final int ztimer = 2;
-    public static final int zmixer = 3;
-    public static final int zmixpower = 4;
-    public static final int zhp = 5;
-    public static final int ztracks = 6;
-    public static final int zdrawpile = 7;
-    public static final int zdiscardpile = 8;
-    public static final int zcardfan = 9;
+    public static final int zgenericbutton = 0;
+    public static final int zinspiration = 1;
+    public static final int zcrowd = 2;
+    public static final int ztimer = 3;
+    public static final int zmixer = 4;
+    public static final int zmixpower = 5;
+    public static final int zhp = 6;
+    public static final int ztracks = 7;
+    public static final int zdrawpile = 8;
+    public static final int zdiscardpile = 9;
+    public static final int zchooseprompt = 10;
+    public static final int zcardfan = 11;
 
-    public static final int zgenericbutton = 1300;
 
 
     public static final int zcardzoomed = 2500;
@@ -122,7 +127,7 @@ public final class Constants {
     public static final int roundlimit = 10;
     public static final int drawperturn = 5;
     public static final int startinghp = 3;
-    public static final int inspirationperturn = 5;
+    public static final int inspirationperturn = 6;
     public static final int mixpowerperturn = 1;
 
     // Tracks

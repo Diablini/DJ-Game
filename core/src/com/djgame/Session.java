@@ -133,6 +133,12 @@ public class Session {
         State.watchdog.CardDiscard();
     }
 
+    public static void DiscardNoPlay(Card2d card){
+        State.ui.cards.RemoveCard(card);
+        State.ui.discardpile.AddCard(card);
+        State.watchdog.CardDiscard();
+    }
+
     public static void TripleCombo(TrackPlaylist.SongStyle style)
     {
         ScorePoints(Constants.basethreecombo *
@@ -176,6 +182,7 @@ public class Session {
 
         State.ui.drawpile.UpdateNumber();
         State.ui.discardpile.UpdateNumber();
+        State.ui.chooseprompt.setText(State.choose.GetPrompt());
     }
 
     public static class State{

@@ -15,6 +15,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.djgame.Constants;
+import com.djgame.Session;
+
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
@@ -124,6 +127,15 @@ public class Card2d extends Group {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //TODO: write click event
                 if (hasActions()) return false;
+                if (Session.State.choose.AnyWait())
+                {
+                    if (Session.State.choose.CardWait()){
+                        Session.State.choose.CardChosen(Card2d.this);
+                        return true;
+                    }
+                }
+
+
                 if (event.getButton() == Input.Buttons.LEFT)
                 {
                     return Play();

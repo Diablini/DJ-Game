@@ -1,10 +1,16 @@
 package com.djgame;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.djgame.Card.CardFan;
 import com.djgame.Card.CardPile;
 import com.djgame.Mixer.Mixer;
@@ -17,7 +23,8 @@ public class UI extends Group {
     public CardPile drawpile, discardpile;
     public TrackPlaylist tracks;
     public Mixer mixer;
-    public Label rounds, inspiration, crowd, mixpower, hp;
+    public Label rounds, inspiration, crowd, mixpower, hp, chooseprompt;
+    public Image endturnbutton;
 
     UI(){
         setPosition(0,0);
@@ -25,6 +32,8 @@ public class UI extends Group {
         BitmapFont font = new BitmapFont();
         style.fontColor = Color.WHITE;
         style.font = font;
+        Texture endtex = new Texture(Gdx.files.internal("image-drum1.jpg"));
+        TextureRegion endreg = new TextureRegion(endtex);
 
         cards = new CardFan();
         drawpile = new CardPile();
@@ -36,6 +45,16 @@ public class UI extends Group {
         crowd = new Label("Crowd Points: ", style);
         mixpower = new Label("Mix Power: 0", style);
         hp = new Label("HP: 0", style);
+        chooseprompt = new Label("", style);
+
+        endturnbutton = new Image(endreg);
+        endturnbutton.addListener(new ClickListener() {
+
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Session.EndTurn();
+            }
+        });
 
 
         rounds.setFontScale(2.5f);
@@ -43,6 +62,7 @@ public class UI extends Group {
         crowd.setFontScale(2.5f);
         mixpower.setFontScale(2.5f);
         hp.setFontScale(2.5f);
+        chooseprompt.setFontScale(3f);
 
         drawpile.Rename("Draw");
         discardpile.Rename("Discard");
@@ -61,6 +81,8 @@ public class UI extends Group {
         addActor(crowd);
         addActor(mixpower);
         addActor(hp);
+        addActor(chooseprompt);
+        addActor(endturnbutton);
         setVisible(true);
 
         cards.setZIndex(Constants.zcardfan);
@@ -82,6 +104,10 @@ public class UI extends Group {
         mixpower.setPosition(Constants.mixpowerx, Constants.mixpowery);
         hp.setZIndex(Constants.zhp);
         hp.setPosition(Constants.hpx, Constants.hpy);
+        chooseprompt.setZIndex(Constants.zchooseprompt);
+        chooseprompt.setPosition(Constants.choosepromptx, Constants.chooseprompty);
+        endturnbutton.setZIndex(Constants.zgenericbutton);
+        endturnbutton.setPosition(Constants.endturnbuttonx,Constants.endturnbuttony);
     }
 
     @Override

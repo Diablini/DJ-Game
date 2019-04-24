@@ -2,7 +2,9 @@ package com.djgame.Tracks;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.djgame.Constants;
 import com.djgame.Session;
 
@@ -22,6 +24,16 @@ public class Track extends Group {
         this.maxsize = size;
         this.img = new Image(reg);
         addActor(img);
+
+        addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if (Session.State.choose.TrackWait()){
+                    Session.State.choose.TrackChosen(Track.this);
+                }
+                return true;
+            }
+        });
     }
 
     public void InsertTop(Clip clip){

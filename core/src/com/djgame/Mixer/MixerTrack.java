@@ -61,6 +61,16 @@ public class MixerTrack extends Group {
             }
         });
 
+        addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if (Session.State.choose.MixerWait()){
+                    Session.State.choose.MixerChosen(MixerTrack.this);
+                }
+                return true;
+            }
+        });
+
         addActor(mixertrack);
         addActor(knob);
         addActor(upbutton);

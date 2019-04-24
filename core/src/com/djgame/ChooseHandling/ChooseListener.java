@@ -4,13 +4,14 @@ import com.badlogic.gdx.utils.Queue;
 import com.djgame.Card.Card2d;
 import com.djgame.Mixer.Mixer;
 import com.djgame.Mixer.MixerTrack;
+import com.djgame.Session;
 import com.djgame.Tracks.Track;
 import com.djgame.Tracks.TrackPlaylist;
 
 
 public class ChooseListener {
 
-    enum ChooseRequestType{
+    public enum ChooseRequestType{
         CARD,
         MIXER,
         TRACK
@@ -20,6 +21,11 @@ public class ChooseListener {
 
     public ChooseListener(){
         requests = new Queue<ChooseRequest>();
+    }
+
+    public void PutRequest(ChooseRequest req){
+        requests.addLast(req);
+        Session.RefreshUI();
     }
 
     // are we waiting for a card to be chosen?
@@ -43,6 +49,13 @@ public class ChooseListener {
         return false;
     }
 
+    public boolean AnyWait(){
+        if (TrackWait() || MixerWait() || CardWait()){
+            return true;
+        }
+        return false;
+    }
+
     public void CardChosen(Card2d card){
         if (CardWait()){
             requests.first().info.chosencards.add(card);
@@ -54,6 +67,7 @@ public class ChooseListener {
             if (!requests.isEmpty()){
                 requests.first().info = carrier;
             }
+            Session.RefreshUI();
         }
     }
 
@@ -68,6 +82,7 @@ public class ChooseListener {
             if (!requests.isEmpty()){
                 requests.first().info = carrier;
             }
+            Session.RefreshUI();
         }
     }
 
@@ -82,7 +97,15 @@ public class ChooseListener {
             if (!requests.isEmpty()){
                 requests.first().info = carrier;
             }
+            Session.RefreshUI();
         }
+    }
+
+    public String GetPrompt(){
+        if (AnyWait()){
+            return requests.first().prompt;
+        }
+        return "";
     }
 
 }

@@ -15,6 +15,7 @@ import com.djgame.Card.Cards.AdvancedDrawperturn;
 import com.djgame.Card.Cards.BasicBassHipHop;
 import com.djgame.Card.Cards.BasicBassHouse;
 import com.djgame.Card.Cards.BasicBassTrap;
+import com.djgame.Card.Cards.BasicDrawDiscard;
 import com.djgame.Card.Cards.BasicDrumHipHop;
 import com.djgame.Card.Cards.BasicDrumHouse;
 import com.djgame.Card.Cards.BasicDrumTrap;
@@ -40,23 +41,10 @@ public class DJgame extends ApplicationAdapter {
 		Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
 		Image bg = new Image(bgtex);
 
-		Texture b = new Texture(Gdx.files.internal("image-drum1.jpg"));
-		Image button = new Image(b);
-		button.setZIndex(Constants.zgenericbutton);
-		button.setPosition(600,700);
-		button.setZIndex(0);
-		button.setVisible(true);
-		button.addListener(new ClickListener() {
 
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				Session.EndTurn();
-			}
-		});
 
 		teststage.addActor(bg);
 		teststage.addActor(Session.State.getui());
-		teststage.addActor(button);
 
 		Card2d card = new BasicMixerPoint();
 		Card2d card1 = new BasicMixerPoint();
@@ -71,7 +59,7 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card10 = new BasicDrumTrap();
 		Card2d card11 = new BasicMixerPoint();
 		Card2d card12 = new AdvancedDrawperturn();
-		Card2d card13 = new AdvancedDrawperturn();
+		Card2d card13 = new BasicDrawDiscard();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);

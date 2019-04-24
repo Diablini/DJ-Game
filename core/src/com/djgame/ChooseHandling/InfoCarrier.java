@@ -6,8 +6,8 @@ import com.djgame.Tracks.Track;
 
 import java.util.Vector;
 
-class InfoCarrier {
-    InfoCarrier(){
+public class InfoCarrier {
+    public InfoCarrier(){
         chosencards = new Vector<Card2d>();
         chosentracks = new Vector<Track>();
     }
