@@ -5,17 +5,10 @@ import java.util.Vector;
 
 public class PowerHandler {
 
-    public abstract class Power{
-        public int priority;
-        public abstract void Play();
-    }
-
     Vector<Power> beforeround, afterround;
     Comparator<Power> comp;
 
-
-
-    PowerHandler(){
+    public PowerHandler(){
         beforeround = new Vector<Power>();
         afterround = new Vector<Power>();
         comp = new Comparator<Power>() {
@@ -29,6 +22,15 @@ public class PowerHandler {
     public void PlayBefore(){
         beforeround.sort(comp);
 
+        // clear duration 0 powers
+        for (int i = 0; i < beforeround.size(); i++)
+        {
+            if (beforeround.get(i).duration <= 0)
+            {
+                beforeround.remove(i);
+            }
+        }
+
         for (int i = 0; i < beforeround.size(); i++){
             beforeround.get(i).Play();
         }
@@ -37,8 +39,26 @@ public class PowerHandler {
     public void PlayAfter(){
         afterround.sort(comp);
 
+        // clear duration 0 powers
+        for (int i = 0; i < afterround.size(); i++)
+        {
+            if (afterround.get(i).duration <= 0)
+            {
+                afterround.remove(i);
+            }
+        }
+
         for (int i = 0; i < afterround.size(); i++){
             afterround.get(i).Play();
         }
     }
+
+    public void AddBefore(Power p){
+        beforeround.add(p);
+    }
+
+    public void AddAfter(Power p){
+        afterround.add(p);
+    }
+
 }

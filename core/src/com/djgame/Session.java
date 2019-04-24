@@ -2,6 +2,9 @@ package com.djgame;
 
 
 import com.djgame.Card.Card2d;
+import com.djgame.ChooseHandling.ChooseListener;
+import com.djgame.Tracks.Clip;
+import com.djgame.Tracks.TrackPlaylist;
 
 public class Session {
 
@@ -20,9 +23,16 @@ public class Session {
         State.housesinglebonus = 0;
 
         State.ui.drawpile.Shuffle();
+        State.watchdog = new Watchdog();
+        State.powers = new PowerHandler();
+        State.choose = new ChooseListener();
+
     }
 
     public static void BeginTurn(){
+        // reset watchdog
+        State.watchdog.NewRound();
+
         // check if round timer has run out
         if (State.round > Constants.roundlimit){
             TimerOut();
@@ -45,11 +55,17 @@ public class Session {
         // reset mixer bonuses
         State.ui.mixer.ResetBonuses();
 
+        // play beginning of turn powers
+        State.powers.PlayBefore();
+
         // refresh ui
         RefreshUI();
     }
 
     public static void EndTurn(){
+        // play end of turn powers
+        State.powers.PlayAfter();
+
         // increment round
         State.round++;
 
@@ -84,6 +100,7 @@ public class Session {
         }
         Card2d card = State.ui.drawpile.DrawCard();
         State.ui.cards.AddCard(card);
+        State.watchdog.CardDrawn();
     }
 
     public static void LoseHp(){
@@ -106,12 +123,14 @@ public class Session {
     // called when a track is played but has no clips
     public static void EmptyTrack(TrackPlaylist.TrackType type){
         LoseHp();
+        State.watchdog.EmptyTracks();
         // TODO: more logic prob
     }
 
     public static void DiscardAfterPlay(Card2d card){
         State.ui.cards.RemoveCard(card);
         State.ui.discardpile.AddCard(card);
+        State.watchdog.CardDiscard();
     }
 
     public static void TripleCombo(TrackPlaylist.SongStyle style)
@@ -126,7 +145,7 @@ public class Session {
                 (Constants.basecombomultiplier + State.combomultiplierbonus) );
     }
 
-    public static void SingleCombo(TrackPlaylist.Clip clip)
+    public static void SingleCombo(Clip clip)
     {
         switch (clip.style)
         {
@@ -153,6 +172,7 @@ public class Session {
         State.ui.rounds.setText("Turn: " + State.round + "/" + Constants.roundlimit);
         State.ui.mixpower.setText("Mix Power: " + State.mixpower);
         State.ui.crowd.setText("Crowd Points: " + State.crowd);
+        State.ui.hp.setText("HP: " + State.hp);
 
         State.ui.drawpile.UpdateNumber();
         State.ui.discardpile.UpdateNumber();
@@ -162,6 +182,9 @@ public class Session {
 
         private static UI ui;
         private static int round, hp, inspiration, crowd, mixpower;
+        public static Watchdog watchdog;
+        public static PowerHandler powers;
+        public static ChooseListener choose;
 
         public static UI getui(){
             return ui;

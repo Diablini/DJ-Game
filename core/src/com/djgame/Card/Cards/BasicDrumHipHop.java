@@ -7,7 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
 import com.djgame.Session;
-import com.djgame.TrackPlaylist;
+import com.djgame.Tracks.Clip;
+import com.djgame.Tracks.TrackPlaylist;
 
 public class BasicDrumHipHop extends Card2d {
 
@@ -29,8 +30,8 @@ public class BasicDrumHipHop extends Card2d {
         Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
-        TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
-        TrackPlaylist.Clip cliptwo = Session.State.getui().tracks.new Clip();
+        Clip clipone = new Clip();
+        Clip cliptwo = new Clip();
         clipone.style = TrackPlaylist.SongStyle.HIPHOP;
         cliptwo.style = TrackPlaylist.SongStyle.HIPHOP;
         clipone.crowdpoints = Constants.baseclippoints;
@@ -41,6 +42,7 @@ public class BasicDrumHipHop extends Card2d {
         Session.State.getui().tracks.dtrack.InsertTop(clipone);
         Session.State.getui().tracks.dtrack.InsertTop(cliptwo);
 
+        Session.State.watchdog.CardPlayed();
         Session.DiscardAfterPlay(this);
         return true;
     }
@@ -53,8 +55,8 @@ public class BasicDrumHipHop extends Card2d {
         Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
-        TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
-        TrackPlaylist.Clip cliptwo = Session.State.getui().tracks.new Clip();
+        Clip clipone = new Clip();
+        Clip cliptwo = new Clip();
         clipone.style = TrackPlaylist.SongStyle.HIPHOP;
         cliptwo.style = TrackPlaylist.SongStyle.HIPHOP;
         clipone.crowdpoints = Constants.baseclippoints;
@@ -65,6 +67,7 @@ public class BasicDrumHipHop extends Card2d {
         Session.State.getui().tracks.dtrack.InsertBottom(clipone);
         Session.State.getui().tracks.dtrack.InsertBottom(cliptwo);
 
+        Session.State.watchdog.CardPlayed();
         Session.DiscardAfterPlay(this);
         return true;
     }

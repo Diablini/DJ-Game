@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.djgame.Card.CardFan;
 import com.djgame.Card.CardPile;
 import com.djgame.Mixer.Mixer;
+import com.djgame.Tracks.TrackPlaylist;
 
 
 public class UI extends Group {
@@ -16,7 +17,7 @@ public class UI extends Group {
     public CardPile drawpile, discardpile;
     public TrackPlaylist tracks;
     public Mixer mixer;
-    public Label rounds, inspiration, crowd, mixpower;
+    public Label rounds, inspiration, crowd, mixpower, hp;
 
     UI(){
         setPosition(0,0);
@@ -34,12 +35,14 @@ public class UI extends Group {
         inspiration = new Label("Inspiration: 0/0", style);
         crowd = new Label("Crowd Points: ", style);
         mixpower = new Label("Mix Power: 0", style);
+        hp = new Label("HP: 0", style);
 
 
         rounds.setFontScale(2.5f);
         inspiration.setFontScale(2.5f);
         crowd.setFontScale(2.5f);
         mixpower.setFontScale(2.5f);
+        hp.setFontScale(2.5f);
 
         drawpile.Rename("Draw");
         discardpile.Rename("Discard");
@@ -57,6 +60,7 @@ public class UI extends Group {
         addActor(inspiration);
         addActor(crowd);
         addActor(mixpower);
+        addActor(hp);
         setVisible(true);
 
         cards.setZIndex(Constants.zcardfan);
@@ -76,6 +80,8 @@ public class UI extends Group {
         crowd.setPosition(Constants.crowdpointsx, Constants.crowdpointsy);
         mixpower.setZIndex(Constants.zmixpower);
         mixpower.setPosition(Constants.mixpowerx, Constants.mixpowery);
+        hp.setZIndex(Constants.zhp);
+        hp.setPosition(Constants.hpx, Constants.hpy);
     }
 
     @Override

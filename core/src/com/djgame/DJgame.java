@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.djgame.Card.Card2d;
+import com.djgame.Card.Cards.AdvancedDrawperturn;
 import com.djgame.Card.Cards.BasicBassHipHop;
 import com.djgame.Card.Cards.BasicBassHouse;
 import com.djgame.Card.Cards.BasicBassTrap;
@@ -69,6 +70,8 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card9 = new BasicBassTrap();
 		Card2d card10 = new BasicDrumTrap();
 		Card2d card11 = new BasicMixerPoint();
+		Card2d card12 = new AdvancedDrawperturn();
+		Card2d card13 = new AdvancedDrawperturn();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);
@@ -81,6 +84,8 @@ public class DJgame extends ApplicationAdapter {
 		Session.State.getui().drawpile.AddCard(card9);
 		Session.State.getui().drawpile.AddCard(card10);
 		Session.State.getui().drawpile.AddCard(card11);
+		Session.State.getui().drawpile.AddCard(card12);
+		Session.State.getui().drawpile.AddCard(card13);
 		Session.State.getui().drawpile.Shuffle();
 
 		Session.BeginTurn();

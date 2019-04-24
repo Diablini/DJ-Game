@@ -61,6 +61,8 @@ public final class Constants {
     public static final float crowdpointsy = 1000f;
     public static final float mixpowerx = 1200f;
     public static final float mixpowery = 350f;
+    public static final float hpx = 1300f;
+    public static final float hpy = 1000f;
 
     // mixer stuff
     public static final float knoboffsetx = -64f;
@@ -100,10 +102,11 @@ public final class Constants {
     public static final int ztimer = 2;
     public static final int zmixer = 3;
     public static final int zmixpower = 4;
-    public static final int ztracks = 5;
-    public static final int zdrawpile = 6;
-    public static final int zdiscardpile = 7;
-    public static final int zcardfan = 8;
+    public static final int zhp = 5;
+    public static final int ztracks = 6;
+    public static final int zdrawpile = 7;
+    public static final int zdiscardpile = 8;
+    public static final int zcardfan = 9;
 
     public static final int zgenericbutton = 1300;
 
@@ -137,6 +140,9 @@ public final class Constants {
     public static final int basetwocombo = 10;
     public static final int basethreecombo = 30;
     public static final int basecombomultiplier = 1;
+
+    // Powers
+    public static final int maxpowerduration = 100;
 
     // Colors
     public static final Color activatedbonuscolor = Color.GREEN;

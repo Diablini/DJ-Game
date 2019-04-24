@@ -50,5 +50,8 @@
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: ashley-1.7.0" level="project" />
     <orderEntry type="module" module-name="core" exported="" />
     <orderEntry type="module" module-name="core" exported="" />
+    <orderEntry type="module" module-name="core" exported="" />
+    <orderEntry type="module" module-name="core" exported="" />
+    <orderEntry type="module" module-name="core" exported="" />
   </component>
 </module>

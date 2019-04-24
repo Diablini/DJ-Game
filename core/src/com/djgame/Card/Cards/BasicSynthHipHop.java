@@ -7,7 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
 import com.djgame.Session;
-import com.djgame.TrackPlaylist;
+import com.djgame.Tracks.Clip;
+import com.djgame.Tracks.TrackPlaylist;
 
 public class BasicSynthHipHop extends Card2d {
 
@@ -29,13 +30,14 @@ public class BasicSynthHipHop extends Card2d {
         Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
-        TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
+        Clip clipone = new Clip();
         clipone.style = TrackPlaylist.SongStyle.HIPHOP;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 
         Session.State.getui().tracks.strack.InsertTop(clipone);
 
+        Session.State.watchdog.CardPlayed();
         Session.DiscardAfterPlay(this);
         return true;
     }
@@ -48,13 +50,14 @@ public class BasicSynthHipHop extends Card2d {
         Texture tex = new Texture(Gdx.files.internal("point-green.png"));
         TextureRegion reg = new TextureRegion(tex);
 
-        TrackPlaylist.Clip clipone = Session.State.getui().tracks.new Clip();
+        Clip clipone = new Clip();
         clipone.style = TrackPlaylist.SongStyle.HIPHOP;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 
         Session.State.getui().tracks.strack.InsertBottom(clipone);
 
+        Session.State.watchdog.CardPlayed();
         Session.DiscardAfterPlay(this);
         return true;
     }
