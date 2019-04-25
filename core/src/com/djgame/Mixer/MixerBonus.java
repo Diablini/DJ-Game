@@ -14,6 +14,8 @@ import com.djgame.Mixer.Bonuses.HealBonus;
 import com.djgame.Mixer.Bonuses.InspirationBonus;
 import com.djgame.Mixer.Bonuses.PointBonus;
 
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
+
 import java.util.Vector;
 
 public class MixerBonus {
@@ -34,7 +36,9 @@ public class MixerBonus {
         style.font = font;
         activated = false;
         text = new Label("", style);
-        text.setFontScale(1.5f);
+        text.setFontScale(1f);
+        text.setWrap(true);
+        text.setBounds(0, 0, Constants.bonustextwidth, Constants.bonustextheight);
     }
 
     public static Vector<MixerBonus> getBonusList(){

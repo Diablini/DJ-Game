@@ -27,7 +27,7 @@ public class BasicDrumHouse extends Card2d {
     public boolean Play() {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
-        Texture tex = new Texture(Gdx.files.internal("point-lead.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point2.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
@@ -52,7 +52,7 @@ public class BasicDrumHouse extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-lead.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point2.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();

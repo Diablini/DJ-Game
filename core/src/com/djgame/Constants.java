@@ -45,49 +45,51 @@ public final class Constants {
 
 
     // positions of UI elements
+    public static final float backgroundx = 0f;
+    public static final float backgroundy = 0f;
+    public static final float topplatex = 0f;
+    public static final float topplatey = 680f;
     public static final float drawpilex = 50f;
     public static final float drawpiley = 50f;
     public static final float discardpilex = 1700f;
     public static final float discardpiley = 50f;
-    public static final float tracksx = 300f;
-    public static final float tracksy = 600f;
-    public static final float mixerx = 1200f;
-    public static final float mixery = 550f;
-    public static final float timerx = 900f;
-    public static final float timery = 1000f;
-    public static final float inspirationx = 60f;
-    public static final float inspirationy = 250f;
-    public static final float crowdpointsx = 500f;
-    public static final float crowdpointsy = 1000f;
-    public static final float mixpowerx = 1200f;
-    public static final float mixpowery = 350f;
-    public static final float hpx = 1300f;
-    public static final float hpy = 1000f;
+    public static final float tracksx = 40f;
+    public static final float tracksy = 720f;
+    public static final float mixerx = 1620f;
+    public static final float mixery = 720f;
+    public static final float timerx = 600f;
+    public static final float timery = 1005f;
+    public static final float inspirationx = 1380f;
+    public static final float inspirationy = 1005f;
+    public static final float crowdpointsx = 920f;
+    public static final float crowdpointsy = 1005f;
+    public static final float mixpowerx = 1830f;
+    public static final float mixpowery = 712f;
+    public static final float hpx = 750f;
+    public static final float hpy = 1005f;
     public static final float choosepromptx = 700f;
     public static final float chooseprompty = 400f;
     public static final float endturnbuttonx = 1500f;
     public static final float endturnbuttony = 200f;
 
     // mixer stuff
-    public static final float knoboffsetx = -64f;
-    public static final float knoboffsety = -40f;
-    public static final float mixeroffset = 100f;
+    public static final float knoboffsetx = -20f;
+    public static final float knoboffsety = 0f;
+    public static final float mixeroffset = 65f;
     public static final float mixertrackx = 62f;
     public static final float mixertracky = 40f;
-    public static final float mixtracklength = 380f;
-    public static final float upbuttonoffsetx = -20f;
-    public static final float upbuttonoffsety = 350f;
-    public static final float downbuttonoffsetx = -20f;
-    public static final float downbuttonoffsety = -100f;
-    public static final float bonusleftoffsetx = -30f;
+    public static final float mixtracklength = 330f;
+    public static final float bonusleftoffsetx = -140f;
     public static final float bonusrightoffsetx = 60f;
-    public static final float bonusoffsety = 20f;
+    public static final float bonusoffsety = -12f;
+    public static final float bonustextwidth = 100f;
+    public static final float bonustextheight = 60f;
 
     // track stuff
-    public static final float trackoffsetx = 100f;
-    public static final float clipoffsetx = 5;
-    public static final float clipoffsety = 75;
-    public static final float clipmargin = 60;
+    public static final float trackoffsetx = 90f;
+    public static final float clipoffsetx = 5f;
+    public static final float clipoffsety = 75f;
+    public static final float clipmargin = 60f;
 
     // drawpile stuff
     public static final float cardnumberoffsetx = 60f;
@@ -100,19 +102,19 @@ public final class Constants {
     // < 3000 Foreground
 
     public static final int zbackground = 0;
-
-    public static final int zgenericbutton = 0;
-    public static final int zinspiration = 1;
-    public static final int zcrowd = 2;
-    public static final int ztimer = 3;
-    public static final int zmixer = 4;
-    public static final int zmixpower = 5;
-    public static final int zhp = 6;
-    public static final int ztracks = 7;
-    public static final int zdrawpile = 8;
-    public static final int zdiscardpile = 9;
-    public static final int zchooseprompt = 10;
-    public static final int zcardfan = 11;
+    public static final int ztopplate = 1;
+    public static final int zgenericbutton = 2;
+    public static final int zinspiration = 3;
+    public static final int zcrowd = 4;
+    public static final int ztimer = 5;
+    public static final int zmixer = 6;
+    public static final int zmixpower = 7;
+    public static final int zhp = 8;
+    public static final int ztracks = 9;
+    public static final int zdrawpile = 10;
+    public static final int zdiscardpile = 11;
+    public static final int zchooseprompt = 12;
+    public static final int zcardfan = 13;
 
 
 

@@ -20,11 +20,11 @@ import com.djgame.Tracks.TrackPlaylist;
 public class UI extends Group {
 
     public CardFan cards;
-    public CardPile drawpile, discardpile;
+    public CardPile drawpile, discardpile, exhaustpile;
     public TrackPlaylist tracks;
     public Mixer mixer;
     public Label rounds, inspiration, crowd, mixpower, hp, chooseprompt;
-    public Image endturnbutton;
+    public Image endturnbutton, background, topplate;
 
     UI(){
         setPosition(0,0);
@@ -32,11 +32,17 @@ public class UI extends Group {
         BitmapFont font = new BitmapFont();
         style.fontColor = Color.WHITE;
         style.font = font;
+        // TODO: load from atlas
         Texture endtex = new Texture(Gdx.files.internal("image-drum1.jpg"));
         TextureRegion endreg = new TextureRegion(endtex);
+        Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
+        TextureRegion bgreg = new TextureRegion(bgtex);
+        Texture platetex = new Texture(Gdx.files.internal("stats-bar.png"));
+        TextureRegion platereg = new TextureRegion(platetex);
 
         cards = new CardFan();
         drawpile = new CardPile();
+        exhaustpile = new CardPile();
         discardpile = new CardPile();
         tracks = new TrackPlaylist();
         mixer = new Mixer();
@@ -55,17 +61,21 @@ public class UI extends Group {
                 Session.EndTurn();
             }
         });
+        background = new Image(bgreg);
+        topplate = new Image(platereg);
 
 
-        rounds.setFontScale(2.5f);
-        inspiration.setFontScale(2.5f);
-        crowd.setFontScale(2.5f);
-        mixpower.setFontScale(2.5f);
-        hp.setFontScale(2.5f);
+        rounds.setFontScale(2f);
+        inspiration.setFontScale(2f);
+        crowd.setFontScale(2f);
+        mixpower.setFontScale(2f);
+        hp.setFontScale(2f);
         chooseprompt.setFontScale(3f);
 
         drawpile.Rename("Draw");
         discardpile.Rename("Discard");
+        exhaustpile.Rename("");
+        exhaustpile.setVisible(false);
 
 
 
@@ -74,6 +84,7 @@ public class UI extends Group {
         addActor(cards);
         addActor(drawpile);
         addActor(discardpile);
+        addActor(exhaustpile);
         addActor(tracks);
         addActor(mixer);
         addActor(rounds);
@@ -83,6 +94,8 @@ public class UI extends Group {
         addActor(hp);
         addActor(chooseprompt);
         addActor(endturnbutton);
+        addActor(background);
+        addActor(topplate);
         setVisible(true);
 
         cards.setZIndex(Constants.zcardfan);
@@ -108,6 +121,10 @@ public class UI extends Group {
         chooseprompt.setPosition(Constants.choosepromptx, Constants.chooseprompty);
         endturnbutton.setZIndex(Constants.zgenericbutton);
         endturnbutton.setPosition(Constants.endturnbuttonx,Constants.endturnbuttony);
+        background.setZIndex(Constants.zbackground);
+        background.setPosition(Constants.backgroundx, Constants.backgroundy);
+        topplate.setZIndex(Constants.ztopplate);
+        topplate.setPosition(Constants.topplatex, Constants.topplatey);
     }
 
     @Override

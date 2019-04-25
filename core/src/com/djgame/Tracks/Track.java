@@ -42,7 +42,6 @@ public class Track extends Group {
         }
         else{
             clips.add(clip);
-            clip.img.setZIndex(5000);
             addActor(clip.img);
             realign();
         }

@@ -47,7 +47,7 @@ public class AdvancedDrawperturn extends Card2d {
 
         Session.State.watchdog.PowerBeforeCreated();
         Session.State.watchdog.CardPlayed();
-        Session.DiscardAfterPlay(this);
+        Session.Exhaust(this);
         return true;
     }
 

@@ -37,13 +37,6 @@ public class DJgame extends ApplicationAdapter {
 		Gdx.input.setInputProcessor(teststage);
 		Session.NewSession();
 
-
-		Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
-		Image bg = new Image(bgtex);
-
-
-
-		teststage.addActor(bg);
 		teststage.addActor(Session.State.getui());
 
 		Card2d card = new BasicMixerPoint();

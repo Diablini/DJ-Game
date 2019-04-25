@@ -139,6 +139,11 @@ public class Session {
         State.watchdog.CardDiscard();
     }
 
+    public static void Exhaust(Card2d card){
+        State.ui.cards.RemoveCard(card);
+        State.ui.exhaustpile.AddCard(card);
+    }
+
     public static void TripleCombo(TrackPlaylist.SongStyle style)
     {
         ScorePoints(Constants.basethreecombo *
@@ -173,12 +178,11 @@ public class Session {
     }
 
     public static void RefreshUI(){
-        State.ui.inspiration.setText("Inspiration: "
-                + State.inspiration +"/" + Constants.inspirationperturn);
-        State.ui.rounds.setText("Turn: " + State.round + "/" + Constants.roundlimit);
-        State.ui.mixpower.setText("Mix Power: " + State.mixpower);
-        State.ui.crowd.setText("Crowd Points: " + State.crowd);
-        State.ui.hp.setText("HP: " + State.hp);
+        State.ui.inspiration.setText(State.inspiration +"/" + Constants.inspirationperturn);
+        State.ui.rounds.setText(State.round + "/" + Constants.roundlimit);
+        State.ui.mixpower.setText(State.mixpower);
+        State.ui.crowd.setText(State.crowd);
+        State.ui.hp.setText(State.hp);
 
         State.ui.drawpile.UpdateNumber();
         State.ui.discardpile.UpdateNumber();

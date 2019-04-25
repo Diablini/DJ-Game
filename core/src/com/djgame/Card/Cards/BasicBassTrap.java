@@ -27,7 +27,7 @@ public class BasicBassTrap extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-red.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
@@ -47,7 +47,7 @@ public class BasicBassTrap extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("point-red.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();

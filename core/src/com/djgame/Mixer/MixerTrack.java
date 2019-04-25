@@ -3,6 +3,7 @@ package com.djgame.Mixer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -13,51 +14,87 @@ import com.djgame.Mixer.Bonuses.NoBonus;
 import com.djgame.Session;
 
 import java.util.Vector;
+import java.lang.Math;
 
 public class MixerTrack extends Group {
     MixerTrack(){
         value = 0;
         left = true;
+
         // TODO: Load from atlas
         Texture mtracktex = new Texture(Gdx.files.internal("mixer-1.png"));
         Texture knobtex = new Texture(Gdx.files.internal("mixer-knob.png"));
-        Texture uptex = new Texture(Gdx.files.internal("point-bass.png"));
-        Texture downtex = new Texture(Gdx.files.internal("point-lead.png"));
         TextureRegion mtrackreg = new TextureRegion(mtracktex);
         TextureRegion knobreg = new TextureRegion(knobtex);
-        TextureRegion upreg = new TextureRegion(uptex);
-        TextureRegion downreg = new TextureRegion(downtex);
-        final MixerTrack dis = this;
 
         bonuses = new Vector<MixerBonus>();
         mixertrack = new Image(mtrackreg);
         knob = new Image(knobreg);
         knob.setPosition(Constants.knoboffsetx, Constants.knoboffsety);
-        upbutton = new Image(upreg);
-        downbutton = new Image(downreg);
-        upbutton.setPosition(Constants.upbuttonoffsetx, Constants.upbuttonoffsety);
-        downbutton.setPosition(Constants.downbuttonoffsetx, Constants.downbuttonoffsety);
 
-        upbutton.addListener(new ClickListener(){
-             @Override
-             public boolean touchDown(InputEvent event, float x, float y,
-                                      int pointer, int button) {
-                 if (dis.MoveUp()){
+        // handles changing of mixer positions
+        knob.addListener(new ClickListener(){
 
-                 }
-                 return true;
-             }
-         });
-
-        downbutton.addListener(new ClickListener(){
             @Override
-            public boolean touchDown(InputEvent event, float x, float y,
-                                     int pointer, int button) {
-                if (dis.MoveDown())
-                {
-
-                }
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                chosenvalue = value;
                 return true;
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                // motherfucking magic
+                Vector2 vec =
+                        stageToLocalCoordinates(new Vector2(event.getStageX(),event.getStageY()));
+                // since function's x and y are deltas we need the y relative to actor
+                y = vec.y;
+
+                // get closest position of knob
+                float [] pos = new float [Constants.mixernumofpositions];
+                // get positions
+                for (int i = 0; i < Constants.mixernumofpositions; i++){
+                    pos[i] = Constants.knoboffsety + (i *
+                            (Constants.mixtracklength / Constants.mixernumofpositions));
+                }
+
+                float chosen = 99999f;
+                // check which is closest position we can afford
+                for (int i = 0; i < Constants.mixernumofpositions; i++){
+                    // if its closer and we can afford the mixpower
+                    if (Math.abs(y - pos[i]) < Math.abs(y - chosen) &&
+                            Session.State.getMixpower() >= Math.abs(value - i) )
+                    {
+                        chosen = pos[i];
+                        // update chosen position
+                        chosenvalue = i;
+                    }
+                }
+                // move to chosen position
+                knob.setY(chosen);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                // cost check just in case
+                if (Math.abs(value - chosenvalue) > Session.State.getMixpower()){
+                    UpdatePosition();
+                    return;
+                }
+                if (value == chosenvalue) return;
+
+                int target = Math.abs(value - chosenvalue);
+                // check if we should go up or down
+                if (value - chosenvalue >= 0){
+                    for (int i = 0; i < target; i++){
+                        MoveDown();
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < target; i++){
+                        MoveUp();
+                    }
+                }
             }
         });
 
@@ -73,8 +110,6 @@ public class MixerTrack extends Group {
 
         addActor(mixertrack);
         addActor(knob);
-        addActor(upbutton);
-        addActor(downbutton);
     }
 
     public boolean MoveUp(){
@@ -146,6 +181,6 @@ public class MixerTrack extends Group {
 
     Image knob, mixertrack, upbutton, downbutton;
     Vector<MixerBonus> bonuses;
-    int value;
+    int value, chosenvalue;
     boolean left;
 }
