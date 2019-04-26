@@ -38,6 +38,9 @@ public class DJgame extends ApplicationAdapter {
 		Session.NewSession();
 
 		teststage.addActor(Session.State.getui());
+		Audio audio = new Audio();
+		teststage.addActor(audio);
+
 
 		Card2d card = new BasicMixerPoint();
 		Card2d card1 = new BasicMixerPoint();

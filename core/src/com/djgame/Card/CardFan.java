@@ -27,7 +27,7 @@ public class CardFan extends Group {
     private int centertargety = 0;
     private int radius = Math.round(centertargetx*3f);
     private int minslots = 4;
-    private float maxdegrees = 14f;
+    private float maxdegrees = 12f;
 
 
     public Vector<CardSlot> slots;

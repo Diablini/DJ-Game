@@ -33,7 +33,7 @@ public class UI extends Group {
         style.fontColor = Color.WHITE;
         style.font = font;
         // TODO: load from atlas
-        Texture endtex = new Texture(Gdx.files.internal("image-drum1.jpg"));
+        Texture endtex = new Texture(Gdx.files.internal("davaj-davaj.png"));
         TextureRegion endreg = new TextureRegion(endtex);
         Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
         TextureRegion bgreg = new TextureRegion(bgtex);
@@ -99,6 +99,7 @@ public class UI extends Group {
         setVisible(true);
 
         cards.setZIndex(Constants.zcardfan);
+        cards.setPosition(Constants.cardfanx, Constants.cardfany);
         drawpile.setZIndex(Constants.zdrawpile);
         drawpile.setPosition(Constants.drawpilex, Constants.drawpiley);
         discardpile.setZIndex(Constants.zdiscardpile);

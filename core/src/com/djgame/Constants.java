@@ -43,34 +43,35 @@ public final class Constants {
     public static final float enlargeduration = 0.1f;
     public static final float shuffleduration = 0.25f;
 
-
     // positions of UI elements
     public static final float backgroundx = 0f;
     public static final float backgroundy = 0f;
+    public static final float cardfanx = 0f;
+    public static final float cardfany = 140f;
     public static final float topplatex = 0f;
-    public static final float topplatey = 680f;
+    public static final float topplatey = 0f;
     public static final float drawpilex = 50f;
-    public static final float drawpiley = 50f;
+    public static final float drawpiley = 450f;
     public static final float discardpilex = 1700f;
-    public static final float discardpiley = 50f;
+    public static final float discardpiley = 450f;
     public static final float tracksx = 40f;
-    public static final float tracksy = 720f;
-    public static final float mixerx = 1620f;
-    public static final float mixery = 720f;
-    public static final float timerx = 600f;
-    public static final float timery = 1005f;
-    public static final float inspirationx = 1380f;
-    public static final float inspirationy = 1005f;
+    public static final float tracksy = 40f;
+    public static final float mixerx = 1630f;
+    public static final float mixery = 40f;
+    public static final float timerx = 620f;
+    public static final float timery = 40f;
+    public static final float inspirationx = 1260f;
+    public static final float inspirationy = 40f;
     public static final float crowdpointsx = 920f;
-    public static final float crowdpointsy = 1005f;
-    public static final float mixpowerx = 1830f;
-    public static final float mixpowery = 712f;
-    public static final float hpx = 750f;
-    public static final float hpy = 1005f;
+    public static final float crowdpointsy = 40f;
+    public static final float mixpowerx = 1820f;
+    public static final float mixpowery = 35f;
+    public static final float hpx = 1450f;
+    public static final float hpy = 40f;
     public static final float choosepromptx = 700f;
     public static final float chooseprompty = 400f;
-    public static final float endturnbuttonx = 1500f;
-    public static final float endturnbuttony = 200f;
+    public static final float endturnbuttonx = 960f;
+    public static final float endturnbuttony = 550f;
 
     // mixer stuff
     public static final float knoboffsetx = -20f;
@@ -79,8 +80,8 @@ public final class Constants {
     public static final float mixertrackx = 62f;
     public static final float mixertracky = 40f;
     public static final float mixtracklength = 330f;
-    public static final float bonusleftoffsetx = -140f;
-    public static final float bonusrightoffsetx = 60f;
+    public static final float bonusleftoffsetx = -130f;
+    public static final float bonusrightoffsetx = 50f;
     public static final float bonusoffsety = -12f;
     public static final float bonustextwidth = 100f;
     public static final float bonustextheight = 60f;

@@ -60,7 +60,7 @@ public class Track extends Group {
 
     public Clip GetNext(){
         if (clips.isEmpty()){ return new Clip(); }
-        return clips.get(0);
+        return clips.firstElement();
     }
 
     public boolean PlayNext(){

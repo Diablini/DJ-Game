@@ -20,7 +20,7 @@ public class CardPile extends Group {
     public CardPile(){
         cards = new Vector<Card2d>();
         BitmapFont font = new BitmapFont();
-        Label.LabelStyle style = new Label.LabelStyle(font, Color.BLACK);
+        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
         img = new Label("Draw Deck", style);
         counter = new Label("0", style);
         img.setFontScale(2.5f);
