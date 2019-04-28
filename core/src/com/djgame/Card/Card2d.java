@@ -126,7 +126,7 @@ public class Card2d extends Group {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //TODO: write click event
-                if (hasActions()) return false;
+                if (hasActions()) return true;
                 if (Session.State.choose.AnyWait())
                 {
                     if (Session.State.choose.CardWait()){

@@ -20,7 +20,22 @@ public class PowerHandler {
     }
 
     public void PlayBefore(){
-        beforeround.sort(comp);
+        // since this call is depreciated and crashes the app on my phone
+        // I'll be using my own bubblesortTM
+        // beforeround.sort(comp);
+
+        for (int i = 0; i < beforeround.size(); i++)
+        {
+            for (int z = i; z < beforeround.size() - 1; z++)
+            {
+                if (beforeround.get(z).priority > beforeround.get(z+1).priority)
+                {
+                    Power swap = beforeround.get(z);
+                    beforeround.set(z, beforeround.get(z+1));
+                    beforeround.set(z + 1, swap);
+                }
+            }
+        }
 
         // clear duration 0 powers
         for (int i = 0; i < beforeround.size(); i++)
@@ -37,7 +52,22 @@ public class PowerHandler {
     }
 
     public void PlayAfter(){
-        afterround.sort(comp);
+        // since this call is depreciated and crashes the app on my phone
+        // I'll be using my own bubblesortTM
+        //afterround.sort(comp);
+
+        for (int i = 0; i < afterround.size(); i++)
+        {
+            for (int z = i; z < afterround.size() - 1; z++)
+            {
+                if (afterround.get(z).priority > afterround.get(z+1).priority)
+                {
+                    Power swap = afterround.get(z);
+                    afterround.set(z, afterround.get(z+1));
+                    afterround.set(z + 1, swap);
+                }
+            }
+        }
 
         // clear duration 0 powers
         for (int i = 0; i < afterround.size(); i++)

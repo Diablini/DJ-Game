@@ -56,7 +56,7 @@ public final class Constants {
     public static final float discardpiley = 450f;
     public static final float tracksx = 40f;
     public static final float tracksy = 40f;
-    public static final float mixerx = 1630f;
+    public static final float mixerx = 1645f;
     public static final float mixery = 40f;
     public static final float timerx = 620f;
     public static final float timery = 40f;
@@ -127,7 +127,7 @@ public final class Constants {
     //----------------------------------------------------------//
 
     // Session
-    public static final int roundlimit = 10;
+    public static final int roundlimit = 15;
     public static final int drawperturn = 5;
     public static final int startinghp = 3;
     public static final int inspirationperturn = 6;

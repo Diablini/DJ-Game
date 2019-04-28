@@ -97,9 +97,6 @@ public class Audio extends Actor {
             case TRAP:
                 target += "Trap";
                 break;
-            case EMPTY:
-                System.out.println("WTF");
-                break;
         }
 
         switch (type){
