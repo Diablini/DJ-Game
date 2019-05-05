@@ -3,6 +3,8 @@ package com.djgame;
 
 import com.djgame.Card.Card2d;
 import com.djgame.ChooseHandling.ChooseListener;
+import com.djgame.EventHandling.Watchdog;
+import com.djgame.Powers.PowerHandler;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
@@ -187,6 +189,10 @@ public class Session {
         State.ui.drawpile.UpdateNumber();
         State.ui.discardpile.UpdateNumber();
         State.ui.chooseprompt.setText(State.choose.GetPrompt());
+
+        State.ui.drawpile.UpdateCards();
+        State.ui.discardpile.UpdateCards();
+        State.ui.exhaustpile.UpdateCards();
     }
 
     public static class State{

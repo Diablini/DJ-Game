@@ -5,8 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
-import com.djgame.Power;
-import com.djgame.PowerHandler;
+import com.djgame.Powers.Power;
 import com.djgame.Session;
 
 public class AdvancedDrawperturn extends Card2d {

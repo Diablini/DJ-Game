@@ -38,7 +38,7 @@ public class BasicDrawDiscard extends Card2d {
         req.info = new InfoCarrier();
         req.prompt = "Choose Card to discard";
         req.type = ChooseListener.ChooseRequestType.CARD;
-        Session.State.choose.PutRequest(req);
+        Session.State.choose.PutRequestLast(req);
 
 
         Session.State.watchdog.CardPlayed();

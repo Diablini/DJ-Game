@@ -82,4 +82,11 @@ public class CardPile extends Group {
     public void UpdateNumber(){
         counter.setText(cards.size());
     }
+
+    public void UpdateCards(){
+        for (int i = 0; i < cards.size(); i++)
+        {
+            cards.get(i).UpdateAssets();
+        }
+    }
 }

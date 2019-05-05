@@ -1,7 +1,7 @@
 package com.djgame.Mixer.Bonuses;
 
 import com.djgame.Mixer.MixerBonus;
-import com.djgame.Power;
+import com.djgame.Powers.Power;
 import com.djgame.Session;
 
 public class DoubleComboBonus extends MixerBonus {

@@ -37,7 +37,7 @@ public class Card2d extends Group {
 
     protected TextureRegion backgroundreg, picreg;
     protected String ttext, ftext, dtext;
-    protected int basecost;
+    protected int basecost, costmod;
 
 
     public Card2d(){
@@ -57,6 +57,8 @@ public class Card2d extends Group {
         ttext = "Lorem ipsum";
         ftext = "Lorem ipsum";
         dtext = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+
+        costmod = 0;
 
         UpdateAssets();
 
@@ -183,7 +185,7 @@ public class Card2d extends Group {
         Label descriptiontext = new Label(dtext,textstyle);
         descriptiontext.setFontScale(1.5f,1.5f);
         Label flavourtext = new Label(ftext, ftextstyle);
-        Label costtext = new Label(String.valueOf(basecost), coststyle);
+        Label costtext = new Label(String.valueOf(basecost + costmod), coststyle);
         costtext.setFontScale(2.5f, 2.5f);
 
         // set relative positions

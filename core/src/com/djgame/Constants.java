@@ -69,7 +69,7 @@ public final class Constants {
     public static final float hpx = 1450f;
     public static final float hpy = 40f;
     public static final float choosepromptx = 700f;
-    public static final float chooseprompty = 400f;
+    public static final float chooseprompty = 900f;
     public static final float endturnbuttonx = 960f;
     public static final float endturnbuttony = 550f;
 

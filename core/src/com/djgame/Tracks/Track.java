@@ -1,5 +1,6 @@
 package com.djgame.Tracks;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -47,6 +48,15 @@ public class Track extends Group {
         }
     }
 
+    public Clip GetTop(){
+        return clips.lastElement();
+    }
+
+    public void RemoveTop(){
+        if (clips.isEmpty()) return;
+        clips.removeElementAt(clips.size() - 1);
+    }
+
     public void InsertBottom(Clip clip){
         if (clips.size() >= maxsize){
             // TODO: handle
@@ -72,6 +82,15 @@ public class Track extends Group {
         clips.remove(0);
         realign();
         return true;
+    }
+
+    public boolean HasClips(){
+        return !clips.isEmpty();
+    }
+
+    public boolean IsFull()
+    {
+        return clips.size() >= maxsize;
     }
 
     public void realign(){

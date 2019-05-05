@@ -8,6 +8,10 @@ import com.djgame.Session;
 import com.djgame.Tracks.Track;
 import com.djgame.Tracks.TrackPlaylist;
 
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
+
+import java.util.Vector;
+
 
 public class ChooseListener {
 
@@ -23,8 +27,38 @@ public class ChooseListener {
         requests = new Queue<ChooseRequest>();
     }
 
-    public void PutRequest(ChooseRequest req){
+    public void PutRequestLast(ChooseRequest req){
         requests.addLast(req);
+        Session.RefreshUI();
+    }
+
+    public boolean PutRequestAfter(ChooseRequest req, ChooseRequest after){
+        Vector<ChooseRequest> temp = new Vector<ChooseRequest>();
+        while (!requests.isEmpty())
+        {
+            temp.add(requests.first());
+            requests.removeFirst();
+        }
+        for (int i = 0; i < temp.size(); i++)
+        {
+            if (temp.get(i) == after)
+            {
+                temp.insertElementAt(req, i+1);
+                // pour vector back into request queue
+                for (int z = 0; z < temp.size(); z++)
+                {
+                    requests.addLast(temp.get(z));
+                }
+                temp.clear();
+                return true;
+            }
+        }
+        temp.clear();
+        return false;
+    }
+
+    public void PutRequestFirst(ChooseRequest req){
+        requests.addFirst(req);
         Session.RefreshUI();
     }
 
