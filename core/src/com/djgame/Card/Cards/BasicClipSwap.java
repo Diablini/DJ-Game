@@ -22,6 +22,8 @@ public class BasicClipSwap extends Card2d {
         ftext = "";
         dtext = "Move the top clip of one track to another track";
         picreg = reg;
+
+        UpdateAssets();
     }
 
     @Override

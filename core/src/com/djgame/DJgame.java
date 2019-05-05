@@ -21,6 +21,7 @@ import com.djgame.Card.Cards.BasicDrumHipHop;
 import com.djgame.Card.Cards.BasicDrumHouse;
 import com.djgame.Card.Cards.BasicDrumTrap;
 import com.djgame.Card.Cards.BasicMixerPoint;
+import com.djgame.Card.Cards.BasicPlayTrack;
 import com.djgame.Card.Cards.BasicSynthHipHop;
 import com.djgame.Card.Cards.BasicSynthHouse;
 import com.djgame.Card.Cards.BasicSynthTrap;
@@ -58,6 +59,7 @@ public class DJgame extends ApplicationAdapter {
 		Card2d card12 = new AdvancedDrawperturn();
 		Card2d card13 = new BasicDrawDiscard();
 		Card2d card14 = new BasicClipSwap();
+		Card2d card15 = new BasicPlayTrack();
 		Session.State.getui().drawpile.AddCard(card);
 		Session.State.getui().drawpile.AddCard(card1);
 		Session.State.getui().drawpile.AddCard(card2);
@@ -73,6 +75,7 @@ public class DJgame extends ApplicationAdapter {
 		Session.State.getui().drawpile.AddCard(card12);
 		Session.State.getui().drawpile.AddCard(card13);
 		Session.State.getui().drawpile.AddCard(card14);
+		Session.State.getui().drawpile.AddCard(card15);
 		Session.State.getui().drawpile.Shuffle();
 
 		Session.BeginTurn();

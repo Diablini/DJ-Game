@@ -135,6 +135,7 @@ public class Card2d extends Group {
                         Session.State.choose.CardChosen(Card2d.this);
                         return true;
                     }
+                    return true;
                 }
 
 
