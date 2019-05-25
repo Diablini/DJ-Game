@@ -5,17 +5,18 @@ import com.djgame.Card.Card2d;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.EventHandling.Watchdog;
 import com.djgame.Powers.PowerHandler;
+import com.djgame.Screens.MainGame;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
 public class Session {
 
-    public static void NewSession(){
+    public static void NewSession(Assets assets, MainGame game){
         State.round = 1;
         State.crowd = 0;
         State.hp = Constants.startinghp;
         State.inspiration = Constants.inspirationperturn;
-        State.ui = new UI();
+        State.ui = new UI(assets, game);
         State.mixpower = Constants.mixpowerperturn;
 
         // powerups
@@ -65,6 +66,9 @@ public class Session {
     }
 
     public static void EndTurn(){
+        // check if we can end turn
+        if (State.choose.AnyWait()) return;
+
         // play end of turn powers
         State.powers.PlayAfter();
 
@@ -105,8 +109,14 @@ public class Session {
         State.watchdog.CardDrawn();
     }
 
+    public static void HealHp(){
+        State.hp = (State.hp + 1 >= Constants.maxhp) ? Constants.maxhp : State.hp + 1;
+        RefreshUI();
+    }
+
     public static void LoseHp(){
         State.hp--;
+        RefreshUI();
         if (State.hp <= 0){HpOut();}
     }
 

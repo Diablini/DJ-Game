@@ -5,15 +5,16 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.djgame.Card.CardFan;
+import com.djgame.Screens.MainGame;
 
 
 public class MainMenuScreen implements Screen {
 
-    final DJgame game;
+    final MainGame game;
 
     OrthographicCamera camera;
 
-    public MainMenuScreen(final DJgame game){
+    public MainMenuScreen(final MainGame game){
         this.game = game;
 
         camera = new OrthographicCamera();

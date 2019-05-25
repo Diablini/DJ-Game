@@ -6,14 +6,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
 public class BasicBassTrap extends Card2d {
 
-    public BasicBassTrap(){
-        //super.picreg
+    public BasicBassTrap(MainGame game){
+        super(game);
+
+        Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
+        TextureRegion reg = new TextureRegion(tex);
+
         super.ttext = "808's";
         super.dtext = "+1 Bass\nSpecial: Add from bottom";
         super.ftext = "Drop it";

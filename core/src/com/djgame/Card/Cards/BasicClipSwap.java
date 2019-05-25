@@ -8,14 +8,16 @@ import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.ChooseHandling.ChooseRequest;
 import com.djgame.ChooseHandling.InfoCarrier;
 import com.djgame.EventHandling.Watchdog;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
 import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
 public class BasicClipSwap extends Card2d {
-    public BasicClipSwap()
+    public BasicClipSwap(MainGame game)
     {
-        Texture tex = new Texture(Gdx.files.internal("sampler.jpg"));
+        super(game);
+        Texture tex = game.assets.manager.get("sampler.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
         basecost = 1;
         ttext = "Sampler";

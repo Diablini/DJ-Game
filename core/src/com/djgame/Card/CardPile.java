@@ -8,8 +8,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.djgame.Constants;
+import com.djgame.Screens.MainGame;
 
 import java.util.Vector;
+
 
 public class CardPile extends Group {
 
@@ -32,8 +34,22 @@ public class CardPile extends Group {
         addActor(counter);
     }
 
+    public CardPile(CardPile cpy, MainGame game){
+        this();
+        for (int i = 0; i < cpy.cards.size(); i++)
+        {
+            Card2d c = new Card2d(cpy.cards.get(i), game);
+            cards.add(c);
+        }
+    }
+
     public boolean HasCards(){
         return (cards.size() != 0);
+    }
+
+    public Card2d Get(int i){
+        if (i >= cards.size()) return null;
+        return cards.get(i);
     }
 
     public int Size(){

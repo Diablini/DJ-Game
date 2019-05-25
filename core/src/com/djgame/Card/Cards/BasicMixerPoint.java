@@ -4,11 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
 public class BasicMixerPoint extends Card2d {
-    public BasicMixerPoint(){
-        Texture tex = new Texture(Gdx.files.internal("mixing-pic.jpg"));
+    public BasicMixerPoint(MainGame game){
+        super(game);
+        Texture tex = game.assets.manager.get("mixing-pic.jpg", Texture.class);
         picreg = new TextureRegion(tex);
         ttext = "Quick Mix";
         dtext = "+1 Mix Power";

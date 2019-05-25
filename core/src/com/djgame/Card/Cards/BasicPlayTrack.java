@@ -7,17 +7,20 @@ import com.djgame.Card.Card2d;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.ChooseHandling.ChooseRequest;
 import com.djgame.ChooseHandling.InfoCarrier;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
 public class BasicPlayTrack extends Card2d {
-    public BasicPlayTrack()
+    public BasicPlayTrack(MainGame game)
     {
-        Texture tex = new Texture(Gdx.files.internal("skipicon.jpg"));
+        super(game);
+        Texture tex = game.assets.manager.get("skipicon.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
         ttext = "Acapella";
         ftext = "";
-        dtext = "Instantly play a chosen track";
+        dtext = "Instantly play a track\nSpecial: Draw 1 Card";
         basecost = 0;
+        picreg = reg;
 
         UpdateAssets();
     }
@@ -57,6 +60,17 @@ public class BasicPlayTrack extends Card2d {
         req.prompt = "Choose a track to play instantly";
 
         Session.State.choose.PutRequestFirst(req);
+
+        Session.State.watchdog.CardPlayed();
+        Session.DiscardAfterPlay(this);
+        return true;
+    }
+
+    @Override
+    public boolean PlaySpecial() {
+        if (!Session.CostCheck(this)) return false;
+
+        Session.DrawCard();
 
         Session.State.watchdog.CardPlayed();
         Session.DiscardAfterPlay(this);

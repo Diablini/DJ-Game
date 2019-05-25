@@ -9,6 +9,7 @@ import com.djgame.Constants;
 import com.djgame.Mixer.Bonuses.DiscardPointBonus;
 import com.djgame.Mixer.Bonuses.DoubleComboBonus;
 import com.djgame.Mixer.Bonuses.DrawBonus;
+import com.djgame.Mixer.Bonuses.DrawNextBonus;
 import com.djgame.Mixer.Bonuses.HandPointBonus;
 import com.djgame.Mixer.Bonuses.HealBonus;
 import com.djgame.Mixer.Bonuses.InspirationBonus;
@@ -30,26 +31,28 @@ public class MixerBonus {
     }
 
     public MixerBonus(){
-        BitmapFont font = new BitmapFont();
+        BitmapFont font = Constants.fonts.uilabel;
         Label.LabelStyle style = new Label.LabelStyle();
         style.fontColor = Color.WHITE;
         style.font = font;
         activated = false;
         text = new Label("", style);
-        text.setFontScale(1f);
+        text.setFontScale(Constants.uimixbonusfontscale);
         text.setWrap(true);
         text.setBounds(0, 0, Constants.bonustextwidth, Constants.bonustextheight);
     }
 
     public static Vector<MixerBonus> getBonusList(){
         Vector<MixerBonus> list = new Vector<MixerBonus>();
-        list.add(new DiscardPointBonus());
+        // this bonus is just stupid
+        //list.add(new DiscardPointBonus());
         list.add(new DoubleComboBonus());
         list.add(new DrawBonus());
         list.add(new HandPointBonus());
         list.add(new HealBonus());
         list.add(new InspirationBonus());
         list.add(new PointBonus());
+        list.add(new DrawNextBonus());
         // TODO: add new bonuses
 
         // shuffle list

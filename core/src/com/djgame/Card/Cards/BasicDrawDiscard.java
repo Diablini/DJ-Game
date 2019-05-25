@@ -7,11 +7,13 @@ import com.djgame.Card.Card2d;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.ChooseHandling.ChooseRequest;
 import com.djgame.ChooseHandling.InfoCarrier;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
 public class BasicDrawDiscard extends Card2d {
-    public BasicDrawDiscard(){
-        Texture tex = new Texture(Gdx.files.internal("jacks.jpg"));
+    public BasicDrawDiscard(MainGame game){
+        super(game);
+        Texture tex = game.assets.manager.get("jacks.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
         super.picreg = reg;
         super.ttext = "Jack Swap";

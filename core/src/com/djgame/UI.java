@@ -14,11 +14,16 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.djgame.Card.CardFan;
 import com.djgame.Card.CardPile;
 import com.djgame.Mixer.Mixer;
+import com.djgame.Screens.MainGame;
+import com.djgame.Screens.ViewDiscardPileScreen;
+import com.djgame.Screens.ViewDrawPileScreen;
 import com.djgame.Tracks.TrackPlaylist;
 
 
 public class UI extends Group {
 
+    public MainGame game;
+    public Assets assets;
     public CardFan cards;
     public CardPile drawpile, discardpile, exhaustpile;
     public TrackPlaylist tracks;
@@ -26,10 +31,13 @@ public class UI extends Group {
     public Label rounds, inspiration, crowd, mixpower, hp, chooseprompt;
     public Image endturnbutton, background, topplate;
 
-    UI(){
+    UI(final Assets assets, final MainGame game){
+        this.assets = assets;
+        this.game = game;
+
         setPosition(0,0);
         Label.LabelStyle style = new Label.LabelStyle();
-        BitmapFont font = new BitmapFont();
+        BitmapFont font = Constants.fonts.uilabel;
         style.fontColor = Color.WHITE;
         style.font = font;
         // TODO: load from atlas
@@ -61,16 +69,38 @@ public class UI extends Group {
                 Session.EndTurn();
             }
         });
+
+        drawpile.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                ViewDrawPileScreen screen = new ViewDrawPileScreen(assets, game);
+                game.setScreen(screen);
+                return true;
+            }
+        });
+
+        discardpile.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                ViewDiscardPileScreen screen = new ViewDiscardPileScreen(assets, game);
+                game.setScreen(screen);
+                return true;
+            }
+        });
+
+
+
         background = new Image(bgreg);
         topplate = new Image(platereg);
 
 
-        rounds.setFontScale(2f);
-        inspiration.setFontScale(2f);
-        crowd.setFontScale(2f);
-        mixpower.setFontScale(2f);
-        hp.setFontScale(2f);
-        chooseprompt.setFontScale(3f);
+        rounds.setFontScale(Constants.uilabelfontscale);
+        inspiration.setFontScale(Constants.uilabelfontscale);
+        crowd.setFontScale(Constants.uilabelfontscale);
+        mixpower.setFontScale(Constants.uilabelfontscale);
+        hp.setFontScale(Constants.uilabelfontscale);
+        chooseprompt.setFontScale(Constants.uilabelfontscale);
+
 
         drawpile.Rename("Draw");
         discardpile.Rename("Discard");

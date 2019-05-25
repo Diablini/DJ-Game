@@ -52,6 +52,13 @@ public class Track extends Group {
         return clips.lastElement();
     }
 
+    public Clip GetIndex(int i){
+        if (i >= clips.size()){
+            return new Clip();
+        }
+        return clips.get(i);
+    }
+
     public void RemoveTop(){
         if (clips.isEmpty()) return;
         clips.removeElementAt(clips.size() - 1);

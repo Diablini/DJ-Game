@@ -43,6 +43,15 @@ public final class Constants {
     public static final float enlargeduration = 0.1f;
     public static final float shuffleduration = 0.25f;
 
+    // card font scaling
+    public static final float cardtitlefontscale = 0.90f;
+    public static final float carddescfontscale = 0.60f;
+    public static final float cardflavfontscale = 0.35f;
+
+    // ui font scaling
+    public static final float uilabelfontscale = 0.75f;
+    public static final float uimixbonusfontscale = 0.35f;
+
     // positions of UI elements
     public static final float backgroundx = 0f;
     public static final float backgroundy = 0f;
@@ -59,15 +68,15 @@ public final class Constants {
     public static final float mixerx = 1645f;
     public static final float mixery = 40f;
     public static final float timerx = 620f;
-    public static final float timery = 40f;
+    public static final float timery = 25f;
     public static final float inspirationx = 1260f;
-    public static final float inspirationy = 40f;
+    public static final float inspirationy = 25f;
     public static final float crowdpointsx = 920f;
-    public static final float crowdpointsy = 40f;
+    public static final float crowdpointsy = 25f;
     public static final float mixpowerx = 1820f;
-    public static final float mixpowery = 35f;
+    public static final float mixpowery = 15f;
     public static final float hpx = 1450f;
-    public static final float hpy = 40f;
+    public static final float hpy = 25f;
     public static final float choosepromptx = 700f;
     public static final float chooseprompty = 900f;
     public static final float endturnbuttonx = 960f;
@@ -95,6 +104,13 @@ public final class Constants {
     // drawpile stuff
     public static final float cardnumberoffsetx = 60f;
     public static final float cardnumberoffsety = 30f;
+
+    // CardListView stuff
+    public static final float listviewwidth = 1000f;
+    public static final float listviewheight = 800f;
+    public static final float listviewcolumnpad = 40f;
+    public static final float listviewrowpad = 40f;
+    public static final float listviewcardscale = 2f/3f;
 
 
     // Z-index Constants
@@ -128,8 +144,9 @@ public final class Constants {
 
     // Session
     public static final int roundlimit = 15;
-    public static final int drawperturn = 5;
+    public static final int drawperturn = 6;
     public static final int startinghp = 3;
+    public static final int maxhp = 3;
     public static final int inspirationperturn = 6;
     public static final int mixpowerperturn = 1;
 
@@ -154,4 +171,6 @@ public final class Constants {
 
     // Colors
     public static final Color activatedbonuscolor = Color.GREEN;
+    // Fonts
+    public static Fonts fonts = new Fonts();
 }

@@ -11,7 +11,7 @@ public class HealBonus extends MixerBonus {
     @Override
     public void Play() {
         if (activated) return;
-        Session.State.setHp(Session.State.getHp() + 1);
+        Session.HealHp();
         Session.RefreshUI();
         Activate();
     }

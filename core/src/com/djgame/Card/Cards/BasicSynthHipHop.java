@@ -6,14 +6,17 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
 public class BasicSynthHipHop extends Card2d {
 
-    public BasicSynthHipHop(){
-        Texture tex = new Texture(Gdx.files.internal("image-lead1.jpg"));
+    public BasicSynthHipHop(MainGame game){
+        super(game);
+
+        Texture tex = game.assets.manager.get("image-lead1.jpg", Texture.class);
         picreg = new TextureRegion(tex);
         super.ttext = "Hip Hop Synth";
         super.dtext = "+1 Synth Hip Hop\nSpecial: Add from bottom";

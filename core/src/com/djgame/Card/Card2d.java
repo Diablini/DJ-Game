@@ -14,7 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.djgame.Constants;
+import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
 import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
@@ -39,13 +41,18 @@ public class Card2d extends Group {
     protected String ttext, ftext, dtext;
     protected int basecost, costmod;
 
+    public MainGame game;
 
-    public Card2d(){
+
+    public Card2d(MainGame game){
+        this.game = game;
+
         iszoomed = false;
         ispickedup = false;
         // load textures and styles
-        Texture backgroundtex = new Texture(Gdx.files.internal("cardplaceholder.png"));
-        Texture pictex = new Texture(Gdx.files.internal("pictureplaceholder.jpg"));
+        Texture backgroundtex =
+                game.assets.manager.get("cardplaceholder.png", Texture.class);
+        Texture pictex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
 
         backgroundreg = new TextureRegion(backgroundtex);
         picreg = new TextureRegion(pictex);
@@ -154,6 +161,19 @@ public class Card2d extends Group {
         });
     }
 
+    public Card2d(Card2d cpy, MainGame game)
+    {
+        this(game);
+        this.costmod = cpy.costmod;
+        this.backgroundreg = cpy.backgroundreg;
+        this.basecost = cpy.basecost;
+        this.ttext = cpy.ttext;
+        this.dtext = cpy.dtext;
+        this.ftext = cpy.ftext;
+        this.picreg = cpy.picreg;
+        UpdateAssets();
+    }
+
     public void UpdateAssets()
     {
         // throw away all children
@@ -164,7 +184,8 @@ public class Card2d extends Group {
         Label.LabelStyle ftextstyle = new Label.LabelStyle();
         Label.LabelStyle coststyle = new Label.LabelStyle();
 
-        BitmapFont font = new BitmapFont();
+        // TODO: True type fonts
+        BitmapFont font = Constants.fonts.cardtitle;
         titlestyle.font = font;
         titlestyle.fontColor = Color.BLACK;
         textstyle.font = font;
@@ -182,12 +203,14 @@ public class Card2d extends Group {
         Image pic = new Image(picreg);
 
         Label titletext = new Label(ttext,titlestyle);
-        titletext.setFontScale(2.5f,2.5f);
         Label descriptiontext = new Label(dtext,textstyle);
-        descriptiontext.setFontScale(1.5f,1.5f);
         Label flavourtext = new Label(ftext, ftextstyle);
         Label costtext = new Label(String.valueOf(basecost + costmod), coststyle);
-        costtext.setFontScale(2.5f, 2.5f);
+        titletext.setFontScale(Constants.cardtitlefontscale, Constants.cardtitlefontscale);
+        descriptiontext.setFontScale(Constants.carddescfontscale,Constants.carddescfontscale);
+        costtext.setFontScale(Constants.cardtitlefontscale, Constants.cardtitlefontscale);
+        flavourtext.setFontScale(Constants.cardflavfontscale, Constants.cardflavfontscale);
+        costtext.setFontScale(Constants.cardtitlefontscale);
 
         // set relative positions
         pic.setX(pic.getX() + Constants.picoffsetx);
@@ -196,21 +219,21 @@ public class Card2d extends Group {
         titletext.setX(Constants.titleoffsetx);
         titletext.setY(Constants.titleoffsety);
         titletext.setBounds(Constants.titleoffsetx, Constants.titleoffsety,
-                Constants.titlewidth, Constants.titleheight);
-        titletext.setAlignment(1,1);
+                 Constants.titlewidth, Constants.titleheight);
+        titletext.setAlignment(Align.center,Align.center);
 
         descriptiontext.setX(Constants.textoffsetx);
         descriptiontext.setY(Constants.textoffsety);
         descriptiontext.setBounds(Constants.textoffsetx, Constants.textoffsety,
                 Constants.textwidth, Constants.textheight);
-        descriptiontext.setAlignment(1 , 1);
+        descriptiontext.setAlignment(Align.top , Align.center);
         descriptiontext.setWrap(true);
 
         flavourtext.setX(Constants.ftextoffsetx);
         flavourtext.setY(Constants.ftextoffsety);
         flavourtext.setBounds(Constants.ftextoffsetx, Constants.ftextoffsety,
                 Constants.ftextwidth, Constants.ftextheight);
-        flavourtext.setAlignment(1,1);
+        flavourtext.setAlignment(Align.center,Align.center);
 
         costtext.setX(Constants.costoffsetx);
         costtext.setY(Constants.costoffsety);
