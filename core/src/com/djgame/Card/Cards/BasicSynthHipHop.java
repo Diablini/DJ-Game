@@ -41,6 +41,7 @@ public class BasicSynthHipHop extends Card2d {
         Session.State.getui().tracks.strack.InsertTop(clipone);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }
@@ -61,6 +62,7 @@ public class BasicSynthHipHop extends Card2d {
         Session.State.getui().tracks.strack.InsertBottom(clipone);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

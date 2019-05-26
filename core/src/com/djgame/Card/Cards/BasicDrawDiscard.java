@@ -44,6 +44,7 @@ public class BasicDrawDiscard extends Card2d {
 
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

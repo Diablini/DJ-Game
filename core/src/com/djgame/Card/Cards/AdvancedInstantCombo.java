@@ -66,6 +66,7 @@ public class AdvancedInstantCombo extends Card2d {
 
         Session.RefreshUI();
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

@@ -52,6 +52,9 @@ public final class Constants {
     public static final float uilabelfontscale = 0.75f;
     public static final float uimixbonusfontscale = 0.35f;
 
+    // card play line
+    public static final float cardplayliney = 500f;
+
     // positions of UI elements
     public static final float backgroundx = 0f;
     public static final float backgroundy = 0f;

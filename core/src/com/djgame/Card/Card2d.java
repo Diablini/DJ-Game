@@ -21,6 +21,8 @@ import com.djgame.Session;
 
 import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
+import javax.smartcardio.Card;
+
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.rotateTo;
@@ -30,12 +32,14 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.scaleTo;
 public class Card2d extends Group {
 
     // for storing z index before being moused over
-    private boolean iszoomed, ispickedup;
+    private boolean iszoomed;
 
     private int zoriginal;
     private float xoriginal;
     private float yoriginal;
     private float angleoriginal;
+    public int indexoriginal;
+    public boolean ismoving;
 
     protected TextureRegion backgroundreg, picreg;
     protected String ttext, ftext, dtext;
@@ -47,8 +51,9 @@ public class Card2d extends Group {
     public Card2d(MainGame game){
         this.game = game;
 
+        indexoriginal = 0;
         iszoomed = false;
-        ispickedup = false;
+        ismoving = false;
         // load textures and styles
         Texture backgroundtex =
                 game.assets.manager.get("cardplaceholder.png", Texture.class);
@@ -88,7 +93,7 @@ public class Card2d extends Group {
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 // ignore clicks and entry from children
-                if (iszoomed || ispickedup) return;
+                if (iszoomed || ismoving) return;
                 if (hasActions()) return;
                 if (event.getType() != InputEvent.Type.enter || event.getButton() != -1) return;
                 if (getChildren().contains(fromActor, true)) return;
@@ -107,6 +112,7 @@ public class Card2d extends Group {
                 yoriginal = getY();
                 angleoriginal = getRotation();
                 iszoomed = true;
+                ismoving = false;
 
                 cancel();
             }
@@ -115,7 +121,7 @@ public class Card2d extends Group {
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
                 // ignore clicks and exit from children
-                if (!iszoomed || ispickedup) return;
+                if (!iszoomed || ismoving) return;
                 if (event.getType() != InputEvent.Type.exit || event.getButton() != -1) return;
                 if (getChildren().contains(toActor, true)) return;
                 addAction(parallel(
@@ -135,28 +141,61 @@ public class Card2d extends Group {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //TODO: write click event
-                if (hasActions()) return true;
-                if (Session.State.choose.AnyWait())
+
+                // if right button is pressed and card is picked up, put it back
+                if (event.getButton() == Input.Buttons.RIGHT && Session.State.pickup.isPicked())
                 {
-                    if (Session.State.choose.CardWait()){
-                        Session.State.choose.CardChosen(Card2d.this);
-                        return true;
-                    }
+                    Card2d toreturn = Session.State.pickup.picked;
+                    Session.State.pickup.UnPick();
+                    Session.State.getui().cards.AddCardAtIndex
+                            (toreturn, toreturn.indexoriginal);
                     return true;
                 }
 
+                // if no card is picked up, pick it up
+                if (!Session.State.pickup.isPicked())
+                {
+                    Session.State.pickup.PickUp(Card2d.this);
+                    Card2d.this.ismoving = true;
+                }
+                else
+                {
+                    // check if card is below play line
+                    if (event.getStageY() < Constants.cardplayliney)
+                    {
+                        Card2d toreturn = Session.State.pickup.picked;
+                        Session.State.pickup.UnPick();
+                        Session.State.getui().cards.AddCardAtIndex
+                                (toreturn, toreturn.indexoriginal);
+                        return true;
+                    }
 
-                if (event.getButton() == Input.Buttons.LEFT)
-                {
-                    return Play();
+                    // check if there is a choose request for a card and satisfy it
+                    if (Session.State.choose.CardWait())
+                    {
+                        Session.State.choose.CardChosen(Card2d.this);
+                        return true;
+                    }
+
+                    // cost check and play if it passes
+                    if (Session.State.pickup.picked == Card2d.this)
+                    {
+                        if (Session.State.pickup.picked.Play())
+                        {
+                            Session.State.pickup.UnPick();
+                        }
+                    }
                 }
-                else if (event.getButton() == Input.Buttons.RIGHT)
-                {
-                    return PlaySpecial();
-                }
+
                 return true;
             }
 
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                Vector2 vec = new Vector2(event.getStageX(), event.getStageY());
+                vec.set(stageToLocalCoordinates(vec));
+
+            }
 
         });
     }
@@ -259,7 +298,7 @@ public class Card2d extends Group {
     }
 
     public int getCost(){
-        return basecost;
+        return basecost + costmod;
     }
 
     public boolean Play(){

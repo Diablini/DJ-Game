@@ -2,12 +2,15 @@ package com.djgame;
 
 
 import com.djgame.Card.Card2d;
+import com.djgame.Card.CardPickup;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.EventHandling.Watchdog;
 import com.djgame.Powers.PowerHandler;
 import com.djgame.Screens.MainGame;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
+
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
 public class Session {
 
@@ -29,6 +32,9 @@ public class Session {
         State.watchdog = new Watchdog();
         State.powers = new PowerHandler();
         State.choose = new ChooseListener();
+        State.pickup = new CardPickup(game);
+        State.ui.addActor(State.pickup);
+        State.pickup.setPosition(0, 0);
 
     }
 
@@ -140,18 +146,47 @@ public class Session {
     }
 
     public static void DiscardAfterPlay(Card2d card){
+        // if card is picked up
+        if (State.pickup.isPicked() && State.pickup.picked == card)
+        {
+            Card2d c = State.pickup.picked;
+            State.pickup.UnPick();
+            State.ui.discardpile.AddCard(c);
+            State.watchdog.CardDiscard();
+            return;
+        }
+
         State.ui.cards.RemoveCard(card);
         State.ui.discardpile.AddCard(card);
         State.watchdog.CardDiscard();
     }
 
     public static void DiscardNoPlay(Card2d card){
+        // if card is picked up
+        if (State.pickup.isPicked() && State.pickup.picked == card)
+        {
+            Card2d c = State.pickup.picked;
+            State.pickup.UnPick();
+            State.ui.discardpile.AddCard(c);
+            State.watchdog.CardDiscard();
+            return;
+        }
+
         State.ui.cards.RemoveCard(card);
         State.ui.discardpile.AddCard(card);
         State.watchdog.CardDiscard();
     }
 
     public static void Exhaust(Card2d card){
+        // if card is picked up
+        if (State.pickup.isPicked() && State.pickup.picked == card)
+        {
+            Card2d c = State.pickup.picked;
+            State.pickup.UnPick();
+            State.ui.exhaustpile.AddCard(c);
+            return;
+        }
+
         State.ui.cards.RemoveCard(card);
         State.ui.exhaustpile.AddCard(card);
     }
@@ -182,11 +217,22 @@ public class Session {
 
     public static boolean CostCheck(Card2d card){
         if (card.getCost() <= State.inspiration){
-            State.inspiration -= card.getCost();
-            RefreshUI();
             return true;
         }
         return false;
+    }
+
+    public static void PayCardCost(Card2d card)
+    {
+        if (card.getCost() <= State.inspiration){
+            State.inspiration -= card.getCost();
+            RefreshUI();
+        }
+        else
+        {
+            State.inspiration = 0;
+            RefreshUI();
+        }
     }
 
     public static void RefreshUI(){
@@ -212,6 +258,8 @@ public class Session {
         public static Watchdog watchdog;
         public static PowerHandler powers;
         public static ChooseListener choose;
+        public static CardPickup pickup;
+
 
         public static UI getui(){
             return ui;

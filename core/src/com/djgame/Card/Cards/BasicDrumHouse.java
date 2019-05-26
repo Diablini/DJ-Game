@@ -45,6 +45,7 @@ public class BasicDrumHouse extends Card2d {
         Session.State.getui().tracks.dtrack.InsertTop(cliptwo);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }
@@ -70,6 +71,7 @@ public class BasicDrumHouse extends Card2d {
         Session.State.getui().tracks.dtrack.InsertBottom(cliptwo);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

@@ -26,6 +26,7 @@ public class BasicMixerPoint extends Card2d {
         Session.State.setMixpower(Session.State.getMixpower() + 1);
         Session.RefreshUI();
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

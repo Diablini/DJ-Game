@@ -46,6 +46,19 @@ public class CardFan extends Group {
         resize(cards.size());
     }
 
+    public void AddCardAtIndex(Card2d card, int index)
+    {
+        if (index == 0 && cards.isEmpty())
+        {
+            AddCard(card);
+            return;
+        }
+
+        cards.add(index, card);
+        addActor(card);
+        resize(cards.size());
+    }
+
     public boolean RemoveCard(Card2d card){
         for (int i = 0; i < cards.size(); i++)
         {
@@ -62,6 +75,15 @@ public class CardFan extends Group {
     public Card2d getFirstCard(){
         if (cards.size() == 0) return null;
         return cards.firstElement();
+    }
+
+    public int getCardIndex(Card2d card)
+    {
+        for (int i = 0; i < cards.size(); i++)
+        {
+            if (cards.get(i) == card) return i;
+        }
+        return 0;
     }
 
     public void resize(int n) {
@@ -110,6 +132,8 @@ public class CardFan extends Group {
         for (int i = 0; i < cards.size(); i++)
         {
             cards.get(i).setZIndex(i);
+            cards.get(i).indexoriginal = i;
+            cards.get(i).ismoving = false;
             cards.get(i).Shuffle(slots.get(i + startslot).x, slots.get(i + startslot).y,
                     slots.get(i + startslot).angle);
         }

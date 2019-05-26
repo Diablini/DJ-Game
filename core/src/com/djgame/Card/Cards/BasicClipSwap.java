@@ -99,6 +99,7 @@ public class BasicClipSwap extends Card2d {
         Session.State.choose.PutRequestFirst(from);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }

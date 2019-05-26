@@ -62,6 +62,7 @@ public class BasicPlayTrack extends Card2d {
         Session.State.choose.PutRequestFirst(req);
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }
@@ -73,6 +74,7 @@ public class BasicPlayTrack extends Card2d {
         Session.DrawCard();
 
         Session.State.watchdog.CardPlayed();
+        Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
     }
