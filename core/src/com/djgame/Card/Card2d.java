@@ -190,13 +190,6 @@ public class Card2d extends Group {
                 return true;
             }
 
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                Vector2 vec = new Vector2(event.getStageX(), event.getStageY());
-                vec.set(stageToLocalCoordinates(vec));
-
-            }
-
         });
     }
 
@@ -211,6 +204,12 @@ public class Card2d extends Group {
         this.ftext = cpy.ftext;
         this.picreg = cpy.picreg;
         UpdateAssets();
+    }
+
+    public Card2d clone()
+    {
+        Card2d c = new Card2d(game);
+        return c;
     }
 
     public void UpdateAssets()

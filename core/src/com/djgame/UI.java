@@ -49,9 +49,9 @@ public class UI extends Group {
         TextureRegion platereg = new TextureRegion(platetex);
 
         cards = new CardFan();
-        drawpile = new CardPile();
-        exhaustpile = new CardPile();
-        discardpile = new CardPile();
+        drawpile = new CardPile(game);
+        exhaustpile = new CardPile(game);
+        discardpile = new CardPile(game);
         tracks = new TrackPlaylist();
         mixer = new Mixer();
         rounds = new Label("Turns: 0/0",style);

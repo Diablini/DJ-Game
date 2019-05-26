@@ -26,6 +26,12 @@ public class BasicPlayTrack extends Card2d {
     }
 
     @Override
+    public Card2d clone() {
+        BasicPlayTrack c = new BasicPlayTrack(game);
+        return c;
+    }
+
+    @Override
     public boolean Play() {
 
         if (!Session.CostCheck(this)) return false;

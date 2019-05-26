@@ -29,6 +29,12 @@ public class BasicClipSwap extends Card2d {
     }
 
     @Override
+    public Card2d clone() {
+        BasicClipSwap c = new BasicClipSwap(game);
+        return c;
+    }
+
+    @Override
     public boolean Play() {
         if (!Session.CostCheck(this)) return false;
 

@@ -28,6 +28,12 @@ public class BasicBassTrap extends Card2d {
     }
 
     @Override
+    public Card2d clone() {
+        BasicBassTrap c = new BasicBassTrap(game);
+        return c;
+    }
+
+    @Override
     public boolean Play() {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;

@@ -19,11 +19,17 @@ public class AdvancedDrawperturn extends Card2d {
         TextureRegion reg = new TextureRegion(tex);
         super.picreg = reg;
         super.ttext = "Playlist";
-        super.dtext = "Draw 1 more card at the beginning of each turn";
+        super.dtext = "Draw 1 more card at the beginning of each turn.\nExhaust";
         super.ftext = "Pusni Soni";
         basecost = 3;
 
         UpdateAssets();
+    }
+
+    @Override
+    public Card2d clone() {
+        AdvancedDrawperturn c = new AdvancedDrawperturn(game);
+        return c;
     }
 
     @Override

@@ -19,9 +19,15 @@ public class BasicDrawDiscard extends Card2d {
         super.ttext = "Jack Swap";
         super.dtext = "Draw 1 Card\nDiscard 1 Card";
         super.ftext = "";
-        basecost = 1;
+        basecost = 0;
 
         UpdateAssets();
+    }
+
+    @Override
+    public Card2d clone() {
+        BasicDrawDiscard c = new BasicDrawDiscard(game);
+        return c;
     }
 
     @Override

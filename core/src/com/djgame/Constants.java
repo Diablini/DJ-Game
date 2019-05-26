@@ -19,11 +19,11 @@ public final class Constants {
     public static final float titleheight = 26f;
     public static final float titlewidth = 260f;
     public static final float textoffsetx = 20f;
-    public static final float textoffsety = 55f;
+    public static final float textoffsety = 68f;
     public static final float textwidth = 260f;
     public static final float textheight = 87f;
     public static final float ftextoffsetx = 20f;
-    public static final float ftextoffsety = 20f;
+    public static final float ftextoffsety = 16f;
     public static final float ftextwidth = 260f;
     public static final float ftextheight = 25f;
     public static final float costoffsetx = 15f;

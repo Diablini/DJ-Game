@@ -18,8 +18,10 @@ public class CardPile extends Group {
     private Vector<Card2d> cards;
     private Label img;
     private Label counter;
+    private MainGame game;
 
-    public CardPile(){
+    public CardPile(MainGame game){
+        this.game = game;
         cards = new Vector<Card2d>();
         BitmapFont font = new BitmapFont();
         Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
@@ -35,11 +37,20 @@ public class CardPile extends Group {
     }
 
     public CardPile(CardPile cpy, MainGame game){
-        this();
+        this(game);
         for (int i = 0; i < cpy.cards.size(); i++)
         {
-            Card2d c = new Card2d(cpy.cards.get(i), game);
+            Card2d c = cpy.cards.get(i).clone();
             cards.add(c);
+        }
+    }
+
+    public void Copy(CardPile cpy)
+    {
+        for (int i = 0; i < cpy.cards.size(); i++)
+        {
+            Card2d c = cpy.cards.get(i).clone();
+            AddCard(c);
         }
     }
 

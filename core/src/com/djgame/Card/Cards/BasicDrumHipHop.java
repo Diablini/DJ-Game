@@ -26,6 +26,12 @@ public class BasicDrumHipHop extends Card2d {
     }
 
     @Override
+    public Card2d clone() {
+        BasicDrumHipHop c = new BasicDrumHipHop(game);
+        return c;
+    }
+
+    @Override
     public boolean Play() {
         if (!Session.CostCheck(this)) return false;
         Texture tex = new Texture(Gdx.files.internal("tracks-point3.png"));

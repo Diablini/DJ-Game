@@ -9,10 +9,8 @@ import com.djgame.Constants;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 import com.djgame.Tracks.Clip;
-import com.djgame.Tracks.Track;
 import com.djgame.Tracks.TrackPlaylist;
 
-import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
 public class AdvancedInstantCombo extends Card2d {
     public AdvancedInstantCombo(MainGame game)
@@ -27,6 +25,12 @@ public class AdvancedInstantCombo extends Card2d {
         basecost = 3;
 
         UpdateAssets();
+    }
+
+    @Override
+    public Card2d clone() {
+        AdvancedInstantCombo c = new AdvancedInstantCombo(game);
+        return c;
     }
 
     @Override

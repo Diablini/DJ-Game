@@ -39,6 +39,8 @@ public class Assets {
         manager.load("cardplaceholder.png", Texture.class);
         manager.load("davaj-davaj.png", Texture.class);
         manager.load("background.jpg", Texture.class);
+        manager.load("encore.jpg", Texture.class);
+        manager.load("vinylbox.jpg", Texture.class);
     }
 
     public void loadfonts()
