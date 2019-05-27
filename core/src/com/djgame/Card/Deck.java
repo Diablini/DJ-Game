@@ -17,7 +17,6 @@ import com.djgame.Card.Cards.BasicSynthHipHop;
 import com.djgame.Card.Cards.BasicSynthHouse;
 import com.djgame.Card.Cards.BasicSynthTrap;
 import com.djgame.Screens.MainGame;
-import com.djgame.Session;
 
 import java.util.Vector;
 

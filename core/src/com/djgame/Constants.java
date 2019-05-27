@@ -14,10 +14,10 @@ public final class Constants {
     public static final float cardscalelargey = 1f;
     public static final float picoffsetx = 20f;
     public static final float picoffsety = 171f;
-    public static final float titleoffsetx = 20f;
+    public static final float titleoffsetx = 35f;
     public static final float titleoffsety = 374f;
     public static final float titleheight = 26f;
-    public static final float titlewidth = 260f;
+    public static final float titlewidth = 245f;
     public static final float textoffsetx = 20f;
     public static final float textoffsety = 68f;
     public static final float textwidth = 260f;
@@ -26,7 +26,7 @@ public final class Constants {
     public static final float ftextoffsety = 16f;
     public static final float ftextwidth = 260f;
     public static final float ftextheight = 25f;
-    public static final float costoffsetx = 15f;
+    public static final float costoffsetx = 20f;
     public static final float costoffsety = 374f;
     public static final float costwidth = 20f;
     public static final float costheight = 26f;
@@ -41,7 +41,7 @@ public final class Constants {
 
     // card action durations
     public static final float enlargeduration = 0.1f;
-    public static final float shuffleduration = 0.25f;
+    public static final float shuffleduration = 0.2f;
 
     // card font scaling
     public static final float cardtitlefontscale = 0.90f;
@@ -92,10 +92,10 @@ public final class Constants {
     public static final float mixertrackx = 62f;
     public static final float mixertracky = 40f;
     public static final float mixtracklength = 330f;
-    public static final float bonusleftoffsetx = -130f;
-    public static final float bonusrightoffsetx = 50f;
+    public static final float bonusleftoffsetx = -120f;
+    public static final float bonusrightoffsetx = 45f;
     public static final float bonusoffsety = -12f;
-    public static final float bonustextwidth = 100f;
+    public static final float bonustextwidth = 95f;
     public static final float bonustextheight = 60f;
 
     // track stuff

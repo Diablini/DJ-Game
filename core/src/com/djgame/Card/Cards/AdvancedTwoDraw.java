@@ -15,7 +15,7 @@ public class AdvancedTwoDraw extends Card2d {
         TextureRegion reg = new TextureRegion(tex);
         picreg = reg;
         ttext = "Encore";
-        dtext = "Shuffle three zero cost \"Draw 2\" cards into your draw pile.\nExhaust";
+        dtext = "Shuffle two zero cost \"Draw 2\" cards into your draw pile.\nExhaust";
         ftext = "We want more!";
         basecost = 3;
 
@@ -32,14 +32,12 @@ public class AdvancedTwoDraw extends Card2d {
     public boolean Play() {
         if (!Session.CostCheck(this)) return false;
 
-        Card2d cardone, cardtwo, cardthree;
+        Card2d cardone, cardtwo;
         cardone = new ZeroCostDrawTwo(game);
         cardtwo = new ZeroCostDrawTwo(game);
-        cardthree = new ZeroCostDrawTwo(game);
 
         Session.State.getui().drawpile.AddCard(cardone);
         Session.State.getui().drawpile.AddCard(cardtwo);
-        Session.State.getui().drawpile.AddCard(cardthree);
         Session.State.getui().drawpile.Shuffle();
 
         Session.RefreshUI();

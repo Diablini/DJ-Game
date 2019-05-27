@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -27,6 +28,7 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.rotateTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.scaleTo;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 
 public class Card2d extends Group {
@@ -51,6 +53,7 @@ public class Card2d extends Group {
     public Card2d(MainGame game){
         this.game = game;
 
+        xoriginal = yoriginal = 0;
         indexoriginal = 0;
         iszoomed = false;
         ismoving = false;
@@ -103,8 +106,12 @@ public class Card2d extends Group {
                                 Constants.cardscalelargey, Constants.enlargeduration),
                         moveTo(getX() + Constants.hoveroffsetx,
                                 getY() + Constants.hoveroffsety, Constants.enlargeduration),
-                        rotateTo(getRotation()/2f, Constants.enlargeduration)));
+                        rotateTo(getRotation()/1.5f, Constants.enlargeduration)));
 
+
+
+                System.out.print("Enter X:" + (getX() + Constants.hoveroffsetx + " Y:" +
+                        (getY() + Constants.hoveroffsety)) + "\n");
                 // set Z index higher
                 zoriginal = getZIndex();
                 setZIndex(Constants.zcardzoomed);
@@ -124,15 +131,20 @@ public class Card2d extends Group {
                 if (!iszoomed || ismoving) return;
                 if (event.getType() != InputEvent.Type.exit || event.getButton() != -1) return;
                 if (getChildren().contains(toActor, true)) return;
+
                 addAction(parallel(
                         scaleTo(Constants.cardscalex, Constants.cardscaley,
                                 Constants.enlargeduration),
                         moveTo(xoriginal, yoriginal, Constants.enlargeduration),
                         rotateTo(angleoriginal, Constants.enlargeduration)));
 
+                System.out.print("Exit X:" + xoriginal + " Y:" +
+                        yoriginal + "\n");
+
                 // set Z index to original
                 setZIndex(zoriginal);
                 iszoomed = false;
+                ismoving = false;
 
                 cancel();
             }
@@ -186,7 +198,6 @@ public class Card2d extends Group {
                         }
                     }
                 }
-
                 return true;
             }
 
@@ -289,10 +300,22 @@ public class Card2d extends Group {
 
     // basically move and rotate card to position and angle
     public void Shuffle(float x, float y, float angle){
+        ismoving = true;
         setOrigin(getWidth()/2, getHeight()/2);
-        addAction(parallel(moveTo(x,y, Constants.shuffleduration),
-                rotateTo(angle, Constants.shuffleduration),
-                scaleTo(Constants.cardscalex, Constants.cardscaley, Constants.shuffleduration)));
+        addAction(sequence(
+                parallel(moveTo(x, y, Constants.shuffleduration),
+                        rotateTo(angle, Constants.shuffleduration),
+                        scaleTo(Constants.cardscalex, Constants.cardscaley, Constants.shuffleduration))
+                , new Action() {
+
+                    @Override
+                    public boolean act(float v) {
+                        Card2d.this.ismoving = false;
+                        Card2d.this.iszoomed = false;
+                        return true;
+                    }
+                }
+        ));
         setOrigin(getWidth()/2, 0);
     }
 

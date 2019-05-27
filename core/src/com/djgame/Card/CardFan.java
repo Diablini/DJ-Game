@@ -27,7 +27,8 @@ public class CardFan extends Group {
     private int centertargety = 0;
     private int radius = Math.round(centertargetx*3f);
     private int minslots = 4;
-    private float maxdegrees = 12f;
+    private float maxdegrees = 10f;
+    private float anglemultiplier = 0.9f;
 
 
     public Vector<CardSlot> slots;
@@ -135,7 +136,7 @@ public class CardFan extends Group {
             cards.get(i).indexoriginal = i;
             cards.get(i).ismoving = false;
             cards.get(i).Shuffle(slots.get(i + startslot).x, slots.get(i + startslot).y,
-                    slots.get(i + startslot).angle);
+                    slots.get(i + startslot).angle * anglemultiplier);
         }
 
 
