@@ -5,13 +5,13 @@ import com.djgame.Session;
 
 public class PointBonus extends MixerBonus {
     public PointBonus(){
-        text.setText("+25 crowd");
+        text.setText("50 points");
     }
 
     @Override
     public void Play() {
         if (activated) return;
-        Session.ScorePoints(25);
+        Session.ScorePoints(50);
         Session.RefreshUI();
         Activate();
     }

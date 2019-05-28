@@ -25,9 +25,9 @@ public class CardFan extends Group {
 
     private int centertargetx = 960;
     private int centertargety = 0;
-    private int radius = Math.round(centertargetx*3f);
+    private int radius = Math.round(centertargetx*1.8f);
     private int minslots = 4;
-    private float maxdegrees = 10f;
+    private float maxdegrees = 18f;
     private float anglemultiplier = 0.9f;
 
 
@@ -49,7 +49,7 @@ public class CardFan extends Group {
 
     public void AddCardAtIndex(Card2d card, int index)
     {
-        if (index == 0 && cards.isEmpty())
+        if (index == 1 && cards.isEmpty())
         {
             AddCard(card);
             return;

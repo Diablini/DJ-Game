@@ -30,7 +30,7 @@ public class GameScreen implements Screen {
         Audio audio = new Audio();
         stage.addActor(audio);
 
-        Deck starter = Deck.getStarterDeck(game);
+        Deck starter = game.deck;
 
         Session.State.getui().drawpile.Copy(starter.GetInitialPile());
         Session.State.getui().drawpile.Shuffle();
@@ -49,7 +49,7 @@ public class GameScreen implements Screen {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(delta);
-        stage.setDebugAll(true);
+        //stage.setDebugAll(true);
         stage.draw();
     }
 

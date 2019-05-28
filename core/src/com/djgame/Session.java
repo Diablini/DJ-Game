@@ -1,6 +1,7 @@
 package com.djgame;
 
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.djgame.Card.Card2d;
 import com.djgame.Card.CardPickup;
 import com.djgame.ChooseHandling.ChooseListener;
@@ -74,6 +75,7 @@ public class Session {
     public static void EndTurn(){
         // check if we can end turn
         if (State.choose.AnyWait()) return;
+        if (State.pickup.isPicked()) return;
 
         // play end of turn powers
         State.powers.PlayAfter();

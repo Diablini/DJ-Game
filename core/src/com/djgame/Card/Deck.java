@@ -16,6 +16,7 @@ import com.djgame.Card.Cards.BasicPlayTrack;
 import com.djgame.Card.Cards.BasicSynthHipHop;
 import com.djgame.Card.Cards.BasicSynthHouse;
 import com.djgame.Card.Cards.BasicSynthTrap;
+import com.djgame.Card.Cards.ResetMixerBonuses;
 import com.djgame.Screens.MainGame;
 
 import java.util.Vector;
@@ -51,6 +52,46 @@ public class Deck {
         return pile;
     }
 
+    public static Deck getCommonCards(MainGame game)
+    {
+        Deck deck = new Deck(game);
+
+        Card2d card = new BasicMixerPoint(game);
+        Card2d card1 = new BasicMixerPoint(game);
+        Card2d card2 = new BasicSynthHouse(game);
+        Card2d card3 = new BasicDrumHouse(game);
+        Card2d card4 = new BasicBassHouse(game);
+        Card2d card5 = new BasicSynthHipHop(game);
+        Card2d card6 = new BasicDrumHipHop(game);
+        Card2d card7 = new BasicBassHipHop(game);
+        Card2d card8 = new BasicSynthTrap(game);
+        Card2d card9 = new BasicBassTrap(game);
+        Card2d card10 = new BasicDrumTrap(game);
+        Card2d card11 = new BasicMixerPoint(game);
+        Card2d card13 = new BasicDrawDiscard(game);
+        Card2d card14 = new BasicClipSwap(game);
+        Card2d card15 = new BasicPlayTrack(game);
+
+
+        deck.AddCard(card);
+        deck.AddCard(card1);
+        deck.AddCard(card2);
+        deck.AddCard(card3);
+        deck.AddCard(card4);
+        deck.AddCard(card5);
+        deck.AddCard(card6);
+        deck.AddCard(card7);
+        deck.AddCard(card8);
+        deck.AddCard(card9);
+        deck.AddCard(card10);
+        deck.AddCard(card11);
+        deck.AddCard(card13);
+        deck.AddCard(card14);
+        deck.AddCard(card15);
+
+        return deck;
+    }
+
     public static Deck getStarterDeck(MainGame game)
     {
         Deck deck = new Deck(game);
@@ -72,6 +113,7 @@ public class Deck {
         Card2d card15 = new BasicPlayTrack(game);
         Card2d card16 = new AdvancedInstantCombo(game);
         Card2d card17 = new AdvancedTwoDraw(game);
+        Card2d card18 = new ResetMixerBonuses(game);
         deck.AddCard(card);
         deck.AddCard(card1);
         deck.AddCard(card2);
@@ -90,6 +132,7 @@ public class Deck {
         deck.AddCard(card15);
         deck.AddCard(card16);
         deck.AddCard(card17);
+        deck.AddCard(card18);
 
         return deck;
     }

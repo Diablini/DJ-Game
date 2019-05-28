@@ -7,10 +7,12 @@ import com.djgame.Screens.MainGame;
 
 public class CardListView extends Group {
 
+    public MainGame game;
     public CardPile cardlist;
     public float width, height;
 
     public CardListView(CardPile cards, boolean shuffle, MainGame game){
+        this.game = game;
         cardlist = new CardPile(cards, game);
         if (shuffle)
         {
@@ -59,20 +61,20 @@ public class CardListView extends Group {
 
     public void RemoveListeners()
     {
-        for (int i = 0; i < this.getChildren().items.length; i++)
+        for (int i = 0; i < cardlist.Size(); i++)
         {
-            if (this.getChildren().items[i] != null)
+            if (cardlist.Get(i) != null)
             {
-                this.getChildren().items[i].clearListeners();
+                cardlist.Get(i).clearListeners();
             }
         }
     }
 
     public void AddListeners()
     {
-        for (int i = 0; i < this.getChildren().items.length; i++)
+        for (int i = 0; i < cardlist.Size(); i++)
         {
-            if (this.getChildren().items[i] != null)
+            if (cardlist.Get(i) != null)
             {
                 ClickListener listener = new ClickListener(){
 

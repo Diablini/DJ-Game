@@ -33,7 +33,6 @@ public class BasicSynthTrap extends Card2d {
 
     @Override
     public boolean Play() {
-        // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
         Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
         TextureRegion reg = new TextureRegion(tex);

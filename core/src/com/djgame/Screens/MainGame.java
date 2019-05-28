@@ -32,6 +32,7 @@ import com.djgame.Card.Cards.BasicPlayTrack;
 import com.djgame.Card.Cards.BasicSynthHipHop;
 import com.djgame.Card.Cards.BasicSynthHouse;
 import com.djgame.Card.Cards.BasicSynthTrap;
+import com.djgame.Card.Deck;
 import com.djgame.Session;
 import com.djgame.UI;
 
@@ -41,6 +42,7 @@ public class MainGame extends Game {
 	private Stage stage;
 	public Assets assets;
 	public GameScreen gamescreen;
+	public Deck deck;
 
 
 	@Override
@@ -51,6 +53,9 @@ public class MainGame extends Game {
         assets.loadfonts();
         assets.loadmusic();
         assets.manager.finishLoading();
+
+        deck = Deck.getStarterDeck(this);
+
         gamescreen = new GameScreen(assets, this);
 		this.setScreen(gamescreen);
 	}

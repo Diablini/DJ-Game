@@ -59,7 +59,7 @@ public class Card2d extends Group {
         ismoving = false;
         // load textures and styles
         Texture backgroundtex =
-                game.assets.manager.get("cardplaceholder.png", Texture.class);
+                game.assets.manager.get("cardplaceholderfixed.png", Texture.class);
         Texture pictex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
 
         backgroundreg = new TextureRegion(backgroundtex);
@@ -106,7 +106,7 @@ public class Card2d extends Group {
                                 Constants.cardscalelargey, Constants.enlargeduration),
                         moveTo(getX() + Constants.hoveroffsetx,
                                 getY() + Constants.hoveroffsety, Constants.enlargeduration),
-                        rotateTo(getRotation()/1.5f, Constants.enlargeduration)));
+                        rotateTo(getRotation()/1f, Constants.enlargeduration)));
 
 
 

@@ -59,7 +59,7 @@ public final class Constants {
     public static final float backgroundx = 0f;
     public static final float backgroundy = 0f;
     public static final float cardfanx = 0f;
-    public static final float cardfany = 140f;
+    public static final float cardfany = 240f;
     public static final float topplatex = 0f;
     public static final float topplatey = 0f;
     public static final float drawpilex = 50f;
@@ -82,8 +82,8 @@ public final class Constants {
     public static final float hpy = 25f;
     public static final float choosepromptx = 700f;
     public static final float chooseprompty = 900f;
-    public static final float endturnbuttonx = 960f;
-    public static final float endturnbuttony = 550f;
+    public static final float endturnbuttonx = 860f;
+    public static final float endturnbuttony = 650f;
 
     // mixer stuff
     public static final float knoboffsetx = -20f;
@@ -146,7 +146,7 @@ public final class Constants {
     //----------------------------------------------------------//
 
     // Session
-    public static final int roundlimit = 15;
+    public static final int roundlimit = 20;
     public static final int drawperturn = 6;
     public static final int startinghp = 3;
     public static final int maxhp = 3;

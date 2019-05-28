@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.RandomXS128;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.djgame.Constants;
+import com.djgame.Mixer.Bonuses.DiscardHandDrawBonus;
 import com.djgame.Mixer.Bonuses.DiscardPointBonus;
 import com.djgame.Mixer.Bonuses.DoubleComboBonus;
 import com.djgame.Mixer.Bonuses.DrawBonus;
@@ -48,11 +49,11 @@ public class MixerBonus {
         //list.add(new DiscardPointBonus());
         list.add(new DoubleComboBonus());
         list.add(new DrawBonus());
-        list.add(new HandPointBonus());
         list.add(new HealBonus());
         list.add(new InspirationBonus());
         list.add(new PointBonus());
         list.add(new DrawNextBonus());
+        list.add(new DiscardHandDrawBonus());
         // TODO: add new bonuses
 
         // shuffle list

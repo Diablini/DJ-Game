@@ -36,11 +36,12 @@ public class Assets {
         manager.load("skipicon.jpg", Texture.class);
         manager.load("sampler.jpg", Texture.class);
         manager.load("stats-bar.png", Texture.class);
-        manager.load("cardplaceholder.png", Texture.class);
+        manager.load("cardplaceholderfixed.png", Texture.class);
         manager.load("davaj-davaj.png", Texture.class);
         manager.load("background.jpg", Texture.class);
         manager.load("encore.jpg", Texture.class);
         manager.load("vinylbox.jpg", Texture.class);
+        manager.load("eqrainbow.jpg", Texture.class);
     }
 
     public void loadfonts()
