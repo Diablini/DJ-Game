@@ -7,24 +7,23 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.djgame.Assets;
 import com.djgame.Audio;
 import com.djgame.Card.Deck;
+import com.djgame.Levels.Level;
 import com.djgame.Session;
 
 public class GameScreen implements Screen {
 
     private Stage stage;
-    public Assets assets;
     public MainGame game;
 
 
-    public GameScreen(Assets assets, MainGame game){
+    public GameScreen(MainGame game){
         super();
         this.game = game;
-        this.assets = assets;
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
-        Session.NewSession(assets, game);
+        Session.NewSession(game);
 
         stage.addActor(Session.State.getui());
         Audio audio = new Audio();

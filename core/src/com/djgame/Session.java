@@ -15,12 +15,12 @@ import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 
 public class Session {
 
-    public static void NewSession(Assets assets, MainGame game){
+    public static void NewSession(MainGame game){
         State.round = 1;
         State.crowd = 0;
         State.hp = Constants.startinghp;
         State.inspiration = Constants.inspirationperturn;
-        State.ui = new UI(assets, game);
+        State.ui = new UI(game.assets, game);
         State.mixpower = Constants.mixpowerperturn;
 
         // powerups
@@ -37,6 +37,9 @@ public class Session {
         State.ui.addActor(State.pickup);
         State.pickup.setPosition(0, 0);
 
+        State.game = game;
+        State.maxrounds = game.level.turns;
+        State.targetpoints = game.level.targetpoints;
     }
 
     public static void BeginTurn(){
@@ -44,13 +47,13 @@ public class Session {
         State.watchdog.NewRound();
 
         // check if round timer has run out
-        if (State.round > Constants.roundlimit){
+        if (State.round > State.maxrounds){
             TimerOut();
             return;
         }
 
         // update round timer
-        State.ui.rounds.setText("Turns: " + State.round + "/" + Constants.roundlimit);
+        State.ui.rounds.setText("Turns: " + State.round + "/" + State.maxrounds);
 
         // draw initial cards
         for (int i = 0; i < Constants.drawperturn; i++)
@@ -80,11 +83,12 @@ public class Session {
         // play end of turn powers
         State.powers.PlayAfter();
 
-        // increment round
-        State.round++;
 
         // play tracks
         State.ui.tracks.PlayTracks();
+
+        // increment round
+        State.round++;
 
         // dump hand into discard pile
         int c = State.ui.cards.cards.size();
@@ -123,6 +127,9 @@ public class Session {
     }
 
     public static void LoseHp(){
+        // Make sure you dont lose hp at turn 1 - that would be harsh
+        if (State.round == 1) return;
+
         State.hp--;
         RefreshUI();
         if (State.hp <= 0){HpOut();}
@@ -130,10 +137,23 @@ public class Session {
 
     public static void HpOut(){
         // TODO: Handle
+        State.game.gameover = true;
+        State.game.gamedone = true;
+
     }
 
     public static void TimerOut(){
         // TODO: Handle game end
+
+        if (State.crowd < State.targetpoints)
+        {
+            State.game.gameover = true;
+        }
+        else {
+            State.game.gameover = false;
+        }
+
+        State.game.gamedone = true;
     }
 
     public static void ScorePoints(int points){
@@ -239,9 +259,9 @@ public class Session {
 
     public static void RefreshUI(){
         State.ui.inspiration.setText(State.inspiration +"/" + Constants.inspirationperturn);
-        State.ui.rounds.setText(State.round + "/" + Constants.roundlimit);
+        State.ui.rounds.setText(State.round + "/" + State.maxrounds);
         State.ui.mixpower.setText(State.mixpower);
-        State.ui.crowd.setText(State.crowd);
+        State.ui.crowd.setText(State.crowd + "/" + State.targetpoints);
         State.ui.hp.setText(State.hp);
 
         State.ui.drawpile.UpdateNumber();
@@ -261,6 +281,8 @@ public class Session {
         public static PowerHandler powers;
         public static ChooseListener choose;
         public static CardPickup pickup;
+        public static MainGame game;
+        public static int targetpoints, maxrounds;
 
 
         public static UI getui(){

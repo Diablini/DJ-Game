@@ -1,4 +1,4 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,9 +11,9 @@ import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
-public class BasicDrumHipHop extends Card2d {
+public class DrumHipHop extends Card2d {
 
-    public BasicDrumHipHop(MainGame game){
+    public DrumHipHop(MainGame game){
         super(game);
         Texture tex = game.assets.manager.get("image-drum1.jpg", Texture.class);
         picreg = new TextureRegion(tex);
@@ -22,12 +22,15 @@ public class BasicDrumHipHop extends Card2d {
         super.ftext = "Badum tish";
         basecost = 2;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Music;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicDrumHipHop c = new BasicDrumHipHop(game);
+        DrumHipHop c = new DrumHipHop(game);
         return c;
     }
 

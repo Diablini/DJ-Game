@@ -73,7 +73,7 @@ public class UI extends Group {
         drawpile.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                ViewDrawPileScreen screen = new ViewDrawPileScreen(assets, game);
+                ViewDrawPileScreen screen = new ViewDrawPileScreen(game);
                 game.setScreen(screen);
                 return true;
             }
@@ -82,7 +82,7 @@ public class UI extends Group {
         discardpile.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                ViewDiscardPileScreen screen = new ViewDiscardPileScreen(assets, game);
+                ViewDiscardPileScreen screen = new ViewDiscardPileScreen(game);
                 game.setScreen(screen);
                 return true;
             }

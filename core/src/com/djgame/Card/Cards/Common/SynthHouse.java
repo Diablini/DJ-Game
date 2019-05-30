@@ -1,4 +1,4 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,25 +11,26 @@ import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
-public class BasicBassTrap extends Card2d {
+public class SynthHouse extends Card2d {
 
-    public BasicBassTrap(MainGame game){
+    public SynthHouse(MainGame game){
         super(game);
-
-        Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
-        TextureRegion reg = new TextureRegion(tex);
-
-        super.ttext = "808's";
-        super.dtext = "+1 Bass\nSpecial: Add from bottom";
-        super.ftext = "Drop it";
+        Texture tex = game.assets.manager.get("image-lead1.jpg", Texture.class);
+        picreg = new TextureRegion(tex);
+        super.ttext = "House Synths";
+        super.dtext = "+1 Synth\nSpecial: Add from bottom";
+        super.ftext = "";
         basecost = 1;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Music;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicBassTrap c = new BasicBassTrap(game);
+        SynthHouse c = new SynthHouse(game);
         return c;
     }
 
@@ -37,16 +38,15 @@ public class BasicBassTrap extends Card2d {
     public boolean Play() {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
-
-        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point2.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
-        clipone.style = TrackPlaylist.SongStyle.TRAP;
+        clipone.style = TrackPlaylist.SongStyle.HOUSE;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 
-        Session.State.getui().tracks.btrack.InsertTop(clipone);
+        Session.State.getui().tracks.strack.InsertTop(clipone);
 
         Session.State.watchdog.CardPlayed();
         Session.PayCardCost(this);
@@ -59,15 +59,15 @@ public class BasicBassTrap extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point2.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
-        clipone.style = TrackPlaylist.SongStyle.TRAP;
+        clipone.style = TrackPlaylist.SongStyle.HOUSE;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 
-        Session.State.getui().tracks.btrack.InsertBottom(clipone);
+        Session.State.getui().tracks.strack.InsertBottom(clipone);
 
         Session.State.watchdog.CardPlayed();
         Session.PayCardCost(this);

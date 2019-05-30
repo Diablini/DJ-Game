@@ -1,8 +1,7 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Rare;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.djgame.Assets;
 import com.djgame.Card.Card2d;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
@@ -19,6 +18,8 @@ public class ResetMixerBonuses extends Card2d {
         super.ftext = "";
         basecost = 2;
 
+        rarity = Rarity.Rare;
+        type = CardType.Support;
         UpdateAssets();
 
     }

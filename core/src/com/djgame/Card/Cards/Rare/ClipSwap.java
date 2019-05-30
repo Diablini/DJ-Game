@@ -1,20 +1,16 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Rare;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.ChooseHandling.ChooseRequest;
 import com.djgame.ChooseHandling.InfoCarrier;
-import com.djgame.EventHandling.Watchdog;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
-
-public class BasicClipSwap extends Card2d {
-    public BasicClipSwap(MainGame game)
+public class ClipSwap extends Card2d {
+    public ClipSwap(MainGame game)
     {
         super(game);
         Texture tex = game.assets.manager.get("sampler.jpg", Texture.class);
@@ -25,12 +21,15 @@ public class BasicClipSwap extends Card2d {
         dtext = "Move the top clip of one track to another track";
         picreg = reg;
 
+        rarity = Rarity.Rare;
+        type = CardType.Support;
+
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicClipSwap c = new BasicClipSwap(game);
+        ClipSwap c = new ClipSwap(game);
         return c;
     }
 

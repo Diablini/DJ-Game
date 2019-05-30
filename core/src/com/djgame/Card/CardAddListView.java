@@ -1,8 +1,10 @@
 package com.djgame.Card;
 
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.djgame.Screens.MainGame;
+import com.djgame.Session;
 
 public class CardAddListView extends CardListView {
     public int pickcount, maxpicks;
@@ -19,7 +21,7 @@ public class CardAddListView extends CardListView {
 
     public void PickLimit()
     {
-
+        //game.setScreen(back);
     }
 
     @Override

@@ -1,18 +1,15 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Rare;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.djgame.Assets;
 import com.djgame.Card.Card2d;
 import com.djgame.Constants;
 import com.djgame.Powers.Power;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-public class AdvancedDrawperturn extends Card2d {
-    public AdvancedDrawperturn(MainGame game)
+public class Drawperturn extends Card2d {
+    public Drawperturn(MainGame game)
     {
         super(game);
         Texture tex = game.assets.manager.get("winamp.jpg", Texture.class);
@@ -23,12 +20,14 @@ public class AdvancedDrawperturn extends Card2d {
         super.ftext = "Pusni Soni";
         basecost = 3;
 
+        rarity = Rarity.Rare;
+        type = CardType.Power;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        AdvancedDrawperturn c = new AdvancedDrawperturn(game);
+        Drawperturn c = new Drawperturn(game);
         return c;
     }
 

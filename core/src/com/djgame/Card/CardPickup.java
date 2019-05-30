@@ -58,5 +58,13 @@ public class CardPickup extends Group {
                         y - getChildren().items[i].getHeight()/2);
             }
         }
+
+        // BULLSHIT CODE FOR TILTING THE CARD
+        // TODO: change to reverse vector
+        float tilt = (Gdx.input.getDeltaX() / 3) % 30f ;
+        if (isPicked())
+        {
+            picked.setRotation(tilt);
+        }
     }
 }

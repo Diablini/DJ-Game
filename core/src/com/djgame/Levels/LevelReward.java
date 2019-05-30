@@ -1,9 +1,10 @@
 package com.djgame.Levels;
 
+import com.badlogic.gdx.Screen;
 import com.djgame.Screens.MainGame;
 
 public class LevelReward {
-    private MainGame game;
+    protected MainGame game;
     public int cost;
 
     public LevelReward(MainGame game)
@@ -12,8 +13,13 @@ public class LevelReward {
         cost = 0;
     }
 
-    public void Claim()
+    public String getText()
     {
+        return "Reward Text";
+    }
 
+    public Screen Claim()
+    {
+        return null;
     }
 }

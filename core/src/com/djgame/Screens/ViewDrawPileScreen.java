@@ -15,17 +15,15 @@ import com.djgame.Session;
 public class ViewDrawPileScreen implements Screen {
 
     private Stage stage;
-    private Assets assets;
     private MainGame game;
 
-    public ViewDrawPileScreen(Assets assets, final MainGame game)
+    public ViewDrawPileScreen(final MainGame game)
     {
         super();
         stage = new Stage();
-        this.assets = assets;
         this.game = game;
 
-        Texture bgtex = assets.manager.get("background.jpg", Texture.class);
+        Texture bgtex = game.assets.manager.get("background.jpg", Texture.class);
         Image bg = new Image(bgtex);
         stage.addActor(bg);
 
@@ -34,7 +32,7 @@ public class ViewDrawPileScreen implements Screen {
         view.setPosition(100f, 740f);
         stage.addActor(view);
 
-        Texture buttontex = assets.manager.get("davaj-davaj.png", Texture.class);
+        Texture buttontex = game.assets.manager.get("davaj-davaj.png", Texture.class);
         final Image backbutton = new Image(buttontex);
         backbutton.setPosition(60, 60);
         backbutton.addListener(new ClickListener(){

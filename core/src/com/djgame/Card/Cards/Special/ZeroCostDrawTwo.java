@@ -1,4 +1,4 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Special;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,6 +18,9 @@ public class ZeroCostDrawTwo extends Card2d {
         dtext = "Draw two cards";
         ftext = "";
         basecost = 0;
+
+        rarity = Rarity.Special;
+        type = CardType.Support;
 
         UpdateAssets();
 

@@ -1,6 +1,5 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
@@ -10,8 +9,8 @@ import com.djgame.ChooseHandling.InfoCarrier;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-public class BasicDrawDiscard extends Card2d {
-    public BasicDrawDiscard(MainGame game){
+public class DrawDiscard extends Card2d {
+    public DrawDiscard(MainGame game){
         super(game);
         Texture tex = game.assets.manager.get("jacks.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
@@ -21,12 +20,15 @@ public class BasicDrawDiscard extends Card2d {
         super.ftext = "";
         basecost = 0;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Support;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicDrawDiscard c = new BasicDrawDiscard(game);
+        DrawDiscard c = new DrawDiscard(game);
         return c;
     }
 

@@ -145,6 +145,9 @@ public final class Constants {
     //------------- Game logic ---------------------------------//
     //----------------------------------------------------------//
 
+    // Levels
+    public static final int maxstages = 10;
+
     // Session
     public static final int roundlimit = 20;
     public static final int drawperturn = 6;

@@ -1,7 +1,5 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Rare;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
@@ -12,8 +10,8 @@ import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
 
-public class AdvancedInstantCombo extends Card2d {
-    public AdvancedInstantCombo(MainGame game)
+public class InstantCombo extends Card2d {
+    public InstantCombo(MainGame game)
     {
         super(game);
         Texture tex = game.assets.manager.get("turntable.jpg", Texture.class);
@@ -24,12 +22,14 @@ public class AdvancedInstantCombo extends Card2d {
         ftext = "";
         basecost = 3;
 
+        rarity = Rarity.Rare;
+        type = CardType.Support;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        AdvancedInstantCombo c = new AdvancedInstantCombo(game);
+        InstantCombo c = new InstantCombo(game);
         return c;
     }
 

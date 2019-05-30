@@ -46,12 +46,16 @@ public class Card2d extends Group {
     protected TextureRegion backgroundreg, picreg;
     protected String ttext, ftext, dtext;
     protected int basecost, costmod;
+    public Rarity rarity;
+    public CardType type;
 
     public MainGame game;
 
 
     public Card2d(MainGame game){
         this.game = game;
+        rarity = Rarity.Common;
+        type = CardType.None;
 
         xoriginal = yoriginal = 0;
         indexoriginal = 0;
@@ -329,5 +333,21 @@ public class Card2d extends Group {
 
     public boolean PlaySpecial(){
         return false;
+    }
+
+    public enum Rarity
+    {
+        Common,
+        Rare,
+        Epic,
+        Special
+    }
+
+    public enum CardType
+    {
+        None,
+        Music,
+        Power,
+        Support,
     }
 }

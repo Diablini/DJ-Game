@@ -1,14 +1,13 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-public class BasicMixerPoint extends Card2d {
-    public BasicMixerPoint(MainGame game){
+public class MixerPoint extends Card2d {
+    public MixerPoint(MainGame game){
         super(game);
         Texture tex = game.assets.manager.get("mixing-pic.jpg", Texture.class);
         picreg = new TextureRegion(tex);
@@ -17,12 +16,15 @@ public class BasicMixerPoint extends Card2d {
         ftext = "";
         basecost = 1;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Support;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicMixerPoint c = new BasicMixerPoint(game);
+        MixerPoint c = new MixerPoint(game);
         return c;
     }
 

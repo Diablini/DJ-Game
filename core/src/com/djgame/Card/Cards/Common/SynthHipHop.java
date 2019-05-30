@@ -1,4 +1,4 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,9 +11,9 @@ import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
-public class BasicSynthHipHop extends Card2d {
+public class SynthHipHop extends Card2d {
 
-    public BasicSynthHipHop(MainGame game){
+    public SynthHipHop(MainGame game){
         super(game);
 
         Texture tex = game.assets.manager.get("image-lead1.jpg", Texture.class);
@@ -23,12 +23,15 @@ public class BasicSynthHipHop extends Card2d {
         super.ftext = "";
         basecost = 1;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Music;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicSynthHipHop c = new BasicSynthHipHop(game);
+        SynthHipHop c = new SynthHipHop(game);
         return c;
     }
 

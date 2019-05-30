@@ -1,6 +1,5 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
@@ -10,8 +9,8 @@ import com.djgame.ChooseHandling.InfoCarrier;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-public class BasicPlayTrack extends Card2d {
-    public BasicPlayTrack(MainGame game)
+public class PlayTrack extends Card2d {
+    public PlayTrack(MainGame game)
     {
         super(game);
         Texture tex = game.assets.manager.get("skipicon.jpg", Texture.class);
@@ -22,12 +21,15 @@ public class BasicPlayTrack extends Card2d {
         basecost = 0;
         picreg = reg;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Support;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicPlayTrack c = new BasicPlayTrack(game);
+        PlayTrack c = new PlayTrack(game);
         return c;
     }
 

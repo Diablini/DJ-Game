@@ -1,7 +1,13 @@
 package com.djgame.Levels;
 
 
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.djgame.Screens.GameScreen;
 import com.djgame.Screens.MainGame;
+
+import java.util.Vector;
 
 public class LevelGenerator {
     private MainGame game;
@@ -50,9 +56,24 @@ public class LevelGenerator {
 
     public Level generate(int stage, int turns)
     {
-        Level l = new Level(game);
-        l.targetpoints = (int)((targetpointaverages[turns - 1] * difficultycoef[stage - 1])
+        int targetpoints = (int)((targetpointaverages[turns - 1] * difficultycoef[stage])
                 /10) * 10;
+
+        Vector<LevelReward> rewards = new Vector<LevelReward>();
+
+        final Level l = new Level(game, turns, targetpoints, rewards);
+        // TODO: generate level rewards
+
+        l.addListener(new ClickListener(){
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.level = l;
+                Screen gamescreen = new GameScreen(game);
+                game.setScreen(gamescreen);
+                return true;
+            }
+        });
 
         return l;
     }

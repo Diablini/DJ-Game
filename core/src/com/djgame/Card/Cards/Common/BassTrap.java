@@ -1,4 +1,4 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Common;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,25 +11,28 @@ import com.djgame.Session;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
 
-public class BasicBassHipHop extends Card2d {
+public class BassTrap extends Card2d {
 
-    public BasicBassHipHop(MainGame game){
+    public BassTrap(MainGame game){
         super(game);
+
         Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
 
-        super.picreg = reg;
-        super.ttext = "Hip Hop Bass";
+        super.ttext = "808's";
         super.dtext = "+1 Bass\nSpecial: Add from bottom";
         super.ftext = "Drop it";
         basecost = 1;
 
+
+        rarity = Rarity.Common;
+        type = CardType.Music;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        BasicBassHipHop c = new BasicBassHipHop(game);
+        BassTrap c = new BassTrap(game);
         return c;
     }
 
@@ -38,11 +41,11 @@ public class BasicBassHipHop extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("tracks-point3.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
-        clipone.style = TrackPlaylist.SongStyle.HIPHOP;
+        clipone.style = TrackPlaylist.SongStyle.TRAP;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 
@@ -59,11 +62,11 @@ public class BasicBassHipHop extends Card2d {
         // TODO: add inspiration check
         if (!Session.CostCheck(this)) return false;
 
-        Texture tex = new Texture(Gdx.files.internal("tracks-point3.png"));
+        Texture tex = new Texture(Gdx.files.internal("tracks-point1.png"));
         TextureRegion reg = new TextureRegion(tex);
 
         Clip clipone = new Clip();
-        clipone.style = TrackPlaylist.SongStyle.HIPHOP;
+        clipone.style = TrackPlaylist.SongStyle.TRAP;
         clipone.crowdpoints = Constants.baseclippoints;
         clipone.img = new Image(reg);
 

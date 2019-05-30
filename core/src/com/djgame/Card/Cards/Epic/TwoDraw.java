@@ -1,14 +1,15 @@
-package com.djgame.Card.Cards;
+package com.djgame.Card.Cards.Epic;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.djgame.Card.Card2d;
+import com.djgame.Card.Cards.Special.ZeroCostDrawTwo;
 import com.djgame.Screens.MainGame;
 import com.djgame.Session;
 
-public class AdvancedTwoDraw extends Card2d {
+public class TwoDraw extends Card2d {
 
-    public AdvancedTwoDraw(MainGame game)
+    public TwoDraw(MainGame game)
     {
         super(game);
         Texture tex = game.assets.manager.get("encore.jpg", Texture.class);
@@ -19,12 +20,14 @@ public class AdvancedTwoDraw extends Card2d {
         ftext = "We want more!";
         basecost = 3;
 
+        rarity = Rarity.Epic;
+        type = CardType.Power;
         UpdateAssets();
     }
 
     @Override
     public Card2d clone() {
-        AdvancedTwoDraw c = new AdvancedTwoDraw(game);
+        TwoDraw c = new TwoDraw(game);
         return c;
     }
 
