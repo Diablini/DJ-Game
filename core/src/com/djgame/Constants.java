@@ -147,6 +147,7 @@ public final class Constants {
 
     // Levels
     public static final int maxstages = 10;
+    public static final int maxrewards = 3;
 
     // Session
     public static final int roundlimit = 20;

@@ -2,8 +2,11 @@ package com.djgame.Levels;
 
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.math.RandomXS128;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.TimeUtils;
+import com.djgame.Constants;
 import com.djgame.Screens.GameScreen;
 import com.djgame.Screens.MainGame;
 
@@ -61,8 +64,32 @@ public class LevelGenerator {
 
         Vector<LevelReward> rewards = new Vector<LevelReward>();
 
-        final Level l = new Level(game, turns, targetpoints, rewards);
         // TODO: generate level rewards
+        float pointsperturn = ((float) targetpoints) / ((float) turns);
+
+        RandomXS128 random = new RandomXS128(TimeUtils.nanoTime());
+
+        Vector<LevelReward> allrewards = LevelReward.getAllRewards(game);
+        for (int i = 0; i < Constants.maxrewards; i++)
+        {
+            // filter out only rewards we can afford
+            Vector<LevelReward> afford = new Vector<LevelReward>();
+            for (int z = 0; z < allrewards.size(); z++)
+            {
+                if (allrewards.get(z).cost <= pointsperturn)
+                {
+                    afford.add(allrewards.get(z));
+                }
+            }
+            // if we cant afford any reward break the loop
+            if (afford.isEmpty()) break;
+            int rand = random.nextInt(afford.size());
+            rewards.add(afford.get(rand));
+            pointsperturn -= afford.get(rand).cost;
+        }
+
+
+        final Level l = new Level(game, turns, targetpoints, rewards);
 
         l.addListener(new ClickListener(){
 

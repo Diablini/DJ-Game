@@ -49,7 +49,8 @@ public class UI extends Group {
         TextureRegion platereg = new TextureRegion(platetex);
 
         cards = new CardFan();
-        drawpile = new CardPile(game);
+        CardPile dummypile = game.deck.GetInitialPile();
+        drawpile = new CardPile(dummypile, game);
         exhaustpile = new CardPile(game);
         discardpile = new CardPile(game);
         tracks = new TrackPlaylist();

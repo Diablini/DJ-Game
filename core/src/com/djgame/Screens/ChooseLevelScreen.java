@@ -5,10 +5,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.RandomXS128;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.djgame.Assets;
 import com.djgame.Levels.Level;
 import com.djgame.Levels.LevelGenerator;
@@ -31,10 +33,15 @@ public class ChooseLevelScreen implements Screen {
         stage.addActor(background);
 
         LevelGenerator levelgenerator = new LevelGenerator(game);
+        RandomXS128 random = new RandomXS128(TimeUtils.nanoTime());
+        int turnsone, turnstwo, turnsthree;
+        turnsone = 8 + random.nextInt(13);
+        turnstwo = 12 + random.nextInt(9);
+        turnsthree = 8 + random.nextInt(7);
 
-        Level one = levelgenerator.generate(levelstage, 10);
-        Level two = levelgenerator.generate(levelstage, 10);
-        Level three = levelgenerator.generate(levelstage, 10);
+        Level one = levelgenerator.generate(levelstage, turnsone);
+        Level two = levelgenerator.generate(levelstage, turnstwo);
+        Level three = levelgenerator.generate(levelstage, turnsthree);
 
         stage.addActor(one);
         stage.addActor(two);

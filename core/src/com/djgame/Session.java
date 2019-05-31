@@ -4,9 +4,13 @@ package com.djgame;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.djgame.Card.Card2d;
 import com.djgame.Card.CardPickup;
+import com.djgame.Card.CardPile;
 import com.djgame.ChooseHandling.ChooseListener;
 import com.djgame.EventHandling.Watchdog;
 import com.djgame.Powers.PowerHandler;
+import com.djgame.Screens.ChooseLevelScreen;
+import com.djgame.Screens.GameOverScreen;
+import com.djgame.Screens.GameScreen;
 import com.djgame.Screens.MainGame;
 import com.djgame.Tracks.Clip;
 import com.djgame.Tracks.TrackPlaylist;
@@ -140,6 +144,7 @@ public class Session {
         State.game.gameover = true;
         State.game.gamedone = true;
 
+        State.game.setScreen(new GameOverScreen(State.game));
     }
 
     public static void TimerOut(){
@@ -147,10 +152,11 @@ public class Session {
 
         if (State.crowd < State.targetpoints)
         {
-            State.game.gameover = true;
+            State.game.setScreen(new GameOverScreen(State.game));
         }
-        else {
-            State.game.gameover = false;
+        else
+        {
+            State.game.NextOrReward();
         }
 
         State.game.gamedone = true;
