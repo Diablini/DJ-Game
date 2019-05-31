@@ -29,12 +29,9 @@ public class GameScreen implements Screen {
         Audio audio = new Audio();
         stage.addActor(audio);
 
-        Deck starter = game.deck;
-
-        Session.State.getui().drawpile.Copy(starter.GetInitialPile());
-        Session.State.getui().drawpile.Shuffle();
-
+        game.gamescreen = this;
         Session.BeginTurn();
+
     }
 
 

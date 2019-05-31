@@ -11,6 +11,7 @@ import com.djgame.Assets;
 import com.djgame.Card.Deck;
 import com.djgame.Constants;
 import com.djgame.Levels.Level;
+import com.djgame.Session;
 
 
 public class MainGame extends Game {
@@ -43,6 +44,7 @@ public class MainGame extends Game {
         Screen chooselevel = new ChooseLevelScreen(this, levelstage);
 
 		this.setScreen(chooselevel);
+
 	}
 
 	public boolean PendingRewards()
@@ -57,6 +59,19 @@ public class MainGame extends Game {
 		Screen rewardscreen = level.rewards.get(0).Claim();
 		level.rewards.remove(0);
 		setScreen(rewardscreen);
+	}
+
+	public void NextOrReward()
+	{
+		if (PendingRewards())
+		{
+			ClaimReward();
+		}
+		else
+		{
+			levelstage++;
+			setScreen(new ChooseLevelScreen(this, levelstage));
+		}
 	}
 
 	@Override

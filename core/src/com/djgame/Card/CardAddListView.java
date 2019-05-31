@@ -21,7 +21,7 @@ public class CardAddListView extends CardListView {
 
     public void PickLimit()
     {
-        //game.setScreen(back);
+        game.NextOrReward();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CardAddListView extends CardListView {
                     @Override
                     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                         view.pickcount++;
-                        view.game.deck.AddCard(card);
+                        view.game.deck.AddCard(card.clone());
 
                         if (view.pickcount >= view.maxpicks)
                         {
