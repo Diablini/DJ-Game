@@ -174,6 +174,22 @@ public class Deck {
         return deck;
     }
 
+    public static Deck getPowerCards(MainGame game)
+    {
+        Deck deck = getAllCards(game);
+
+        for (int i = 0; i < deck.cards.size(); i++)
+        {
+            if (deck.cards.get(i).type != Card2d.CardType.Power)
+            {
+                deck.RemoveCard(deck.cards.get(i));
+                i--;
+            }
+        }
+
+        return deck;
+    }
+
     public static Deck getStarterDeck(MainGame game)
     {
         Deck deck = new Deck(game);

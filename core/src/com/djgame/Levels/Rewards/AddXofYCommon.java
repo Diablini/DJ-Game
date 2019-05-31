@@ -4,34 +4,34 @@ import com.badlogic.gdx.Screen;
 import com.djgame.Card.CardPile;
 import com.djgame.Card.Deck;
 import com.djgame.Levels.LevelReward;
-import com.djgame.Screens.MainGame;
 import com.djgame.Screens.AddCardsScreen;
+import com.djgame.Screens.MainGame;
 
-public class AddXofYAll extends LevelReward {
+public class AddXofYCommon extends LevelReward {
     public int x, y;
 
-    public AddXofYAll(MainGame game, int add, int ofy)
+    public AddXofYCommon(MainGame game, int add, int ofy)
     {
         super(game);
         x = add;
         y = ofy;
-        cost = 35;
+        cost = 25;
     }
 
     @Override
     public LevelReward clone() {
-        AddXofYAll c = new AddXofYAll(game, x, y);
+        AddXofYCommon c = new AddXofYCommon(game, x, y);
         return c;
     }
 
     @Override
     public String getText() {
-        return "Pick " + x + " of " + y + " random cards";
+        return "Pick " + x + " of " + y + " common cards";
     }
 
     @Override
     public Screen Claim() {
-        Deck deck = Deck.getAllCards(game);
+        Deck deck = Deck.getCommonCards(game);
         CardPile pile = deck.GetInitialPile();
         pile.Shuffle();
 

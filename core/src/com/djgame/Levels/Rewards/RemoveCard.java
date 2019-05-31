@@ -13,7 +13,7 @@ public class RemoveCard extends LevelReward {
     {
         super(game);
         toremove = howmany;
-        cost = 40;
+        cost = 50;
     }
 
     @Override
