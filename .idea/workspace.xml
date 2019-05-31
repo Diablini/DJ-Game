@@ -8,38 +8,7 @@
     <bookmark url="file://$PROJECT_DIR$/core/src/com/djgame/Levels/Rewards/AddXofYAll.java" line="43" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cc8cf80-ee9d-47df-acb4-637e576e2039" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/com/djgame/Card/CardRemoveListView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/djgame/Levels/Rewards/RemoveCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/GameOverScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/RemoveCardsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Card/CardAddListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Card/CardAddListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Levels/LevelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Levels/LevelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Levels/LevelReward.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Levels/LevelReward.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Levels/Rewards/AddXofY.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Levels/Rewards/AddXofYAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Screens/ChooseLevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/ChooseLevelScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Screens/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/MainGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Screens/PickCardsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Screens/AddCardsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/djgame/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/djgame/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/desktop.iml" afterDir="false" />
-    </list>
+    <list default="true" id="2cc8cf80-ee9d-47df-acb4-637e576e2039" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Screens/RemoveCardsScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="430">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -300,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -656,14 +625,14 @@
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.48081023" visible="true" weight="0.29501083" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.48081023" weight="0.29501083" />
       <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49840087" weight="0.329718" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48667377" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49840087" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5191898" side_tool="true" visible="true" weight="0.29501083" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5181237" side_tool="true" visible="true" weight="0.22776572" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4824094" weight="0.22776572" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.48187634" visible="true" weight="0.22776572" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.4978678" weight="0.329718" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.329718" />
@@ -1187,7 +1156,7 @@
     <entry file="file://$PROJECT_DIR$/core/src/com/djgame/Screens/RemoveCardsScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
