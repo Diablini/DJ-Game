@@ -33,7 +33,7 @@ public class MixerPoint extends Card2d {
         if (!Session.CostCheck(this)) return false;
         Session.State.setMixpower(Session.State.getMixpower() + 1);
         Session.RefreshUI();
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

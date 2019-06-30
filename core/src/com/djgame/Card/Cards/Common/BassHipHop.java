@@ -15,7 +15,7 @@ public class BassHipHop extends Card2d {
 
     public BassHipHop(MainGame game){
         super(game);
-        Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-bass1.png", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
 
         super.picreg = reg;
@@ -50,7 +50,7 @@ public class BassHipHop extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertTop(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -71,7 +71,7 @@ public class BassHipHop extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertBottom(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

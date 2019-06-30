@@ -7,6 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.djgame.Assets;
 import com.djgame.Audio;
 import com.djgame.Card.Deck;
+import com.djgame.Constants;
+import com.djgame.EventHandling.Watchdog;
 import com.djgame.Levels.Level;
 import com.djgame.Session;
 
@@ -44,6 +46,15 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        float spinrate = Constants.vinylspinrate;
+        if (Session.State.getui().tracks.dtrack.HasClips()) spinrate += Constants.vinylspinbonus;
+        if (Session.State.getui().tracks.btrack.HasClips()) spinrate += Constants.vinylspinbonus;
+        if (Session.State.getui().tracks.strack.HasClips()) spinrate += Constants.vinylspinbonus;
+
+        Session.State.getui().vinyl.setRotation(Session.State.getui().vinyl.getRotation()
+                + spinrate);
+
         stage.act(delta);
         //stage.setDebugAll(true);
         stage.draw();

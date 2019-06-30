@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.djgame.Card.CardFan;
 import com.djgame.Card.CardPile;
 import com.djgame.Mixer.Mixer;
@@ -29,7 +30,7 @@ public class UI extends Group {
     public TrackPlaylist tracks;
     public Mixer mixer;
     public Label rounds, inspiration, crowd, mixpower, hp, chooseprompt;
-    public Image endturnbutton, background, topplate;
+    public Image endturnbutton, background, topplate, vinyl;
 
     UI(final Assets assets, final MainGame game){
         this.assets = assets;
@@ -38,16 +39,19 @@ public class UI extends Group {
         setPosition(0,0);
         Label.LabelStyle style = new Label.LabelStyle();
         BitmapFont font = Constants.fonts.uilabel;
-        style.fontColor = Color.WHITE;
+        style.fontColor = Constants.cardlightcolor;
         style.font = font;
-        // TODO: load from atlas
-        Texture endtex = new Texture(Gdx.files.internal("davaj-davaj.png"));
+        // TODO: load from atlas;
+        Texture endtex = game.assets.manager.get("mixer-knob.png", Texture.class);
         TextureRegion endreg = new TextureRegion(endtex);
-        Texture bgtex = new Texture(Gdx.files.internal("background.jpg"));
+        Texture bgtex = game.assets.manager.get("background.jpg", Texture.class);
         TextureRegion bgreg = new TextureRegion(bgtex);
-        Texture platetex = new Texture(Gdx.files.internal("stats-bar.png"));
+        Texture platetex = game.assets.manager.get("panel.png", Texture.class);
         TextureRegion platereg = new TextureRegion(platetex);
+        Texture vtex = game.assets.manager.get("vinyl.png", Texture.class);
+        TextureRegion vreg = new TextureRegion(vtex);
 
+        vinyl = new Image(vreg);
         cards = new CardFan();
         CardPile dummypile = game.deck.GetInitialPile();
         drawpile = new CardPile(dummypile, game);
@@ -100,8 +104,10 @@ public class UI extends Group {
         crowd.setFontScale(Constants.uilabelfontscale);
         mixpower.setFontScale(Constants.uilabelfontscale);
         hp.setFontScale(Constants.uilabelfontscale);
-        chooseprompt.setFontScale(Constants.uilabelfontscale);
+        chooseprompt.setFontScale(Constants.uilabelfontscale * 2);
 
+
+        crowd.setColor(Constants.activatedbonuscolor);
 
         drawpile.Rename("Draw");
         discardpile.Rename("Discard");
@@ -126,6 +132,7 @@ public class UI extends Group {
         addActor(chooseprompt);
         addActor(endturnbutton);
         addActor(background);
+        addActor(vinyl);
         addActor(topplate);
         setVisible(true);
 
@@ -151,12 +158,20 @@ public class UI extends Group {
         hp.setPosition(Constants.hpx, Constants.hpy);
         chooseprompt.setZIndex(Constants.zchooseprompt);
         chooseprompt.setPosition(Constants.choosepromptx, Constants.chooseprompty);
+        chooseprompt.setBounds(Constants.choosepromptx, Constants.chooseprompty,
+                Constants.choosepromptwidth, Constants.choosepromptheight);
+        chooseprompt.setAlignment(Align.center);
         endturnbutton.setZIndex(Constants.zgenericbutton);
         endturnbutton.setPosition(Constants.endturnbuttonx,Constants.endturnbuttony);
+        endturnbutton.setScale(2.5f, 2f);
         background.setZIndex(Constants.zbackground);
         background.setPosition(Constants.backgroundx, Constants.backgroundy);
         topplate.setZIndex(Constants.ztopplate);
         topplate.setPosition(Constants.topplatex, Constants.topplatey);
+        vinyl.setZIndex(Constants.zvinyl);
+        vinyl.setPosition(Constants.vinylx, Constants.vinyly);
+        vinyl.setOrigin(vinyl.getWidth()/2, vinyl.getHeight()/2);
+        vinyl.setScale(Constants.vinylscale);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class DrumHipHop extends Card2d {
 
     public DrumHipHop(MainGame game){
         super(game);
-        Texture tex = game.assets.manager.get("image-drum1.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-drum1.png", Texture.class);
         picreg = new TextureRegion(tex);
         super.ttext = "Hip Hop Drum";
         super.dtext = "+2 Drums\nSpecial: Add from bottom";
@@ -52,7 +52,7 @@ public class DrumHipHop extends Card2d {
         Session.State.getui().tracks.dtrack.InsertTop(clipone);
         Session.State.getui().tracks.dtrack.InsertTop(cliptwo);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -78,7 +78,7 @@ public class DrumHipHop extends Card2d {
         Session.State.getui().tracks.dtrack.InsertBottom(clipone);
         Session.State.getui().tracks.dtrack.InsertBottom(cliptwo);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

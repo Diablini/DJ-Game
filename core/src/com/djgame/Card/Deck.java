@@ -1,5 +1,7 @@
 package com.djgame.Card;
 
+import com.djgame.Card.Cards.Common.MixerMoveDown;
+import com.djgame.Card.Cards.Common.MixerMoveUp;
 import com.djgame.Card.Cards.Rare.Drawperturn;
 import com.djgame.Card.Cards.Rare.InstantCombo;
 import com.djgame.Card.Cards.Epic.TwoDraw;
@@ -73,6 +75,8 @@ public class Deck {
         Card2d card16 = new InstantCombo(game);
         Card2d card17 = new TwoDraw(game);
         Card2d card18 = new ResetMixerBonuses(game);
+        Card2d card19 = new MixerMoveDown(game);
+        Card2d card20 = new MixerMoveUp(game);
         deck.AddCard(card);
         deck.AddCard(card2);
         deck.AddCard(card3);
@@ -90,6 +94,8 @@ public class Deck {
         deck.AddCard(card16);
         deck.AddCard(card17);
         deck.AddCard(card18);
+        deck.AddCard(card19);
+        deck.AddCard(card20);
 
         return deck;
     }
@@ -212,6 +218,8 @@ public class Deck {
         Card2d card16 = new InstantCombo(game);
         Card2d card17 = new TwoDraw(game);
         Card2d card18 = new ResetMixerBonuses(game);
+        Card2d card19 = new MixerMoveDown(game);
+        Card2d card20 = new MixerMoveUp(game);
         deck.AddCard(card);
         deck.AddCard(card1);
         deck.AddCard(card2);
@@ -231,6 +239,8 @@ public class Deck {
         deck.AddCard(card16);
         deck.AddCard(card17);
         deck.AddCard(card18);
+        deck.AddCard(card19);
+        deck.AddCard(card20);
 
         return deck;
     }

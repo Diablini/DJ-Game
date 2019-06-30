@@ -23,16 +23,16 @@ public class CardPile extends Group {
     public CardPile(MainGame game){
         this.game = game;
         cards = new Vector<Card2d>();
-        BitmapFont font = new BitmapFont();
-        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
+        BitmapFont font = Constants.fonts.uilabel;
+        Label.LabelStyle style = new Label.LabelStyle(font, Constants.cardlightcolor);
         img = new Label("Draw Deck", style);
         counter = new Label("0", style);
         img.setFontScale(2.5f);
-        counter.setFontScale(2.5f);
-        counter.setAlignment(Align.center, Align.center);
+        counter.setFontScale(Constants.uilabelfontscale);
+        //counter.setAlignment(Align.center, Align.center);
         counter.setPosition(Constants.cardnumberoffsetx, Constants.cardnumberoffsety);
 
-        addActor(img);
+        //addActor(img);
         addActor(counter);
     }
 

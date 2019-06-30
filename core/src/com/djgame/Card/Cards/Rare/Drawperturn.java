@@ -54,7 +54,7 @@ public class Drawperturn extends Card2d {
         Session.State.powers.AddBefore(p);
 
         Session.State.watchdog.PowerBeforeCreated();
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.Exhaust(this);
         return true;

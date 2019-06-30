@@ -43,7 +43,7 @@ public class PlayTrack extends Card2d {
             !Session.State.getui().tracks.btrack.HasClips() &&
             !Session.State.getui().tracks.dtrack.HasClips())
         {
-            Session.State.watchdog.CardPlayed();
+            Session.State.watchdog.CardPlayed(this);
             Session.DiscardAfterPlay(this);
             return true;
         }
@@ -69,7 +69,7 @@ public class PlayTrack extends Card2d {
 
         Session.State.choose.PutRequestFirst(req);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -81,7 +81,7 @@ public class PlayTrack extends Card2d {
 
         Session.DrawCard();
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

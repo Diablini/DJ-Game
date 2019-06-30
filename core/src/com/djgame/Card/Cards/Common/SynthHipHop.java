@@ -16,10 +16,10 @@ public class SynthHipHop extends Card2d {
     public SynthHipHop(MainGame game){
         super(game);
 
-        Texture tex = game.assets.manager.get("image-lead1.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-lead1.png", Texture.class);
         picreg = new TextureRegion(tex);
-        super.ttext = "Hip Hop Synth";
-        super.dtext = "+1 Synth Hip Hop\nSpecial: Add from bottom";
+        super.ttext = "Hip Hop Lead";
+        super.dtext = "+1 Lead\nSpecial: Add from bottom";
         super.ftext = "";
         basecost = 1;
 
@@ -49,7 +49,7 @@ public class SynthHipHop extends Card2d {
 
         Session.State.getui().tracks.strack.InsertTop(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -70,7 +70,7 @@ public class SynthHipHop extends Card2d {
 
         Session.State.getui().tracks.strack.InsertBottom(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

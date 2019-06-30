@@ -16,9 +16,10 @@ public class BassHouse extends Card2d {
     public BassHouse(MainGame game){
         super(game);
 
-        Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-bass3.png", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
 
+        super.picreg = reg;
         super.ttext = "House Bass";
         super.dtext = "+1 Bass\nSpecial: Add from bottom";
         super.ftext = "Drop it";
@@ -51,7 +52,7 @@ public class BassHouse extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertTop(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -72,7 +73,7 @@ public class BassHouse extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertBottom(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

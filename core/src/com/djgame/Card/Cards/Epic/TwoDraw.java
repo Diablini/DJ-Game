@@ -44,7 +44,7 @@ public class TwoDraw extends Card2d {
         Session.State.getui().drawpile.Shuffle();
 
         Session.RefreshUI();
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.Exhaust(this);
         return true;

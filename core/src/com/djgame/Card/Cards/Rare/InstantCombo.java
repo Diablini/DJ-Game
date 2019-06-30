@@ -20,7 +20,7 @@ public class InstantCombo extends Card2d {
         ttext = "Tempo Match";
         dtext = "Instantly get points for every combo on every track level";
         ftext = "";
-        basecost = 3;
+        basecost = 2;
 
         rarity = Rarity.Rare;
         type = CardType.Support;
@@ -69,7 +69,7 @@ public class InstantCombo extends Card2d {
 
 
         Session.RefreshUI();
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

@@ -16,10 +16,11 @@ public class BassTrap extends Card2d {
     public BassTrap(MainGame game){
         super(game);
 
-        Texture tex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-bass2.png", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
 
-        super.ttext = "808's";
+        super.picreg = reg;
+        super.ttext = "Trap Bass's";
         super.dtext = "+1 Bass\nSpecial: Add from bottom";
         super.ftext = "Drop it";
         basecost = 1;
@@ -51,7 +52,7 @@ public class BassTrap extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertTop(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -72,7 +73,7 @@ public class BassTrap extends Card2d {
 
         Session.State.getui().tracks.btrack.InsertBottom(clipone);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

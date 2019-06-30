@@ -39,7 +39,7 @@ public class ZeroCostDrawTwo extends Card2d {
         Session.DrawCard();
         Session.DrawCard();
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

@@ -37,7 +37,7 @@ public class ResetMixerBonuses extends Card2d {
         Session.State.setMixpower(Session.State.getMixpower() + 2);
         Session.State.getui().mixer.ResetBonuses();
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

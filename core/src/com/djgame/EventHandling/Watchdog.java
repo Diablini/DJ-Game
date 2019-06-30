@@ -1,6 +1,9 @@
 package com.djgame.EventHandling;
 
 
+import com.djgame.Card.Card2d;
+import com.djgame.Mixer.MixerTrack;
+
 import java.util.Vector;
 
 // track events round by round such as cards drawn, discarded, played etc
@@ -31,6 +34,7 @@ public class Watchdog {
         for (WATCHDOGEVENT i : WATCHDOGEVENT.values())
         {
             counterglobal[i.ordinal()] = 0;
+            listeners[i.ordinal()] = new Vector<WatchdogCallback>();
         }
     }
 
@@ -41,7 +45,7 @@ public class Watchdog {
         }
     }
 
-    public void FireEvent(WATCHDOGEVENT e){
+    public void FireEvent(WATCHDOGEVENT e, WatchdogEventInfo info){
         // sort by priority
         for (int i = 0; i < listeners[e.ordinal()].size(); i++)
         {
@@ -60,7 +64,7 @@ public class Watchdog {
         // fire events
         for (int i = 0; i < listeners[e.ordinal()].size(); i++)
         {
-            listeners[e.ordinal()].get(i).Play();
+            listeners[e.ordinal()].get(i).Play(info);
         }
     }
 
@@ -85,55 +89,80 @@ public class Watchdog {
         return counterglobal[e.ordinal()];
     }
 
-    public void CardPlayed(){
+    public void CardPlayed(Card2d card){
         countersperturn[WATCHDOGEVENT.CARDSPLAYED.ordinal()]++;
         counterglobal[WATCHDOGEVENT.CARDSPLAYED.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        info.card = card;
+        FireEvent(WATCHDOGEVENT.CARDSPLAYED, info);
     }
 
-    public void CardDrawn(){
+    public void CardDrawn(Card2d card){
         counterglobal[WATCHDOGEVENT.CARDSDRAWN.ordinal()]++;
         countersperturn[WATCHDOGEVENT.CARDSDRAWN.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        info.card = card;
+        FireEvent(WATCHDOGEVENT.CARDSDRAWN, info);
     }
 
-    public void CardDrawnExtra(){
+    public void CardDrawnExtra(Card2d card){
         countersperturn[WATCHDOGEVENT.CARDSDRAWNEXTRA.ordinal()]++;
         counterglobal[WATCHDOGEVENT.CARDSDRAWNEXTRA.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        info.card = card;
+        FireEvent(WATCHDOGEVENT.CARDSDRAWNEXTRA, info);
     }
 
-    public void CardDiscard(){
+    public void CardDiscard(Card2d card){
         countersperturn[WATCHDOGEVENT.CARDSDISCARDED.ordinal()]++;
         counterglobal[WATCHDOGEVENT.CARDSDISCARDED.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        info.card = card;
+        FireEvent(WATCHDOGEVENT.CARDSDISCARDED, info);
 
     }
 
-    public void MixerMoved(){
+    public void MixerMoved(MixerTrack mixer){
         countersperturn[WATCHDOGEVENT.MIXERMOVES.ordinal()]++;
         counterglobal[WATCHDOGEVENT.MIXERMOVES.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        info.mixer = mixer;
+        FireEvent(WATCHDOGEVENT.MIXERMOVES, info);
     }
 
     public void HpLost(){
         countersperturn[WATCHDOGEVENT.HPLOST.ordinal()]++;
         counterglobal[WATCHDOGEVENT.HPLOST.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        FireEvent(WATCHDOGEVENT.HPLOST, info);
     }
 
     public void TracksPlayed(){
         countersperturn[WATCHDOGEVENT.TRACKSPLAYED.ordinal()]++;
         counterglobal[WATCHDOGEVENT.TRACKSPLAYED.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        FireEvent(WATCHDOGEVENT.TRACKSPLAYED, info);
     }
 
     public void EmptyTracks(){
         countersperturn[WATCHDOGEVENT.EMPTYTRACKS.ordinal()]++;
         counterglobal[WATCHDOGEVENT.EMPTYTRACKS.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        FireEvent(WATCHDOGEVENT.EMPTYTRACKS, info);
     }
 
     public void PowerBeforeCreated(){
         countersperturn[WATCHDOGEVENT.POWERBEFORECREATED.ordinal()]++;
         counterglobal[WATCHDOGEVENT.POWERBEFORECREATED.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        FireEvent(WATCHDOGEVENT.POWERBEFORECREATED, info);
     }
 
     public void PowerAfterCreated(){
         countersperturn[WATCHDOGEVENT.POWERAFTERCREATED.ordinal()]++;
         counterglobal[WATCHDOGEVENT.POWERAFTERCREATED.ordinal()]++;
+        WatchdogEventInfo info = new WatchdogEventInfo();
+        FireEvent(WATCHDOGEVENT.POWERAFTERCREATED, info);
     }
 
 }

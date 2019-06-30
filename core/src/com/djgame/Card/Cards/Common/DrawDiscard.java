@@ -15,7 +15,7 @@ public class DrawDiscard extends Card2d {
         Texture tex = game.assets.manager.get("jacks.jpg", Texture.class);
         TextureRegion reg = new TextureRegion(tex);
         super.picreg = reg;
-        super.ttext = "Jack Swap";
+        super.ttext = "Transition";
         super.dtext = "Draw 1 Card\nDiscard 1 Card";
         super.ftext = "";
         basecost = 0;
@@ -51,7 +51,7 @@ public class DrawDiscard extends Card2d {
         Session.State.choose.PutRequestLast(req);
 
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

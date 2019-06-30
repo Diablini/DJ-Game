@@ -103,7 +103,7 @@ public class ClipSwap extends Card2d {
         Session.State.choose.PutRequestFirst(to);
         Session.State.choose.PutRequestFirst(from);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

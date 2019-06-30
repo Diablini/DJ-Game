@@ -1,0 +1,4 @@
+#Sun Jun 30 07:39:22 EEST 2019
+base.0=C\:\\Users\\Branev\\Desktop\\Game\\android\\build\\intermediates\\transforms\\dexMerger\\debug\\9
+path.0=classes.dex
+renamed.0=classes.dex

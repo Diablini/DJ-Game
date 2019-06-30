@@ -12,6 +12,7 @@ public class CardPickup extends Group {
     private MainGame game;
     public Card2d picked;
     public boolean pickedup;
+    public float a = 0f;
 
     public CardPickup(MainGame game)
     {
@@ -61,10 +62,26 @@ public class CardPickup extends Group {
 
         // BULLSHIT CODE FOR TILTING THE CARD
         // TODO: change to reverse vector
-        float tilt = (Gdx.input.getDeltaX() / 3) % 30f ;
+        float angle = (Gdx.input.getDeltaX() / 5f);
+
+        if (true) return;
+
+        float side = 0f;
+        if (0 + a > 0f)
+        {
+            side = -1f;
+        }
+        else side = 1f;
+        a += Math.min( 2.63f, Math.abs(a)) * side ;
+        a += (Gdx.input.getDeltaX()/ 2.3f) % 8f;
+        a %= 20f;
+        if (a > -2f && a < 2f) a = 0f;
+
+        System.out.print(a + "\n");
+
         if (isPicked())
         {
-            picked.setRotation(tilt);
+            picked.setRotation(a);
         }
     }
 }

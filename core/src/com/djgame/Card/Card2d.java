@@ -63,7 +63,7 @@ public class Card2d extends Group {
         ismoving = false;
         // load textures and styles
         Texture backgroundtex =
-                game.assets.manager.get("cardplaceholderfixed.png", Texture.class);
+                game.assets.manager.get("card-blank.png", Texture.class);
         Texture pictex = game.assets.manager.get("pictureplaceholder.jpg", Texture.class);
 
         backgroundreg = new TextureRegion(backgroundtex);
@@ -113,9 +113,6 @@ public class Card2d extends Group {
                         rotateTo(getRotation()/1f, Constants.enlargeduration)));
 
 
-
-                System.out.print("Enter X:" + (getX() + Constants.hoveroffsetx + " Y:" +
-                        (getY() + Constants.hoveroffsety)) + "\n");
                 // set Z index higher
                 zoriginal = getZIndex();
                 setZIndex(Constants.zcardzoomed);
@@ -141,9 +138,6 @@ public class Card2d extends Group {
                                 Constants.enlargeduration),
                         moveTo(xoriginal, yoriginal, Constants.enlargeduration),
                         rotateTo(angleoriginal, Constants.enlargeduration)));
-
-                System.out.print("Exit X:" + xoriginal + " Y:" +
-                        yoriginal + "\n");
 
                 // set Z index to original
                 setZIndex(zoriginal);
@@ -236,17 +230,21 @@ public class Card2d extends Group {
         Label.LabelStyle textstyle = new Label.LabelStyle();
         Label.LabelStyle ftextstyle = new Label.LabelStyle();
         Label.LabelStyle coststyle = new Label.LabelStyle();
+        Label.LabelStyle typestyle = new Label.LabelStyle();
+        Label.LabelStyle raritystyle = typestyle;
 
         // TODO: True type fonts
         BitmapFont font = Constants.fonts.cardtitle;
         titlestyle.font = font;
-        titlestyle.fontColor = Color.BLACK;
+        titlestyle.fontColor = Constants.carddarkcolor;
         textstyle.font = font;
-        textstyle.fontColor = Color.BLACK;
+        textstyle.fontColor = Constants.carddarkcolor;
         ftextstyle.font = font;
-        ftextstyle.fontColor = Color.DARK_GRAY;
+        ftextstyle.fontColor = Constants.cardlightcolor;
         coststyle.font = font;
         coststyle.fontColor = Color.BLACK;
+        typestyle.font = font;
+        typestyle.fontColor = Constants.cardlightcolor;
 
         backgroundreg.getTexture().setFilter(Texture.TextureFilter.Linear,
                 Texture.TextureFilter.Linear);
@@ -259,11 +257,15 @@ public class Card2d extends Group {
         Label descriptiontext = new Label(dtext,textstyle);
         Label flavourtext = new Label(ftext, ftextstyle);
         Label costtext = new Label(String.valueOf(basecost + costmod), coststyle);
+        Label typetext = new Label(type.toString(), typestyle);
+        Label raritytext = new Label(rarity.toString(), raritystyle);
         titletext.setFontScale(Constants.cardtitlefontscale, Constants.cardtitlefontscale);
         descriptiontext.setFontScale(Constants.carddescfontscale,Constants.carddescfontscale);
         costtext.setFontScale(Constants.cardtitlefontscale, Constants.cardtitlefontscale);
         flavourtext.setFontScale(Constants.cardflavfontscale, Constants.cardflavfontscale);
         costtext.setFontScale(Constants.cardtitlefontscale);
+        typetext.setFontScale(Constants.cardtypefontscale);
+        raritytext.setFontScale(Constants.cardrarityfontscale);
 
         // set relative positions
         pic.setX(pic.getX() + Constants.picoffsetx);
@@ -293,13 +295,40 @@ public class Card2d extends Group {
         costtext.setBounds(Constants.costoffsetx, Constants.costoffsety,
                 Constants.costwidth, Constants.costheight);
 
+        typetext.setPosition(Constants.typeoffsetx, Constants.typeoffsety);
+        typetext.setBounds(Constants.typeoffsetx, Constants.typeoffsety,
+                Constants.typewidth, Constants.typeheight);
+        typetext.setAlignment(Align.right);
+
+        raritytext.setPosition(Constants.rarityoffestx, Constants.rarityoffsety);
+        raritytext.setBounds(Constants.rarityoffestx, Constants.rarityoffsety,
+                Constants.raritywidth, Constants.rarityheight);
+        raritytext.setAlignment(Align.left);
+
+
+
         // add actors
         addActor(background);
         addActor(pic);
         addActor(titletext);
         addActor(descriptiontext);
         addActor(flavourtext);
-        addActor(costtext);
+        addActor(typetext);
+        addActor(raritytext);
+
+        // add inspiration pips
+        Image n =  new Image(this.game.assets.manager.get
+                ("inspiration-card-icon.png" ,Texture.class));
+
+        float notetotalwidth = getCost() * n.getWidth();
+        float notestart = ((this.getWidth() - notetotalwidth) / 2) - 1;
+        for (int i = 0; i < this.getCost(); i++)
+        {
+            Image note =  new Image(this.game.assets.manager.get
+                    ("inspiration-card-icon.png" ,Texture.class));
+            addActor(note);
+            note.setPosition(notestart + note.getWidth() * i, Constants.costoffsety);
+        }
     }
 
     // basically move and rotate card to position and angle

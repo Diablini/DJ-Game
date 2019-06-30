@@ -9,14 +9,14 @@ public class Fonts {
     Fonts()
     {
         FreeTypeFontGenerator generator =
-                new FreeTypeFontGenerator(Gdx.files.internal("fonts/Baloo-Regular.ttf"));
+                new FreeTypeFontGenerator(Gdx.files.internal("fonts/IntroRustG-Base2Line.otf"));
         FreeTypeFontGenerator.FreeTypeFontParameter para =
                 new FreeTypeFontGenerator.FreeTypeFontParameter();
-        para.size = 40;
+        para.size = 36;
         para.genMipMaps = true;
         para.magFilter = Texture.TextureFilter.MipMapLinearLinear;
         para.minFilter = Texture.TextureFilter.MipMapLinearLinear;
-        para.spaceY = -20;
+        //para.spaceY = -20;
         carddesc = cardflav = cardtitle = generator.generateFont(para);
         generator.dispose();
 
@@ -28,6 +28,8 @@ public class Fonts {
         para.minFilter = Texture.TextureFilter.MipMapLinearLinear;
         uilabel = generator.generateFont(para);
         generator.dispose();
+
+
 
     }
 

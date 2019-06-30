@@ -32,7 +32,7 @@ public class ViewDrawPileScreen implements Screen {
         view.setPosition(100f, 740f);
         stage.addActor(view);
 
-        Texture buttontex = game.assets.manager.get("davaj-davaj.png", Texture.class);
+        Texture buttontex = game.assets.manager.get("mixer-knob.png", Texture.class);
         final Image backbutton = new Image(buttontex);
         backbutton.setPosition(60, 60);
         backbutton.addListener(new ClickListener(){

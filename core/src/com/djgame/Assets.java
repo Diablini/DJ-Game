@@ -42,6 +42,21 @@ public class Assets {
         manager.load("encore.jpg", Texture.class);
         manager.load("vinylbox.jpg", Texture.class);
         manager.load("eqrainbow.jpg", Texture.class);
+        manager.load("lowpass.png", Texture.class);
+        manager.load("highpass.jpg", Texture.class);
+        manager.load("cards-bass1.png", Texture.class);
+        manager.load("cards-bass2.png", Texture.class);
+        manager.load("cards-bass3.png", Texture.class);
+        manager.load("cards-drum1.png", Texture.class);
+        manager.load("cards-drum2.png", Texture.class);
+        manager.load("cards-drum3.png", Texture.class);
+        manager.load("cards-lead1.png", Texture.class);
+        manager.load("cards-lead2.png", Texture.class);
+        manager.load("cards-lead3.png", Texture.class);
+        manager.load("panel.png", Texture.class);
+        manager.load("vinyl.png", Texture.class);
+        manager.load("inspiration-card-icon.png", Texture.class);
+        manager.load("card-blank.png", Texture.class);
     }
 
     public void loadfonts()

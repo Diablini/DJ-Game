@@ -15,7 +15,7 @@ public class DrumTrap extends Card2d {
 
     public DrumTrap(MainGame game){
         super(game);
-        Texture tex = game.assets.manager.get("image-drum1.jpg", Texture.class);
+        Texture tex = game.assets.manager.get("cards-drum2.png", Texture.class);
         picreg = new TextureRegion(tex);
         super.ttext = "Trap Drums";
         super.dtext = "+2 Drum\nSpecial: Add from bottom";
@@ -53,7 +53,7 @@ public class DrumTrap extends Card2d {
         Session.State.getui().tracks.dtrack.InsertTop(clipone);
         Session.State.getui().tracks.dtrack.InsertTop(cliptwo);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;
@@ -79,7 +79,7 @@ public class DrumTrap extends Card2d {
         Session.State.getui().tracks.dtrack.InsertBottom(clipone);
         Session.State.getui().tracks.dtrack.InsertBottom(cliptwo);
 
-        Session.State.watchdog.CardPlayed();
+        Session.State.watchdog.CardPlayed(this);
         Session.PayCardCost(this);
         Session.DiscardAfterPlay(this);
         return true;

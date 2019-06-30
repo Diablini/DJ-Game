@@ -1,0 +1,4 @@
+#Wed Jun 05 17:45:01 EEST 2019
+base.0=C\:\\Users\\Branev\\Desktop\\Game\\android\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+path.0=classes.dex
+renamed.0=classes.dex

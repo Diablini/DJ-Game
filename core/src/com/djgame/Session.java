@@ -122,7 +122,7 @@ public class Session {
         }
         Card2d card = State.ui.drawpile.DrawCard();
         State.ui.cards.AddCard(card);
-        State.watchdog.CardDrawn();
+        State.watchdog.CardDrawn(card);
     }
 
     public static void HealHp(){
@@ -180,13 +180,13 @@ public class Session {
             Card2d c = State.pickup.picked;
             State.pickup.UnPick();
             State.ui.discardpile.AddCard(c);
-            State.watchdog.CardDiscard();
+            State.watchdog.CardDiscard(c);
             return;
         }
 
         State.ui.cards.RemoveCard(card);
         State.ui.discardpile.AddCard(card);
-        State.watchdog.CardDiscard();
+        State.watchdog.CardDiscard(card);
     }
 
     public static void DiscardNoPlay(Card2d card){
@@ -196,13 +196,13 @@ public class Session {
             Card2d c = State.pickup.picked;
             State.pickup.UnPick();
             State.ui.discardpile.AddCard(c);
-            State.watchdog.CardDiscard();
+            State.watchdog.CardDiscard(c);
             return;
         }
 
         State.ui.cards.RemoveCard(card);
         State.ui.discardpile.AddCard(card);
-        State.watchdog.CardDiscard();
+        State.watchdog.CardDiscard(card);
     }
 
     public static void Exhaust(Card2d card){
